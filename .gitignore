@@ -1,0 +1,6 @@
+*.zip
+*copy.*
+datasets.txt
+node_modules
+icon.ico
+**.ico

@@ -1,0 +1,26 @@
+{
+  "name": "extension-messenger-ultilities",
+  "version": "1.0.0",
+  "description": "Ultilities for Facebook Messenger",
+  "author": "Phu1237",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "autoprefixer": "^10.2.6",
+    "laravel-mix": "^6.0.22",
+    "laravel-mix-purgecss": "^6.0.0",
+    "postcss": "^8.3.5",
+    "sass": "^1.35.1",
+    "sass-loader": "12.1.0",
+    "tailwindcss": "^2.2.0"
+  }
+}
