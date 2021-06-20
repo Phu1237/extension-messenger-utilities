@@ -16,7 +16,7 @@ Under development features:
 
 ## Download
 
-You can download the released version [here](release).
+You can download the released version [here](https://github.com/Phu1237/extension-messenger-utilities/releases/latest/download/messenger-utilities.zip).
 
 ## Screenshots
 
