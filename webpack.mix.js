@@ -1,6 +1,6 @@
 let mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
-// require('laravel-mix-copy-watched');
+require('laravel-mix-copy-watched');
 require('laravel-mix-clean');
 
 // Disable mix-manifest.json
@@ -17,8 +17,14 @@ mix.clean({
 });
 // Copy
 // icons folder
-mix.copyDirectory('source/icons', 'dist/chromium/icons');
-mix.copyDirectory('source/icons', 'dist/opera/icons');
+mix.copyDirectoryWatched('source/icons', 'dist/chromium/icons', {
+    base: 'source/icons'
+});
+mix.copyDirectoryWatched('source/icons', 'dist/opera/icons', {
+    base: 'source/icons'
+});
+// mix.copyDirectory('source/icons', 'dist/chromium/icons');
+// mix.copyDirectory('source/icons', 'dist/opera/icons');
 // js files
 // chromium
 mix.copy([
