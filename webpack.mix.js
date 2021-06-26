@@ -1,6 +1,7 @@
 let mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
-// require('laravel-mix-purgecss');
+require('laravel-mix-copy-watched');
+require('laravel-mix-clean');
 
 // Disable mix-manifest.json
 Mix.manifest.refresh = _ => void 0;
@@ -9,10 +10,15 @@ mix.options({
     processCssUrls: false
 });
 
+mix.clean({
+    cleanOnceBeforeBuildPatterns: [
+        'dist/**/*'
+    ]
+});
 // Copy
 // icons folder
-mix.copyDirectory('source/icons', 'dist/chromium/icons');
-mix.copyDirectory('source/icons', 'dist/opera/icons');
+mix.copyDirectoryWatched('source/icons', 'dist/chromium/icons');
+mix.copyDirectoryWatched('source/icons', 'dist/opera/icons');
 // js files
 // chromium
 mix.copy([
@@ -43,16 +49,6 @@ mix.sass('source/src/styles/app.scss', 'dist/chromium/src/popup.css')
     ]
 });
 mix.copy('dist/chromium/src/popup.css', 'dist/opera/src');
-// .purgeCss({
-//     content: [
-//         'source/src/**/*.js',
-//         'source/src/**/*.html',
-//     ]
-// });
-// mix.postCss('source/src/styles/tailwindcss.css', 'dist/src', [
-//     require('autoprefixer'),
-//     require('tailwindcss'),
-// ]);
 
 // js
 mix.copy('source/src/content.js', 'dist/chromium/src');
