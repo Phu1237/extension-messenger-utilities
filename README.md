@@ -1,7 +1,7 @@
 # Messenger Utilities
 
 Utilities for Facebook Messenger
-Extension for Chrome / Edge / chromium based browser
+Extension for Chrome / Edge / Opera / chromium based browser
 
 ## Features
 
