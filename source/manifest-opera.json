@@ -6,7 +6,7 @@
     "background": {
         "service_worker": "background.js"
     },
-    "action": {
+    "browser_action": {
         "default_title": "Messenger Utilities settings",
         "default_popup": "src/popup.html",
         "default_icon": {
@@ -24,9 +24,7 @@
     },
     "permissions": [
         "storage",
-        "tabs"
-    ],
-    "host_permissions": [
+        "tabs",
         "*://*.messenger.com/*"
     ],
     "content_scripts": [{

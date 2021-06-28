@@ -20,8 +20,9 @@ You can download the released version [here](https://github.com/Phu1237/extensio
 
 ## Screenshots
 
-![screenshot](screenshots/1.png)
-![screenshot](screenshots/2.png)
+![screenshot](screenshots/edge-1.png)
+![screenshot](screenshots/edge-2.png)
+More? Go to [screenshots](screenshots)
 
 ## How to build
 
