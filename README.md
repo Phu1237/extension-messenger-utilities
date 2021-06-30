@@ -1,5 +1,6 @@
 # Messenger Utilities
 
+![logo](source/icons/icon.png)
 Utilities for Facebook Messenger
 Extension for Chrome / Edge / Opera / chromium based browser
 
