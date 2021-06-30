@@ -2,3 +2,4 @@
 *copy.*
 node_modules
 /private
+/build.bat
