@@ -18,7 +18,7 @@ function log(msg) {
 }
 // Set or Store a new storage item
 function setStorage(key, value) {
-  log('Storage: set '+key+'='+value);
+  log('Storage: set ' + key + '=' + value);
   chrome.storage.sync.set({ [key]: value });
 }
 // Get a storage item value
@@ -30,7 +30,7 @@ function handlePopup() {
     protect_level: 'input[name=protect_level]',
     display_type: 'input[name=display_type]'
   }
-  chrome.storage.sync.get(null, function(result) {
+  chrome.storage.sync.get(null, function (result) {
     Object.entries(elements).forEach(([key]) => {
       if (key == 'protect_status') updateProtectStatusBox(result[key]);
       log('Finding ' + elements[key] + '[value="' + result[key] + '"]' + '...');
@@ -77,15 +77,22 @@ function saveChanges() {
   let alert = document.getElementById('alert');
   alert.innerText = 'Saved! If nothing happens, please refresh the page for the changes to take effect!';
   alert.classList.remove('hidden');
-  chrome.tabs.query({}, function (tabs) {
-    log(tabs);
-    for (var i=0; i<tabs.length; ++i) {
-      log(tabs[i].url);
-      if (tabs[i].url.includes('messenger.com')) {
-        chrome.tabs.sendMessage(tabs[i].id, { action: "reinject" }, function (response) {
-          log(response);
-        });
+  chrome.tabs.query({
+    url: [
+      "*://*.messenger.com/*"
+    ]
+  }, function (tabs) {
+    if (tabs.length > 0) {
+      for (var i = 0; i < tabs.length; ++i) {
+        log(tabs[i].url);
+        if (tabs[i].url.includes('messenger.com')) {
+          chrome.tabs.sendMessage(tabs[i].id, { action: "reinject" }, function (response) {
+            log(response);
+          });
+        }
       }
+    } else {
+      log('Not found any tab that match with query!');
     }
   });
 }
