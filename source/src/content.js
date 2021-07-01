@@ -46,6 +46,7 @@ function reinject() {
  * Inject protect css to page
  */
 function inject(protect_status, protect_type, protect_level, display_type) {
+  let e_id = 'messenger-utilities';
   setTimeout(function () {
     if (protect_status == null) protect_status = defaultConfig.protect_status;
     if (protect_type == null) protect_type = defaultConfig.protect_type;
@@ -129,7 +130,6 @@ function inject(protect_status, protect_type, protect_level, display_type) {
       });
       combineCSS();
       // Inject css into page
-      let e_id = 'messenger-utilities';
       let find = document.getElementById(e_id);
       // If not found existed element, create new
       // If found, update existed element
@@ -147,7 +147,7 @@ function inject(protect_status, protect_type, protect_level, display_type) {
       log('Injected!')
     } else {
       log('Not inject with protect_status('+protect_status+'), protect_type('+protect_type+'), protect_level('+protect_level+'), display type('+display_type+')');
-      let find = document.getElementById('messenger-ultilities');
+      let find = document.getElementById(e_id);
       if (find != null) find.remove();
     }
     return true;
