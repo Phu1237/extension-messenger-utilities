@@ -5,7 +5,7 @@ let defaultConfig = {
   protect_level: '8px', // css filter level, etc
 };
 let delay = 100; // Time in ms
-let debug = false;
+let debug = true;
 
 // Send message to console
 function log(msg) {
@@ -129,7 +129,7 @@ function inject(protect_status, protect_type, protect_level, display_type) {
       });
       combineCSS();
       // Inject css into page
-      let e_id = 'messenger-ultilities';
+      let e_id = 'messenger-utilities';
       let find = document.getElementById(e_id);
       // If not found existed element, create new
       // If found, update existed element

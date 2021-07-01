@@ -1,1 +1,8 @@
-let debug=!1;1==debug&&(console.log("All storage items:"),chrome.storage.sync.get(null,(function(e){console.log(e)})));
+let debug = false;
+
+if (debug == true) {
+  console.log('All storage items:');
+  chrome.storage.sync.get(null, function (result) {
+    console.log(result);
+  });
+}

@@ -74,13 +74,18 @@ function saveChanges() {
   setStorage('display_type', display_type);
   updateProtectStatusBox(protect_status);
   log('Saved');
-  document.getElementById('alert').innerText = 'Saved! If nothing happend, refresh the page for the changes to take effect!';
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    log(tabs[0].url);
-    if (tabs[0].url.includes('messenger.com')) {
-      chrome.tabs.sendMessage(tabs[0].id, { action: "reinject" }, function (response) {
-        log(response);
-      });
+  let alert = document.getElementById('alert');
+  alert.innerText = 'Saved! If nothing happens, please refresh the page for the changes to take effect!';
+  alert.classList.remove('hidden');
+  chrome.tabs.query({}, function (tabs) {
+    log(tabs);
+    for (var i=0; i<tabs.length; ++i) {
+      log(tabs[i].url);
+      if (tabs[i].url.includes('messenger.com')) {
+        chrome.tabs.sendMessage(tabs[i].id, { action: "reinject" }, function (response) {
+          log(response);
+        });
+      }
     }
   });
 }
