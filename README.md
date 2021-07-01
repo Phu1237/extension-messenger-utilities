@@ -17,13 +17,21 @@ Under development features:
 
 ## Download
 
-You can download the released version [here](https://github.com/Phu1237/extension-messenger-utilities/releases/latest/download/messenger-utilities.zip).
+You can download the released version [here](https://github.com/Phu1237/extension-messenger-utilities/releases/latest).
 
-## Screenshots
+- Get it from extension store:
+  - [Opera](https://addons.opera.com/en/extensions/details/messenger-utilities)
 
+
+## Instructions
+
+- Video:
+  - [Youtube](https://youtu.be/xYn46sTrNPI)
+- Screenshots:
 ![screenshot](screenshots/edge-1.png)
 ![screenshot](screenshots/edge-2.png)
 More? Go to [screenshots](screenshots)
+
 
 ## How to build
 
