@@ -1,7 +1,7 @@
 {
-  "name": "extension-messenger-ultilities",
-  "version": "1.0.0",
-  "description": "Ultilities for Facebook Messenger",
+  "name": "messenger-utilities",
+  "version": "1.0.2",
+  "description": "Utilities for Facebook Messenger",
   "author": "Phu1237",
   "license": "MIT",
   "scripts": {
