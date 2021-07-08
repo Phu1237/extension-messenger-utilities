@@ -102,6 +102,10 @@ function saveChanges() {
  */
 function init() {
   log('Init');
+  let version = document.getElementById('version');
+  if (version != null) {
+    version.innerText += chrome.runtime.getManifest().version;
+  }
   handlePopup();
 }
 init();
