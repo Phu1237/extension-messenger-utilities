@@ -17,11 +17,12 @@ Under development features:
 
 ## Download
 
-You can download the released version [here](https://github.com/Phu1237/extension-messenger-utilities/releases/latest).
+Get it from extension store:
 
-- Get it from extension store:
-  - [Opera](https://addons.opera.com/en/extensions/details/messenger-utilities)
+- [Edge](https://microsoftedge.microsoft.com/addons/detail/dikgifmgfijhmfapckmkbgldlljmihea)
+- [Opera](https://addons.opera.com/en/extensions/details/messenger-utilities)
 
+Or you can download the released version [here](https://github.com/Phu1237/extension-messenger-utilities/releases/latest).
 
 ## Instructions
 
