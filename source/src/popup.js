@@ -5,7 +5,7 @@ let defaultConfig = {
   protect_level: "8px", // css filter level, etc
 };
 let delay = 100; // Time in ms
-let debug = false;
+let debug = false; // README: Debug - true | false
 
 /**
  * Functions

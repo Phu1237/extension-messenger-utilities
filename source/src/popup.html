@@ -11,10 +11,10 @@
         <div class="flex justify-center items-center w-5/6 py-1 bg-blue-800 font-bold text-white">
             Messenger Utilities
         </div>
-        <a class="w-1/6 p-3 bg-blue-300" href="https://www.messenger.com/" title="Go to messenger.com">
+        <a href="https://www.messenger.com/" title="Go to messenger.com" class="flex justify-center items-center w-1/6 p-3 bg-blue-300">
             <img src="../icons/messenger.png" alt="Messenger Utilities" class="h-6" />
         </a>
-        <div id="protect_status_box" class="w-1/6 p-3 bg-gray-300">
+        <div id="protect_status_box" class="flex justify-center items-center w-1/6 p-3 bg-gray-300">
             <img class="h-6" src="../icons/svgs/eye.svg" alt="Protect status">
         </div>
     </div>
@@ -24,7 +24,7 @@
             <div class="font-medium">Protect status</div>
             <ul class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600">
                 <li class="filter-switch-item flex relative h-8 bg-gray-300">
-                    <input id="protect_status_disable" name="protect_status" type="radio" class="sr-only" value="disable">
+                    <input id="protect_status_disable" name="protect_status" type="radio" class="sr-only" value="disable" checked>
                     <label for="protect_status_disable" class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow">
                         Disable
                     </label>
@@ -45,7 +45,7 @@
             </div>
             <ul class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600">
                 <li class="filter-switch-item flex relative h-8 bg-gray-300x">
-                    <input id="protect_type_none" name="protect_type" type="radio" class="sr-only" value="none">
+                    <input id="protect_type_none" name="protect_type" type="radio" class="sr-only" value="none" checked>
                     <label for="protect_type_none" class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow">
                         None
                     </label>
@@ -57,6 +57,12 @@
                         Blur
                     </label>
                 </li>
+                <li class="filter-switch-item flex relative h-8 bg-gray-300x">
+                    <input id="protect_type_reverse" name="protect_type" type="radio" class="sr-only" value="reverse">
+                    <label for="protect_type_reverse" class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow">
+                        Reverse
+                    </label>
+                </li>
             </ul>
         </div>
         <div class="px-2">
@@ -66,7 +72,7 @@
             </div>
             <ul class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600">
                 <li class="filter-switch-item flex relative h-8 bg-gray-300x">
-                    <input id="display_type_none" name="display_type" type="radio" class="sr-only" value="none">
+                    <input id="display_type_none" name="display_type" type="radio" class="sr-only" value="none" checked>
                     <label for="display_type_none" class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow">
                         None
                     </label>
@@ -81,6 +87,7 @@
             </ul>
         </div>
         <button id="save_btn" class="w-full mt-2 py-3 bg-blue-500 hover:bg-blue-700 focus:outline-none font-semibold text-white">Save</button>
+        <!-- <button id="go-to-options">> Go to options page</button> -->
     </div>
     <div class="grid grid-cols-4 text-center">
         <a class="grid justify-center items-center py-3 bg-blue-500" href="https://www.facebook.com/Phu1237" title="Facebook">

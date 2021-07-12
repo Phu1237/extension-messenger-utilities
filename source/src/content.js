@@ -5,7 +5,7 @@ let defaultConfig = {
   protect_level: '8px', // css filter level, etc
 };
 let delay = 100; // Time in ms
-let debug = false;
+let debug = false; // README: Debug - true | false
 
 // Send message to console
 function log(msg) {
@@ -35,11 +35,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 });
 
 function reinject() {
-  // let find = document.getElementById('messenger-ultilities');
   handleInject();
-  // if (handle == true && find != null) {
-  //   find.remove();
-  // }
 }
 
 /**
@@ -67,21 +63,47 @@ function inject(protect_status, protect_type, protect_level, display_type) {
         }
       }
       function handleCSS(css_add) {
-        // If protect_css/display_css is not empty then and , to the end of css1
-        if (protect_css !== '') {
-          addCSS(',');
+        // if is main item of filter_array (have selector attribute)
+        if (css_add.selector != null) {
+          handleCSS(css_add.selector);
+        } else if (Array.isArray(css_add)) { // if item.selector attribute is an array
+          css_add.forEach((item) => {
+            handleCSS(item);
+          });
+        } else { // if css_add is text (plain text, text from item.selector)
+          // If protect_css/display_css is not empty then and , to the end of it
+          if (protect_css !== '') {
+            addCSS(',');
+          }
+          //
+          addCSS(css_add);
         }
-        //
-        addCSS(css_add);
       }
-      function addCSSProperties(level) {
+      function addCSSProperties(level = 0) {
         let output = '{';
-        if (protect_type === 'blur') {
-          output += 'filter: blur(' + level + ')'; // CSS
+        if (level != 0) {
+          if (protect_type === 'blur') {
+            output += 'filter: blur(' + level + ')';
+          }
+          if (protect_type === 'reverse') {
+            output += `-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-o-transform:rotateY(180deg);-ms-transform:rotateY(180deg);unicode-bidi:bidi-override;direction:rtl;`;
+          }
+        } else {
+          if (protect_type === 'blur') {
+            output += 'filter: blur(0)';
+          }
+          if (protect_type === 'reverse') {
+            output += `-webkit-transform:rotateY(0deg);-moz-transform:rotateY(0deg);-o-transform:rotateY(0deg);-ms-transform:rotateY(0deg);unicode-bidi:normal;direction:ltr;`;
+          }
         }
+
         output += '}';
         return output;
       }
+
+      /**
+       * Combine protect_css amd display_css into one
+       */
       function combineCSS() {
         css = protect_css;
         css += addCSSProperties(protect_level);
@@ -90,58 +112,131 @@ function inject(protect_status, protect_type, protect_level, display_type) {
           css += addCSSProperties(0);
         }
       }
+
+      /**
+       * Array that contains all selectors for css
+       */
       let filter_array = [
-        /*
-         * Left sidebar
-         */
-        'span[class~=a8c37x1j][class~=ni8dbmo4][class~=stjgntxs][class~=l9j0dhe7][class~=ltmttdrg][class~=g0qnabr5]', // Name
-        'span[class~=a8c37x1j][class~=ni8dbmo4][class~=stjgntxs][class~=l9j0dhe7][class~=ltmttdrg][class~=g0qnabr5][class~=ojkyduve]', // Message
-        'div[class=l9j0dhe7][role=row] > div[role=gridcell] svg', // Avatar
-        /*
-         * Texting
-         */
-        // Texting user / group information
-        'img[class~=a8c37x1j][class~=d2edcug0][class~=sn7ne77z][class~=bixrwtb6]', // Texting avatar, right sidebar avatar
-        'span[class~=a8c37x1j][class~=ni8dbmo4][class~=stjgntxs][class~=l9j0dhe7][class~=ltmttdrg][class~=g0qnabr5][class~=ojkyduve]', // Texting name
-        // Incoming
-        'div[data-testid=messenger_incoming_text_row] div[dir=auto]', // Text
-        'div[data-testid=messenger_incoming_sticker_row] div[aria-label]', // Sticker
-        'div[data-testid=incoming_group] img', // Image
-        // Outgoing
-        'div[data-testid=outgoing_message] div[dir=auto]', // Text
-        'div[data-testid=outgoing_message] div[aria-label]', // Sticker
-        'div[data-testid=outgoing_message] img', // Image
-        // Other, general
-        'div[class=nqmqzb3c]', // URL
-        'div[class~=pfnyh3mw][class~=r9r71o1u][class~=m9osqain][class~=fsrhnwul][class~=dkr8dfph]', // Sender name
-        'div[dir=auto][class=m9osqain]', // Quote text
-        'img[class~=d2edcug0][class~=iko8p5ub][class~=sf5mxxl7][class~=e72ty7fz][class~=qlfml3jp][class~=qmr60zad][class~=jinzq4gt]', // Quote image
-        'img[data-testid=messenger_single_seen_head]', // Seen avatar - single user
-        /*
-         * Other
-         */
-        // Right sidebar name
-        'span[class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=lr9zc1uh][class~=a8c37x1j][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=d3f4x2em][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=mdeji52x][class~=a5q79mjw][class~=g1cxx5fr][class~=lrazzd5p][class~=oo9gr5id][class~=oqcyycmt][dir=auto]',
+        general = [
+          {
+            name: "sender_name",
+            selector: "div[class~=pfnyh3mw][class~=r9r71o1u][class~=m9osqain][class~=fsrhnwul][class~=dkr8dfph]",
+          },
+          {
+            name: "tooltip",
+            selector: "span[role=tooltip]>div>div>span[dir=auto]"
+          }
+        ],
+        image = [
+          {
+            name: "left_sidebar",
+            selector: "image" // avatar
+          },
+          // {
+          //   name: "sender",
+          //   selector: "span>div>img"
+          // },
+          // {
+          //   name: "reader",
+          //   selector: "div>span>img"
+          // },
+          {
+            name: "img_tag",
+            selector: "img:not([width='16'])" // protect image without message emoji
+          }
+        ],
+        message = [
+          {
+            name: "left_sidebar",
+            selector: [
+              "div[data-testid=mwthreadlist-item]", // full
+              // "div[data-testid=mwthreadlist-item]>div>div>a>div>div>div>div>div>div>span>span>span>span", // name
+              // "div[data-testid=mwthreadlist-item]>div>div>a>div>div>div>div>div>div>span>span>div>span", // text
+            ]
+          },
+          {
+            name: "general",
+            selector: [
+              "div[role=main]>div>div>div>div>div>div>div>div>div>div>div>h2>span>span", // name
+              "div[role=main]>div>div>div>div>div>div>div>div>div>div>div>div>div>div>span", // right_sidebar name
+            ]
+          },
+          {
+            name: "incoming",
+            selector: [
+              // "div[data-scope=messages_table]>div>span>div>div>div>span>a", // link text
+              // "div[data-scope=messages_table]>div>span>div>div>a>div", // link footer
+              // "div[data-testid=incoming_group] a>img", // image
+              // "div[data-testid=messenger_incoming_emoji_row] img", // emoji
+              "div[data-testid=messenger_incoming_text_row]>span>div>div", // text
+              /**
+               * README: need better method
+               * For: other
+               * not(span): not emoji in text
+               * not(div[class=nred35xi]): not link footer
+               */
+              "div[data-scope=messages_table]>div>span>div>div:not(div[class=nred35xi])",
+            ]
+          },
+          {
+            name: "outgoing",
+            selector: [
+              "div[data-testid^=outgoing_message]>span>div>div>div>span>a", // link text
+              "div[data-testid^=outgoing_message]>span>div>div>div>a>div", // link footer
+              // "div[data-testid^=outgoing_message]>span>div>div>div>a>img", // image
+              // "div[data-testid^=outgoing_message]>span>div>span>img", // emoji
+              "div[data-testid^=outgoing_message]>span>div>div>a", // file
+              /**
+               * README: need better method
+               * For: other
+               * not(span): not emoji in text
+               * not(div[class=nred35xi]): not link footer
+               */
+              "div[data-testid^=outgoing_message]>span>div>div:not(span):not(div[class=nred35xi])",
+            ]
+          },
+          {
+            name: "quote",
+            selector: [
+              // "div[data-testid=incoming_group] div[class~=hyh9befq][class~=pipptul6][class~=sq6gx45u]", // name
+              // "div[data-testid=outgoing_group] div[class~=hyh9befq][class~=pipptul6][class~=sq6gx45u]", // name
+              'div[dir=auto][class=m9osqain]', // Quote text
+              'img[class~=d2edcug0][class~=iko8p5ub][class~=sf5mxxl7][class~=e72ty7fz][class~=qlfml3jp][class~=qmr60zad][class~=jinzq4gt]', // Quote image
+            ]
+          }
+        ]
       ];
 
       // Handle & Combine
       filter_array.forEach((element) => {
-        handleCSS(element);
+        if (Array.isArray(element)) {
+          element.forEach((item) => {
+            handleCSS(item);
+          });
+        } else {
+          handleCSS(element);
+        }
       });
       combineCSS();
+      // add z-index to img to fix some bugs
+      css += 'img{ z-index: 999999999 }';
+
       // Inject css into page
       let find = document.getElementById(e_id);
       // If not found existed element, create new
       // If found, update existed element
       if (find == null) {
         log('Creating new element...');
+        let div = document.createElement('div');
+        div.id = e_id;
         let style = document.createElement('style');
-        style.id = e_id;
         style.textContent = css;
-        document.querySelector('body').append(style);
+        div.appendChild(style);
+        document.querySelector('body').append(div);
       } else {
         log('Updating existed element...');
-        find.textContent = css;
+        log(find.querySelector('style'));
+        find.querySelector('style').textContent = css;
       }
       // log(css);
       log('Injected!')

@@ -1,4 +1,4 @@
-let debug = false;
+let debug = false; // README: Debug - true | false
 
 if (debug == true) {
   console.log('All storage items:');
