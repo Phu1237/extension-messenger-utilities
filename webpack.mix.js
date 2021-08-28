@@ -3,61 +3,73 @@ const tailwindcss = require('tailwindcss');
 require('laravel-mix-copy-watched');
 require('laravel-mix-clean');
 
+/**
+ * Options
+ */
 // Disable mix-manifest.json
 Mix.manifest.refresh = _ => void 0;
-
+// Mix options
 mix.options({
     processCssUrls: false
 });
-
+// Clean folder before build
 mix.clean({
     cleanOnceBeforeBuildPatterns: [
         'dist/**/*'
     ]
 });
-// Copy
-// icons folder
-mix.copyDirectoryWatched('source/icons', 'dist/chromium/icons', {
-    base: 'source/icons'
-});
-mix.copyDirectoryWatched('source/icons', 'dist/opera/icons', {
-    base: 'source/icons'
-});
-// mix.copyDirectory('source/icons', 'dist/chromium/icons');
-// mix.copyDirectory('source/icons', 'dist/opera/icons');
-// js files
-// chromium
-mix.copy([
-    'source/manifest.json',
-    'source/background.js'
-], 'dist/chromium');
-// opera
-mix.copy('source/background.js', 'dist/opera');
-mix.copy('source/manifest-opera.json', 'dist/opera/manifest.json');
 
-// src folder
-mix.copy([
-    'source/src/popup.html',
-    // 'source/src/options.html'
-], 'dist/chromium/src');
-mix.copy([
-    'source/src/popup.html',
-    // 'source/src/options.html'
-], 'dist/opera/src');
+/**
+ * Build extension to dist folder
+ * 
+ * @param {String} folder 
+ * @param {String} externalManifestName 
+ */
+function build(folder, externalManifestName = '') {
+    distFolder = 'dist/' + folder;
+    srcFolder = distFolder + '/src';
+    // copy icons folder
+    mix.copyDirectoryWatched('source/icons', distFolder + '/icons', {
+        base: 'source/icons'
+    });
+    // core
+    mix.js('source/background.js', distFolder);
+    mix.copy(`source/manifest${externalManifestName}.json`, distFolder + '/manifest.json'); // ex: manifest-opera.json
+    // html
+    mix.copy([
+        'source/src/popup.html',
+        'source/src/options.html'
+    ], srcFolder);
+    mix.copy('dist/app.css', srcFolder + '/app.css');
+    // js
+    mix.js('source/src/content.js', srcFolder);
+    mix.js('source/src/popup.js', srcFolder);
+    mix.js('source/src/options.js', srcFolder);
+}
 
-// Compile
-// sass
-mix.sass('source/src/styles/app.scss', 'dist/chromium/src/popup.css')
+/**
+ * Compile
+ */
+// always run
+mix.sass('source/src/styles/app.scss', 'dist/app.css')
 .options({
     postCss: [
         tailwindcss('tailwind.config.js'),
         require('autoprefixer')
     ]
 });
-mix.copy('dist/chromium/src/popup.css', 'dist/opera/src');
 
-// js
-mix.copy('source/src/content.js', 'dist/chromium/src');
-mix.copy('source/src/content.js', 'dist/opera/src');
-mix.copy('source/src/popup.js', 'dist/chromium/src');
-mix.copy('source/src/popup.js', 'dist/opera/src');
+// sass
+if (!mix.inProduction()) {
+    build('chromium');
+    build('opera', '-opera')
+}
+
+if (mix.inProduction()) {
+    // chromium compile
+    build('chromium')
+
+    // copy to opera folder
+    mix.copy('dist/chromium/', 'dist/opera/');
+    mix.copy('source/manifest-opera.json', 'dist/opera/manifest.json');
+}
