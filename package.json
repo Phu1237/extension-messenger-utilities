@@ -1,6 +1,6 @@
 {
   "name": "messenger-utilities",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Utilities for Facebook Messenger",
   "author": "Phu1237",
   "license": "MIT",
@@ -9,7 +9,6 @@
     "development": "mix",
     "watch": "mix watch",
     "watch-poll": "mix watch -- --watch-options-poll=1000",
-    "hot": "mix watch --hot",
     "prod": "npm run production",
     "production": "mix --production"
   },
