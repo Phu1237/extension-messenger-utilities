@@ -1,11 +1,12 @@
 {
     "name": "Messenger Utilities",
     "description": "Utilities for Facebook Messenger",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "manifest_version": 2,
     "background": {
         "service_worker": "background.js"
     },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "browser_action": {
         "default_title": "Messenger Utilities settings",
         "default_popup": "src/popup.html",
@@ -16,6 +17,7 @@
             "128": "/icons/icon_128.png"
         }
     },
+    "options_page": "src/options.html",
     "icons": {
         "16": "/icons/icon_16.png",
         "32": "/icons/icon_32.png",

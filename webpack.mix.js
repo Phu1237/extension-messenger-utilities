@@ -33,6 +33,7 @@ function build(folder, externalManifestName = '') {
         base: 'source/icons'
     });
     // core
+    mix.js('source/src/content.js', srcFolder);
     mix.js('source/background.js', distFolder);
     mix.copy(`source/manifest${externalManifestName}.json`, distFolder + '/manifest.json'); // ex: manifest-opera.json
     // html
@@ -42,9 +43,8 @@ function build(folder, externalManifestName = '') {
     ], srcFolder);
     mix.copy('dist/app.css', srcFolder + '/app.css');
     // js
-    mix.js('source/src/content.js', srcFolder);
-    mix.js('source/src/popup.js', srcFolder);
-    mix.js('source/src/options.js', srcFolder);
+    mix.js('source/src/scripts/popup.js', srcFolder + '/scripts');
+    mix.js('source/src/scripts/options.js', srcFolder + '/scripts');
 }
 
 /**

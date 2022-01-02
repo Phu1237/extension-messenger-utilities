@@ -6,20 +6,21 @@
     <title>Messenger Utilities</title>
 </head>
 
-<body>
+<body class="flex flex-col min-h-screen">
     <div class="flex text-center">
-        <div class="flex justify-center items-center w-5/6 py-1 bg-blue-800 font-bold text-white">
+        <div class="flex justify-center items-center w-10/12 py-1 bg-blue-800 font-bold text-white">
             Messenger Utilities
         </div>
-        <a href="https://www.messenger.com/" title="Go to messenger.com" class="flex justify-center items-center w-1/6 p-3 bg-blue-300">
+        <a href="https://www.messenger.com/" title="Go to messenger.com" class="flex justify-center items-center w-1/12 p-3 bg-blue-300">
             <img src="../icons/messenger.png" alt="Messenger Utilities" class="h-6" />
         </a>
-        <div id="protect_status_box" class="flex justify-center items-center w-1/6 p-3 bg-gray-300">
+        <div id="protect_status_box" class="flex justify-center items-center w-1/12 p-3 bg-gray-300">
             <img class="h-6" src="../icons/svgs/eye.svg" alt="Protect status">
         </div>
     </div>
     <div class="p-1">
         <div id="alert" class="hidden p-1 rounded-md border border-gray-400 bg-green-300 text text-black"></div>
+        <h2 class="font-semibold">Protect</h2>
         <div class="px-2">
             <div class="font-medium">Protect status</div>
             <ul class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600">
@@ -41,7 +42,7 @@
         <div class="px-2">
             <div class="font-medium">
                 Protect type
-                <img class="inline-block h-4" src="../icons/svgs/info-with-circle.svg" title="The style of hide item">
+                <img class="inline-block h-4 cursor-pointer" src="../icons/svgs/info-with-circle.svg" title="The style of hide item">
             </div>
             <ul class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600">
                 <li class="filter-switch-item flex relative h-8 bg-gray-300x">
@@ -57,18 +58,43 @@
                         Blur
                     </label>
                 </li>
-                <li class="filter-switch-item flex relative h-8 bg-gray-300x">
-                    <input id="protect_type_reverse" name="protect_type" type="radio" class="sr-only" value="reverse">
-                    <label for="protect_type_reverse" class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow">
-                        Reverse
-                    </label>
-                </li>
             </ul>
         </div>
         <div class="px-2">
             <div class="font-medium">
-                Display type
-                <img class="inline-block h-4" src="../icons/svgs/info-with-circle.svg" title="The event that when it triggers, the hide item will be unhide">
+                Protect level
+                <img class="inline-block h-4" src="../icons/svgs/info-with-circle.svg" title="The style of hide item">
+            </div>
+            <ul class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600">
+                <li class="filter-switch-item flex relative h-8 bg-gray-300x">
+                    <input id="protect_level" name="protect_level" type="range">
+                </li>
+                <li><label id="lb_protect_level"></label></li>
+            </ul>
+        </div>
+        <div class="px-2">
+            <div class="font-medium">
+                Protect items
+                <img class="inline-block h-4" src="../icons/svgs/info-with-circle.svg" title="Items will be protected">
+            </div>
+            <input id="protect_items_general" name="protect_items" type="checkbox" class="hidden" value="general">
+            <label class="flex items-center ml-1">
+                <input id="protect_items_image" name="protect_items" type="checkbox" class="border-gray-300 border-2 text-black focus:border-gray-300 focus:ring-black" value="image">
+                <span class="ml-1">Image</span>
+            </label>
+            <label class="flex items-center ml-1">
+                <input id="protect_items_image" name="protect_items" type="checkbox" class="border-gray-300 border-2 text-black focus:border-gray-300 focus:ring-black" value="message">
+                <span class="ml-1">Message</span>
+            </label>
+            <label class="flex items-center ml-1">
+                <input id="protect_items_name" name="protect_items" type="checkbox" class="border-gray-300 border-2 text-black focus:border-gray-300 focus:ring-black" value="name">
+                <span class="ml-1">Name</span>
+            </label>
+        </div>
+        <div class="px-2">
+            <div class="font-medium">
+                Display event
+                <img class="inline-block h-4" src="../icons/svgs/info-with-circle.svg" title="The event that when it triggers, the protected item will be unprotected">
             </div>
             <ul class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600">
                 <li class="filter-switch-item flex relative h-8 bg-gray-300x">
@@ -86,28 +112,29 @@
                 </li>
             </ul>
         </div>
-        <button id="save_btn" class="w-full mt-2 py-3 bg-blue-500 hover:bg-blue-700 focus:outline-none font-semibold text-white">Save</button>
-        <button id="go-to-options">> Go to options page</button>
     </div>
-    <div class="grid grid-cols-4 text-center">
-        <a class="grid justify-center items-center py-3 bg-blue-500" href="https://www.facebook.com/Phu1237" title="Facebook">
-            <img class="h-6" src="../icons/svgs/facebook-with-circle.svg" alt="Facebook">
-        </a>
-        <a class="grid justify-center items-center py-3 bg-black" href="https://github.com/phu1237/" title="Github">
-            <img class="h-6" src="../icons/svgs/github-with-circle.svg" alt="Github">
-        </a>
-        <a class="grid justify-center items-center py-3 bg-red-500" href="mailto:phu1237@gmail.com" title="Mail">
-            <img class="h-6" src="../icons/svgs/mail-with-circle.svg" alt="Mail">
-        </a>
-        <a class="grid justify-center items-center py-3 bg-blue-700" href="https://www.linkedin.com/in/phu1237/" title="Linkedin">
-            <img class="h-6" src="../icons/svgs/linkedin-with-circle.svg" alt="Linkedin">
-        </a>
-    </div>
-    <div class="flex justify-between px-2">
-        Author: Phu1237
-        <span id="version">v</span>
-    </div>
-    <script src="scripts/popup.js"></script>
+    <footer class="mt-auto">
+        <button id="save_btn" class="w-full mb-2 py-3 bg-blue-500 hover:bg-blue-700 focus:outline-none font-semibold text-white">Save</button>
+        <div class="grid grid-cols-4 text-center">
+            <a class="grid justify-center items-center py-3 bg-blue-500" href="https://www.facebook.com/Phu1237" title="Facebook">
+                <img class="h-6" src="../icons/svgs/facebook-with-circle.svg" alt="Facebook">
+            </a>
+            <a class="grid justify-center items-center py-3 bg-black" href="https://github.com/phu1237/" title="Github">
+                <img class="h-6" src="../icons/svgs/github-with-circle.svg" alt="Github">
+            </a>
+            <a class="grid justify-center items-center py-3 bg-red-500" href="mailto:phu1237@gmail.com" title="Mail">
+                <img class="h-6" src="../icons/svgs/mail-with-circle.svg" alt="Mail">
+            </a>
+            <a class="grid justify-center items-center py-3 bg-blue-700" href="https://www.linkedin.com/in/phu1237/" title="Linkedin">
+                <img class="h-6" src="../icons/svgs/linkedin-with-circle.svg" alt="Linkedin">
+            </a>
+        </div>
+        <div class="flex justify-between px-2">
+            Author: Phu1237
+            <span id="version">v</span>
+        </div>
+    </footer>
+    <script src="scripts/options.js"></script>
 </body>
 
 </html>

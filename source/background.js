@@ -1,8 +1,7 @@
-let debug = false; // README: Debug - true | false
+import { helpers } from './global'
 
-if (debug == true) {
-  console.log('All storage items:');
-  chrome.storage.sync.get(null, function (result) {
-    console.log(result);
-  });
-}
+console.group('All storage items');
+chrome.storage.sync.get(null, function (result) {
+    helpers.log(result);
+    console.groupEnd();
+});

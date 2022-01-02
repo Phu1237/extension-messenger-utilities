@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Version changes
 
+### v1.1.0
+
+- add options to protect
+- faster processing
+- refactor code
+- better filter
+
 ### v1.0.3
 
 - fix can't disable protect status
