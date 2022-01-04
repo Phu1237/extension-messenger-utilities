@@ -21,9 +21,9 @@ mix.clean({
 
 /**
  * Build extension to dist folder
- * 
- * @param {String} folder 
- * @param {String} externalManifestName 
+ *
+ * @param {String} folder
+ * @param {String} externalManifestName
  */
 function build(folder, externalManifestName = '') {
     distFolder = 'dist/' + folder;
@@ -52,12 +52,12 @@ function build(folder, externalManifestName = '') {
  */
 // always run
 mix.sass('source/src/styles/app.scss', 'dist/app.css')
-.options({
-    postCss: [
-        tailwindcss('tailwind.config.js'),
-        require('autoprefixer')
-    ]
-});
+    .options({
+        postCss: [
+            tailwindcss('tailwind.config.js'),
+            require('autoprefixer')
+        ]
+    });
 
 // sass
 if (!mix.inProduction()) {

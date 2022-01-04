@@ -8,19 +8,6 @@ function handleConfigs() {
     helpers.handleConfigs(configs);
 }
 
-function updateProtectStatusBox(protect_status) {
-    let box = document.getElementById('protect_status_box');
-    if (protect_status == 'enable') {
-        box.classList.remove('bg-gray-300');
-        box.classList.add('bg-green-300');
-        box.querySelector('img').src = '../icons/svgs/eye-with-line.svg';
-    } else {
-        box.classList.remove('bg-green-300');
-        box.classList.add('bg-gray-300');
-        box.querySelector('img').src = '../icons/svgs/eye.svg';
-    }
-}
-
 // Save changes to the Chrome storage
 function saveChanges() {
     // Get a value.
