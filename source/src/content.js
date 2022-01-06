@@ -137,6 +137,9 @@ function inject(configs) {
                     selector: [
                         "image", // avatar
                         parent_selectors.main + " img[width='32']", // icon message
+                        parent_selectors.main + " img[width='14px']", // seen avatar icon
+                        parent_selectors.main + " img[class~=sf5mxxl7][class~=gab7stmx][class~=i4qgphn6][class~=s45kfl79][class~=emlxlaya][class~=bkmhp75w][class~=spb7xbtv][class~=abpf7j7b][class~=exrn9cbp]", // seen avatar icon in group
+                        parent_selectors.main + " div[class~=k4urcfbm][class~=hwddc3l5][class~=datstx6m]", // video
                         // start duplicate selector
                         parent_selectors.main + " img[class~=k4urcfbm][class~=bixrwtb6][class~=datstx6m][class~=q9uorilb]", // chat avatar
                         parent_selectors.right_sidebar + " img[class~=k4urcfbm][class~=bixrwtb6][class~=datstx6m][class~=q9uorilb]", // right avatar
@@ -155,6 +158,7 @@ function inject(configs) {
                         parent_selectors.main + " div[class~=buofh1pr][class~=j83agx80][class~=btwxx1t3][class~=cgat1ltu][class~=a8nywdso][class~=rz4wbd8a]", // call block
                         parent_selectors.main + " div[class~=oo9gr5id][class~=ii04i59q][class~=jq4qci2q][class~=g9io39s2]", // their message
                         parent_selectors.main + " div[class~=ljqsnud1][class~=ii04i59q][class~=jq4qci2q][class~=g9io39s2]", // your message
+                        parent_selectors.main + " blockquote[class~=av1wybal][class~=mk2mc5f4][class~=peup4ujy][class~=hv4rvrfc][class~=dati1w0a][class~=ii04i59q][class~=c1et5uql][class~=e9vueds3][class~=j5wam9gi][class~=aahdfvyu][class~=cxmmr5t8][class~=tvmbv18p][class~=hcukyx3x][class~=ilywhbp3]", // forward message
                         parent_selectors.main + " div[class~=jm1wdb64][class~=f10w8fjw][class~=e9vueds3][class~=mty21rlj][class~=m9osqain]", // quoted message
                         parent_selectors.main + " div[class~=jktsbyx5][class~=rv4hoivh][class~=osnr6wyh][class~=h4z51re5][class~=d2edcug0][class~=e72ty7fz][class~=qmr60zad][class~=qlfml3jp][class~=inkptoze][class~=l6v480f0][class~=maa8sdkg][class~=s1tcr66n][class~=aypy0576][class~=erlsw9ld][class~=qv66sw1b]", // unsend message
                         parent_selectors.main + " div[class~=j83agx80][class~=taijpn5t][class~=cbu4d94t][class~=buofh1pr][class~=cehpxlet][class~=n1l5q3vz][class~=tvfksri0][class~=n851cfcs][class~=ozuftl9m]", // link title
