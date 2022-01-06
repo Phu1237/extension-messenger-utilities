@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Version changes
 
+### v1.1.1
+
+- fix missing protect chatbox option
+- add seen icon & forward message to protect list
+
 ### v1.1.0
 
 - add options to protect
