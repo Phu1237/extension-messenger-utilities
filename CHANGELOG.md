@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Version changes
 
+### v1.1.2
+
+- add protect name in group chat
+- add protect avatar in right sidebar
+
 ### v1.1.1
 
 - fix missing protect chatbox option
