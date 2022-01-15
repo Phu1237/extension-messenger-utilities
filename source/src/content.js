@@ -128,6 +128,7 @@ function inject(configs) {
                     selector: [
                         parent_selectors.left_sidebar + " span[class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=lr9zc1uh][class~=a8c37x1j][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=d3f4x2em][class~=iv3no6db][class~=jq4qci2q][class~=a3bd9o3v][class~=oo9gr5id][class~=hzawbc8m]", // left sidebar name ([class~=ekzkrbhg] for seen) ([class~=lrazzd5p] for unseen)
                         parent_selectors.main + " span[class~=a8c37x1j][class~=ni8dbmo4][class~=stjgntxs][class~=l9j0dhe7][class~=ltmttdrg][class~=g0qnabr5][class~=ojkyduve]", // main chat name & online status
+                        parent_selectors.main + " div[data-testid=mw_message_sender_name]", // name in group chat
                         parent_selectors.main + " div[class~=hyh9befq][class~=pipptul6][class~=sq6gx45u]", // quote name
                         parent_selectors.main + " div[class~=r9r71o1u][class~=m9osqain][class~=fsrhnwul][class~=d0szoon8][class~=r8blr3vg][class~=qjjbsfad]", // message chat name
                         parent_selectors.right_sidebar + " span[class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=lr9zc1uh][class~=a8c37x1j][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=d3f4x2em][class~=mdeji52x][class~=a5q79mjw][class~=g1cxx5fr][class~=lrazzd5p][class~=oo9gr5id][class~=oqcyycmt]" // right sidebar name
@@ -142,12 +143,14 @@ function inject(configs) {
                         parent_selectors.main + " div[class~=k4urcfbm][class~=hwddc3l5][class~=datstx6m]", // video
                         // start duplicate selector
                         parent_selectors.main + " img[class~=k4urcfbm][class~=bixrwtb6][class~=datstx6m][class~=q9uorilb]", // chat avatar
+                        parent_selectors.main + " img[class~=k4urcfbm][class~=datstx6m][class~=s45kfl79][class~=emlxlaya][class~=bkmhp75w][class~=spb7xbtv][class~=pzggbiyp][class~=bixrwtb6]", // chat avatar when typing
                         parent_selectors.right_sidebar + " img[class~=k4urcfbm][class~=bixrwtb6][class~=datstx6m][class~=q9uorilb]", // right avatar
                         // end duplicate selector
                         parent_selectors.main + " img[class~=a8c37x1j][class~=d2edcug0][class~=datstx6m][class~=k4urcfbm]", // message img
                         parent_selectors.main + " img[class~=a8c37x1j][class~=d2edcug0][class~=sn7ne77z][class~=bixrwtb6]", // main img
                         parent_selectors.main + " div[class~=d2edcug0][class~=l9j0dhe7][class~=tkr6xdv7] > div", // sticker img
                         parent_selectors.main + " div[class~=k4urcfbm][class~=j83agx80][class~=l9j0dhe7] > img", // link img
+                        parent_selectors.right_sidebar + " div[class~=gs1a9yip][class~=ow4ym5g4][class~=auili1gw][class~=j83agx80][class~=cbu4d94t][class~=buofh1pr][class~=g5gj957u][class~=i1fnvgqd][class~=oygrvhab][class~=cxmmr5t8][class~=hcukyx3x][class~=kvgmc6g5][class~=tgvbjcpo][class~=hpfvmrgz][class~=qt6c0cv9][class~=rz4wbd8a][class~=a8nywdso][class~=jb3vyjys][class~=du4w35lb][class~=i09qtzwb][class~=rq0escxv][class~=n7fi1qx3][class~=pmk7jnqg][class~=j9ispegn][class~=kr520xx4]", // right avatar
                         // "img:not([width='16'])", // emoji icon
                         // "img:not([width='30'])", // emoji icon
                     ]
