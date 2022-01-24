@@ -6,6 +6,11 @@ Extension for Chrome / Edge / Opera / chromium based browser
 
 ## Features
 
+UPCOMING:
+
+- Auto update filter for protect
+- New code
+
 Available features:
 
 - Protect your privacy, let you control what and when contents should be display in messenger.com.
