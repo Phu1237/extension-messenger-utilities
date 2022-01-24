@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## Version changes
 
+### v1.1.3
+
+- fix left sidebar name and avatar
+
 ### v1.1.2
 
 - add protect name in group chat
