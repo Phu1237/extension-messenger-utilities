@@ -126,7 +126,7 @@ function inject(configs) {
                 name: {
                     name: "name",
                     selector: [
-                        parent_selectors.left_sidebar + " span[class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=lr9zc1uh][class~=a8c37x1j][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=d3f4x2em][class~=iv3no6db][class~=jq4qci2q][class~=a3bd9o3v][class~=oo9gr5id][class~=hzawbc8m]", // left sidebar name ([class~=ekzkrbhg] for seen) ([class~=lrazzd5p] for unseen)
+                        parent_selectors.left_sidebar + " span[class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=lr9zc1uh][class~=a8c37x1j][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=d3f4x2em][class~=iv3no6db][class~=jq4qci2q][class~=a3bd9o3v][class~=oo9gr5id]", // left sidebar name ([class~=ekzkrbhg] for seen) ([class~=lrazzd5p] for unseen)
                         parent_selectors.main + " span[class~=a8c37x1j][class~=ni8dbmo4][class~=stjgntxs][class~=l9j0dhe7][class~=ltmttdrg][class~=g0qnabr5][class~=ojkyduve]", // main chat name & online status
                         parent_selectors.main + " div[data-testid=mw_message_sender_name]", // name in group chat
                         parent_selectors.main + " div[class~=hyh9befq][class~=pipptul6][class~=sq6gx45u]", // quote name
@@ -136,7 +136,7 @@ function inject(configs) {
                 },
                 image: {
                     selector: [
-                        "image", // avatar
+                        parent_selectors.left_sidebar + " img[class~=a8c37x1j][class~=d2edcug0][class~=sn7ne77z][class~=bixrwtb6]", // avatar
                         parent_selectors.main + " img[width='32']", // icon message
                         parent_selectors.main + " img[width='14px']", // seen avatar icon
                         parent_selectors.main + " img[class~=sf5mxxl7][class~=gab7stmx][class~=i4qgphn6][class~=s45kfl79][class~=emlxlaya][class~=bkmhp75w][class~=spb7xbtv][class~=abpf7j7b][class~=exrn9cbp]", // seen avatar icon in group
@@ -169,7 +169,7 @@ function inject(configs) {
                 },
                 chatbox: {
                     selector: [
-                        parent_selectors.main + " div[class~=ecm0bbzt][class~=e5nlhep0][class~=buofh1pr][class~=jq4qci2q][class~=a3bd9o3v][class~=iko8p5ub][class~=eg9m0zos][class~=ni8dbmo4][class~=rq0escxv][class~=lexh0w6q]",
+                        parent_selectors.main + " div[class~=j83agx80][class~=buofh1pr][class~=nhadk0th][class~=ozuftl9m][class~=aov4n071][class~=bi6gxh9e][class~=hpfvmrgz][class~=l9j0dhe7]",
                     ]
                 }
             };
