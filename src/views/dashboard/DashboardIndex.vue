@@ -1,9 +1,22 @@
 <template>
-  <div></div>
+  <div>
+    <p v-for="(item, index) in storage" :key="index">
+      {{ item }}
+    </p>
+  </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 
-export default defineComponent({});
+export default defineComponent({
+  created() {
+    this.$store.dispatch("getStorage");
+  },
+  computed: {
+    storage() {
+      return this.$store.state.storage;
+    },
+  },
+});
 </script>
