@@ -1,0 +1,39 @@
+/*!
+ * Author: Phu1237
+ * Github: Phu1237 <https://github.com/Phu1237>
+ */
+
+// Tailwindcss
+// @import "../../../node_modules/tailwindcss/base";
+// @import "../../../node_modules/tailwindcss/components";
+// @import "../../../node_modules/tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+}
+
+body {
+    min-width: 280px;
+    color: #999;
+}
+
+.filter-switch label {
+    cursor: pointer;
+}
+
+.filter-switch-item input {
+    &:checked+label {
+        @apply font-medium #{!important};
+        color: inherit;
+    }
+    &:not(:checked)+label {
+        @apply bg-opacity-0 #{!important};
+        @apply shadow-none #{!important};
+    }
+}

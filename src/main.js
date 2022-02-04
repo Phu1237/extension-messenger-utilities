@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import './assets/app.scss'
 // Plugins
 import FontAwesomeIcon from './plugins/fontawesome'
 
