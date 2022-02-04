@@ -52,8 +52,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script>
+import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {
@@ -64,8 +64,8 @@ export default defineComponent({
   },
   methods: {
     toggleChecked() {
-      this.$emit('toggle', !this.checked)
+      this.$emit("toggle", !this.checked);
     },
   },
-})
+});
 </script>

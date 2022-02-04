@@ -6,14 +6,14 @@
   />
 </template>
 
-<script lang="ts">
+<script>
 export default {
   props: {
     title: {
       type: String,
       require: true,
-      default: '',
+      default: "",
     },
   },
-}
+};
 </script>

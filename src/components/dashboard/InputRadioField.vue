@@ -25,9 +25,9 @@
   </fieldset>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import InputRadioItem from '@/components/dashboard/InputRadioItem.vue'
+<script>
+import { defineComponent } from "vue";
+import InputRadioItem from "@/components/dashboard/InputRadioItem.vue";
 
 export default defineComponent({
   components: {
@@ -36,7 +36,7 @@ export default defineComponent({
   props: {
     label: {
       type: String,
-      default: '',
+      default: "",
     },
     value: {
       type: String,
@@ -47,5 +47,5 @@ export default defineComponent({
       required: true,
     },
   },
-})
+});
 </script>

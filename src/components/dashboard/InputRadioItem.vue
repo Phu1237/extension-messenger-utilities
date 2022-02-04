@@ -44,8 +44,8 @@
   </label>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script>
+import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {
@@ -63,8 +63,8 @@ export default defineComponent({
     },
     description: {
       type: String,
-      default: '',
+      default: "",
     },
   },
-})
+});
 </script>

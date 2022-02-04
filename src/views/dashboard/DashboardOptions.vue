@@ -98,12 +98,12 @@
   </form>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import FormGroup from '@/components/dashboard/form/FormGroup.vue'
-import InputRadio from '@/components/dashboard/form/radio/StackedCards.vue'
-import InputToggle from '@/components/dashboard/InputToggle.vue'
-import InputRadioField from '@/components/dashboard/InputRadioField.vue'
+<script>
+import { defineComponent } from "vue";
+import FormGroup from "@/components/dashboard/form/FormGroup.vue";
+import InputRadio from "@/components/dashboard/form/radio/StackedCards.vue";
+import InputToggle from "@/components/dashboard/InputToggle.vue";
+import InputRadioField from "@/components/dashboard/InputRadioField.vue";
 
 export default defineComponent({
   components: {
@@ -118,41 +118,41 @@ export default defineComponent({
         value: true,
       },
       protect_type: {
-        value: 'blur',
+        value: "blur",
         options: [
           {
-            label: 'None',
-            value: 'none',
-            description: 'None',
+            label: "None",
+            value: "none",
+            description: "None",
           },
           {
-            label: 'Blur',
-            value: 'blur',
-            description: 'Blur',
+            label: "Blur",
+            value: "blur",
+            description: "Blur",
           },
           {
-            label: 'Reverse',
-            value: 'reverse',
-            description: 'Reverse',
+            label: "Reverse",
+            value: "reverse",
+            description: "Reverse",
           },
         ],
       },
       display_type: {
-        value: 'none',
+        value: "none",
         options: [
           {
-            label: 'None',
-            value: 'none',
-            description: 'None',
+            label: "None",
+            value: "none",
+            description: "None",
           },
           {
-            label: 'Hover',
-            value: 'hover',
-            description: 'Hover',
+            label: "Hover",
+            value: "hover",
+            description: "Hover",
           },
         ],
       },
-    }
+    };
   },
-})
+});
 </script>
