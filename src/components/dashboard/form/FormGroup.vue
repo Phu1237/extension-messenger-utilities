@@ -4,12 +4,7 @@
       <div>
         <div
           :id="'label-' + id"
-          class="
-            text-base
-            font-medium
-            text-gray-900
-            sm:text-sm sm:text-gray-700
-          "
+          class="text-base font-medium text-gray-900 sm:text-sm sm:text-gray-700"
         >
           {{ label }}
         </div>
@@ -24,7 +19,7 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
@@ -37,5 +32,5 @@ export default defineComponent({
       required: true,
     },
   },
-});
+})
 </script>

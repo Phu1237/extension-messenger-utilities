@@ -12,8 +12,8 @@ export default {
     title: {
       type: String,
       require: true,
-      default: "",
+      default: '',
     },
   },
-};
+}
 </script>

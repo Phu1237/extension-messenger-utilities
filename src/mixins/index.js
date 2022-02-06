@@ -1,6 +1,6 @@
-import moment from 'moment';
+import moment from 'moment'
 import app from '../../package.json'
-import Changelog from "@/core/changelog";
+import Changelog from '@/core/changelog'
 
 export default {
   methods: {
@@ -11,7 +11,7 @@ export default {
      * @returns
      */
     formatDate(date, format = 'YYYY-MM-DD HH:mm') {
-      return moment(date).format(format);
+      return moment(date).format(format)
     },
     /**
      * Get value in package.json
@@ -19,7 +19,7 @@ export default {
      * @returns
      */
     app(key) {
-      return app[key];
+      return app[key]
     },
     /**
      * Get changelog from file
@@ -28,12 +28,12 @@ export default {
      */
     getChangelog(limit = null) {
       let changelog = Changelog.sort((a, b) => {
-        return a.id > b.id ? -1 : 1;
-      });
+        return a.id > b.id ? -1 : 1
+      })
       if (limit) {
-        return changelog.slice(0, limit);
+        return changelog.slice(0, limit)
       }
-      return changelog;
+      return changelog
     },
     /**
      * Fetch filter from api
@@ -42,18 +42,21 @@ export default {
       fetch(import.meta.env.VITE_FILTER_URL).then((response) => {
         if (response.status !== 200) {
           console.log(
-            "Looks like there was a problem. Status Code: " + response.status
-          );
-          return;
+            'Looks like there was a problem. Status Code: ' + response.status
+          )
+          return
         }
 
         // Examine the text in the response
         response.json().then((data) => {
-          const filter = data;
-          chrome.storage.local.set({ 'filter': filter, 'last_filter_updated': Date.now() });
-          console.log("Filter have just been updated");
-        });
-      });
-    }
-  }
+          const filter = data
+          chrome.storage.local.set({
+            filter: filter,
+            last_filter_updated: Date.now(),
+          })
+          console.log('Filter have just been updated')
+        })
+      })
+    },
+  },
 }

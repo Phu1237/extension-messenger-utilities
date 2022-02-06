@@ -10,15 +10,7 @@
       type="radio"
       name="privacy-setting"
       value="Public access"
-      class="
-        h-4
-        w-4
-        mt-0.5
-        cursor-pointer
-        text-indigo-600
-        border-gray-300
-        focus:ring-indigo-500
-      "
+      class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
       aria-labelledby="privacy-setting-0-label"
       aria-describedby="privacy-setting-0-description"
       :checked="checked"
@@ -45,7 +37,7 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
@@ -63,8 +55,9 @@ export default defineComponent({
     },
     description: {
       type: String,
-      default: "",
+      default: '',
     },
   },
-});
+  emits: ['input'],
+})
 </script>

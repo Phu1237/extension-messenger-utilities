@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import DescriptionList from "../../components/dashboard/DescriptionList.vue";
+import { defineComponent } from 'vue'
+import DescriptionList from '../../components/dashboard/DescriptionList.vue'
 
 export default defineComponent({
   components: {
@@ -18,20 +18,20 @@ export default defineComponent({
     return {
       information: [
         {
-          label: "Version",
-          value: this.app("version"),
+          label: 'Version',
+          value: this.app('version'),
           isBadge: true,
         },
         {
-          label: "Last Changelog",
+          label: 'Last Changelog',
           value: this.getChangelog(1)[0].changes,
         },
         {
-          label: "Last Filter Updated",
-          value: "",
+          label: 'Last Filter Updated',
+          value: '',
         },
       ],
-    };
+    }
   },
-});
+})
 </script>

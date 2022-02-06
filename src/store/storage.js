@@ -2,22 +2,22 @@ export default {
   namespaced: true,
   state: () => ({
     sync: {
-      abcd: 123
+      abcd: 123,
     },
     local: {},
   }),
   mutations: {
     setStorage(state, payload) {
-      console.log('setStorage', payload);
+      console.log('setStorage', payload)
       switch (payload.storage) {
         case 'sync':
-          state.sync = payload.data;
-          break;
+          state.sync = payload.data
+          break
         case 'local':
-          state.local = payload.data;
-          break;
+          state.local = payload.data
+          break
       }
-    }
+    },
   },
   actions: {
     /**
@@ -30,26 +30,26 @@ export default {
       await dispatch('get', { storage: 'local' }).then((result) => {
         commit('setStorage', { storage: 'local', data: result })
       })
-      return;
+      return
     },
     /**
      * Get data from the chrome storage
      * @param {*} param0
      * @param {*} payload
      */
-    get({ }, payload) {
-      return new Promise((resolve, reject) => {
+    get(_, payload) {
+      return new Promise((resolve) => {
         switch (payload.storage) {
           case 'sync':
             chrome.storage.sync.get(null, (result) => {
-              resolve(result);
+              resolve(result)
             })
-            break;
+            break
           case 'local':
             chrome.storage.local.get(null, (result) => {
-              resolve(result);
+              resolve(result)
             })
-            break;
+            break
         }
       })
     },
@@ -58,18 +58,18 @@ export default {
      * @param {Object} payload
      */
     set({ state }, payload) {
-      let key = payload.data.key;
-      let value = payload.data.value;
+      let key = payload.data.key
+      let value = payload.data.value
       switch (payload.storage) {
         case 'sync':
-          state.sync[key] = value;
-          chrome.storage.sync.set(payload.data);
-          break;
+          state.sync[key] = value
+          chrome.storage.sync.set(payload.data)
+          break
         case 'local':
-          state.local[key] = value;
-          chrome.storage.local.set(payload.data);
-          break;
+          state.local[key] = value
+          chrome.storage.local.set(payload.data)
+          break
       }
-    }
+    },
   },
 }

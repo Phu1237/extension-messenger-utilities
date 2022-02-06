@@ -1,44 +1,37 @@
 {
-    "name": "Messenger Utilities",
-    "description": "Utilities for Facebook Messenger",
-    "version": "2.0.0",
-    "manifest_version": 3,
-    "background": {
-        "service_worker": "background.js"
-    },
-    "content_security_policy": {
-        "extension_page": "script-src 'self' 'unsafe-eval'; object-src 'self'"
-    },
-    "action": {
-        "default_title": "Messenger Utilities settings",
-        "default_popup": "popup.html",
-        "default_icon": {
-            "16": "/icons/icon_16.png",
-            "32": "/icons/icon_32.png",
-            "48": "/icons/icon_48.png",
-            "128": "/icons/icon_128.png"
-        }
-    },
-    "options_page": "index.html",
-    "icons": {
-        "16": "/icons/icon_16.png",
-        "32": "/icons/icon_32.png",
-        "48": "/icons/icon_48.png",
-        "128": "/icons/icon_128.png"
-    },
-    "permissions": [
-        "storage",
-        "tabs"
-    ],
-    "host_permissions": [
-        "*://*.messenger.com/*"
-    ],
-    "content_scripts": [{
-        "matches": [
-            "*://*.messenger.com/*"
-        ],
-        "js": [
-            "content.js"
-        ]
-    }]
+  "name": "Messenger Utilities",
+  "description": "Utilities for Facebook Messenger",
+  "version": "2.0.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy": {
+    "extension_page": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  },
+  "action": {
+    "default_title": "Messenger Utilities settings",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/icons/icon_16.png",
+      "32": "/icons/icon_32.png",
+      "48": "/icons/icon_48.png",
+      "128": "/icons/icon_128.png"
+    }
+  },
+  "options_page": "index.html",
+  "icons": {
+    "16": "/icons/icon_16.png",
+    "32": "/icons/icon_32.png",
+    "48": "/icons/icon_48.png",
+    "128": "/icons/icon_128.png"
+  },
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["*://*.messenger.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.messenger.com/*"],
+      "js": ["content.js"]
+    }
+  ]
 }

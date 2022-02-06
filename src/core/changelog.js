@@ -3,9 +3,7 @@ export default [
     id: 1,
     label: 'Version 1.0.0',
     time: new Date('2019-01-01'),
-    changes: [
-      'First released',
-    ]
+    changes: ['First released'],
   },
   {
     id: 2,
@@ -15,15 +13,13 @@ export default [
       'update new logo',
       'extension can work even if you are not active messenger tabs now',
       'fix typo',
-    ]
+    ],
   },
   {
     id: 3,
     label: 'Version 1.0.3',
     time: new Date('2019-01-01'),
-    changes: [
-      'fix can not disable protect status',
-    ]
+    changes: ['fix can not disable protect status'],
   },
   {
     id: 4,
@@ -34,7 +30,7 @@ export default [
       'faster processing',
       'refactor code',
       'better filter',
-    ]
+    ],
   },
   {
     id: 5,
@@ -43,7 +39,7 @@ export default [
     changes: [
       'fix missing protect chatbox option',
       'add seen icon & forward message to protect list',
-    ]
+    ],
   },
   {
     id: 6,
@@ -52,14 +48,12 @@ export default [
     changes: [
       'add protect name in group chat',
       'add protect avatar in right sidebar',
-    ]
+    ],
   },
   {
     id: 7,
     label: 'Version 1.1.3',
     time: new Date('2019-01-01'),
-    changes: [
-      'fix left sidebar name and avatar',
-    ]
-  }
+    changes: ['fix left sidebar name and avatar'],
+  },
 ]

@@ -14,7 +14,7 @@
             <FormGroup id="protect_type" label="Protect type">
               <InputToggle
                 :checked="protect_status.value"
-                @toggle="protect_status.value = !protect_status.value"
+                @input="protect_status.value = !protect_status.value"
               />
             </FormGroup>
           </div>
@@ -50,46 +50,13 @@
       <div class="flex justify-end">
         <button
           type="button"
-          class="
-            bg-white
-            py-2
-            px-4
-            border border-gray-300
-            rounded-md
-            shadow-sm
-            text-sm
-            font-medium
-            text-gray-700
-            hover:bg-gray-50
-            focus:outline-none
-            focus:ring-2
-            focus:ring-offset-2
-            focus:ring-indigo-500
-          "
+          class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           Cancel
         </button>
         <button
           type="submit"
-          class="
-            ml-3
-            inline-flex
-            justify-center
-            py-2
-            px-4
-            border border-transparent
-            shadow-sm
-            text-sm
-            font-medium
-            rounded-md
-            text-white
-            bg-indigo-600
-            hover:bg-indigo-700
-            focus:outline-none
-            focus:ring-2
-            focus:ring-offset-2
-            focus:ring-indigo-500
-          "
+          class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           Save
         </button>
@@ -99,11 +66,11 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import FormGroup from "@/components/dashboard/form/FormGroup.vue";
-import InputRadio from "@/components/dashboard/form/radio/StackedCards.vue";
-import InputToggle from "@/components/dashboard/InputToggle.vue";
-import InputRadioField from "@/components/dashboard/InputRadioField.vue";
+import { defineComponent } from 'vue'
+import FormGroup from '@/components/dashboard/form/FormGroup.vue'
+import InputRadio from '@/components/dashboard/form/radio/StackedCards.vue'
+import InputToggle from '@/components/dashboard/InputToggle.vue'
+import InputRadioField from '@/components/dashboard/InputRadioField.vue'
 
 export default defineComponent({
   components: {
@@ -118,41 +85,41 @@ export default defineComponent({
         value: true,
       },
       protect_type: {
-        value: "blur",
+        value: 'blur',
         options: [
           {
-            label: "None",
-            value: "none",
-            description: "None",
+            label: 'None',
+            value: 'none',
+            description: 'None',
           },
           {
-            label: "Blur",
-            value: "blur",
-            description: "Blur",
+            label: 'Blur',
+            value: 'blur',
+            description: 'Blur',
           },
           {
-            label: "Reverse",
-            value: "reverse",
-            description: "Reverse",
+            label: 'Reverse',
+            value: 'reverse',
+            description: 'Reverse',
           },
         ],
       },
       display_type: {
-        value: "none",
+        value: 'none',
         options: [
           {
-            label: "None",
-            value: "none",
-            description: "None",
+            label: 'None',
+            value: 'none',
+            description: 'None',
           },
           {
-            label: "Hover",
-            value: "hover",
-            description: "Hover",
+            label: 'Hover',
+            value: 'hover',
+            description: 'Hover',
           },
         ],
       },
-    };
+    }
   },
-});
+})
 </script>

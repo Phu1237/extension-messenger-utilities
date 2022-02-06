@@ -3,7 +3,7 @@ import storage from './storage'
 
 export default createStore({
   modules: {
-    storage
+    storage,
   },
-  strict: process.env.NODE_ENV !== 'production'
+  strict: process.env.NODE_ENV !== 'production',
 })

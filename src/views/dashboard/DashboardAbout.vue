@@ -4,12 +4,7 @@
       <div>
         <div
           id="label"
-          class="
-            text-base
-            font-medium
-            text-gray-900
-            sm:text-xl sm:text-gray-700
-          "
+          class="text-base font-medium text-gray-900 sm:text-xl sm:text-gray-700"
         >
           About me
         </div>
@@ -17,15 +12,7 @@
           <!-- This example requires Tailwind CSS v2.0+ -->
           <div class="bg-white py-5 border-b border-gray-200">
             <div
-              class="
-                -ml-4
-                -mt-4
-                flex
-                justify-between
-                items-center
-                flex-wrap
-                sm:flex-nowrap
-              "
+              class="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap"
             >
               <div class="ml-4 mt-4">
                 <div class="flex items-center">
@@ -49,103 +36,28 @@
               <div class="ml-4 mt-4 flex-shrink-0 flex">
                 <button
                   type="button"
-                  class="
-                    relative
-                    inline-flex
-                    items-center
-                    px-4
-                    py-2
-                    border border-gray-300
-                    shadow-sm
-                    text-sm
-                    font-medium
-                    rounded-md
-                    text-gray-700
-                    bg-white
-                    hover:bg-gray-50
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-offset-2
-                    focus:ring-indigo-500
-                  "
+                  class="relative inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   <!-- Heroicon name: solid/phone -->
                   <FontAwesomeIcon :icon="['fab', 'facebook']" />
                 </button>
                 <button
                   type="button"
-                  class="
-                    ml-3
-                    relative
-                    inline-flex
-                    items-center
-                    px-4
-                    py-2
-                    border border-gray-300
-                    shadow-sm
-                    text-sm
-                    font-medium
-                    rounded-md
-                    text-gray-700
-                    bg-white
-                    hover:bg-gray-50
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-offset-2
-                    focus:ring-indigo-500
-                  "
+                  class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   <!-- Heroicon name: solid/mail -->
                   <FontAwesomeIcon :icon="['fab', 'github']" />
                 </button>
                 <button
                   type="button"
-                  class="
-                    ml-3
-                    relative
-                    inline-flex
-                    items-center
-                    px-4
-                    py-2
-                    border border-gray-300
-                    shadow-sm
-                    text-sm
-                    font-medium
-                    rounded-md
-                    text-gray-700
-                    bg-white
-                    hover:bg-gray-50
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-offset-2
-                    focus:ring-indigo-500
-                  "
+                  class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   <!-- Heroicon name: solid/mail -->
                   <FontAwesomeIcon :icon="['fa', 'envelope']" />
                 </button>
                 <button
                   type="button"
-                  class="
-                    ml-3
-                    relative
-                    inline-flex
-                    items-center
-                    px-4
-                    py-2
-                    border border-gray-300
-                    shadow-sm
-                    text-sm
-                    font-medium
-                    rounded-md
-                    text-gray-700
-                    bg-white
-                    hover:bg-gray-50
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-offset-2
-                    focus:ring-indigo-500
-                  "
+                  class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   <!-- Heroicon name: solid/mail -->
                   <FontAwesomeIcon :icon="['fab', 'linkedin']" />
@@ -163,16 +75,7 @@
                     </div>
                     <div class="ml-2 flex-shrink-0 flex">
                       <span
-                        class="
-                          px-2
-                          inline-flex
-                          text-xs
-                          leading-5
-                          font-semibold
-                          rounded-full
-                          bg-green-100
-                          text-green-800
-                        "
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
                       >
                         Full-time
                       </span>
@@ -227,16 +130,7 @@
                     </div>
                     <div class="ml-2 flex-shrink-0 flex">
                       <span
-                        class="
-                          px-2
-                          inline-flex
-                          text-xs
-                          leading-5
-                          font-semibold
-                          rounded-full
-                          bg-green-100
-                          text-green-800
-                        "
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
                       >
                         Full-time
                       </span>
@@ -291,16 +185,7 @@
                     </div>
                     <div class="ml-2 flex-shrink-0 flex">
                       <span
-                        class="
-                          px-2
-                          inline-flex
-                          text-xs
-                          leading-5
-                          font-semibold
-                          rounded-full
-                          bg-green-100
-                          text-green-800
-                        "
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
                       >
                         Full-time
                       </span>
@@ -352,18 +237,13 @@
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div
           id="label"
-          class="
-            text-base
-            font-medium
-            text-gray-900
-            sm:text-xl sm:text-gray-700
-          "
+          class="text-base font-medium text-gray-900 sm:text-xl sm:text-gray-700"
         >
           Changelog (Last 5 versions)
         </div>
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div>
-          <Timeline :timeline="changelog" />
+          <TimeLine :timeline="changelog" />
         </div>
       </div>
     </div>
@@ -371,23 +251,23 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import Timeline from "@/components/dashboard/Timeline.vue";
+import { defineComponent } from 'vue'
+import TimeLine from '@/components/dashboard/Timeline.vue'
 
 export default defineComponent({
   components: {
-    Timeline,
-  },
-  created() {
-    this.$store.dispatch("storage/getStorage");
+    TimeLine,
   },
   computed: {
     storage() {
-      return this.$store.state.storage.storage;
+      return this.$store.state.storage.storage
     },
     changelog() {
-      return this.getChangelog(5);
+      return this.getChangelog(5)
     },
   },
-});
+  created() {
+    this.$store.dispatch('storage/getStorage')
+  },
+})
 </script>

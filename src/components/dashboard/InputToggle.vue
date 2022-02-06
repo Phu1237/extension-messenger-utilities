@@ -2,23 +2,7 @@
   <div class="flex items-center">
     <button
       type="button"
-      class="
-        relative
-        inline-flex
-        flex-shrink-0
-        h-6
-        w-11
-        border-2 border-transparent
-        rounded-full
-        cursor-pointer
-        transition-colors
-        ease-in-out
-        duration-200
-        focus:outline-none
-        focus:ring-2
-        focus:ring-offset-2
-        focus:ring-indigo-500
-      "
+      class="relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       :class="[checked ? 'bg-indigo-600' : 'bg-gray-200']"
       role="switch"
       :aria-checked="checked"
@@ -27,20 +11,7 @@
     >
       <span
         aria-hidden="true"
-        class="
-          pointer-events-none
-          inline-block
-          h-5
-          w-5
-          rounded-full
-          bg-white
-          shadow
-          transform
-          ring-0
-          transition
-          ease-in-out
-          duration-200
-        "
+        class="pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
         :class="[checked ? 'translate-x-5' : 'translate-x-0']"
         @click="toggleChecked"
       />
@@ -53,7 +24,7 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
@@ -62,10 +33,11 @@ export default defineComponent({
       default: false,
     },
   },
+  emits: ['input'],
   methods: {
     toggleChecked() {
-      this.$emit("toggle", !this.checked);
+      this.$emit('input', !this.checked)
     },
   },
-});
+})
 </script>

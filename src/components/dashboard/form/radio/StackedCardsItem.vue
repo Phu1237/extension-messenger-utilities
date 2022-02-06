@@ -4,17 +4,7 @@
       Active: "ring-2 ring-indigo-500"
     -->
   <label
-    class="
-      relative
-      bg-white
-      border
-      rounded-lg
-      shadow-sm
-      p-4
-      flex
-      cursor-pointer
-      focus:outline-none
-    "
+    class="relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none"
     :class="[
       checked ? 'border-transparent ring-2 ring-indigo-500' : 'border-gray-300',
     ]"
@@ -84,7 +74,7 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
@@ -102,8 +92,9 @@ export default defineComponent({
     },
     description: {
       type: String,
-      default: "",
+      default: '',
     },
   },
-});
+  emits: ['input'],
+})
 </script>

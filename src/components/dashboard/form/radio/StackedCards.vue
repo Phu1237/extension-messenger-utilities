@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import StackedCardsItem from "./StackedCardsItem.vue";
+import { defineComponent } from 'vue'
+import StackedCardsItem from './StackedCardsItem.vue'
 
 export default defineComponent({
   components: {
@@ -32,7 +32,7 @@ export default defineComponent({
   props: {
     label: {
       type: String,
-      default: "",
+      default: '',
     },
     value: {
       type: String,
@@ -43,5 +43,6 @@ export default defineComponent({
       required: true,
     },
   },
-});
+  emits: ['input'],
+})
 </script>

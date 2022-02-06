@@ -17,17 +17,7 @@
       >
         <template v-if="item.isBadge">
           <span
-            class="
-              inline-flex
-              items-center
-              px-3
-              py-0.5
-              rounded-full
-              text-sm
-              font-medium
-              bg-green-100
-              text-green-800
-            "
+            class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800"
           >
             <svg
               class="-ml-1 mr-1.5 h-2 w-2 text-green-400"
@@ -45,10 +35,13 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import DescriptionListItem from "./DescriptionListItem.vue";
+import { defineComponent } from 'vue'
+import DescriptionListItem from './DescriptionListItem.vue'
 
 export default defineComponent({
+  components: {
+    DescriptionListItem,
+  },
   props: {
     label: {
       type: String,
@@ -63,8 +56,5 @@ export default defineComponent({
       required: true,
     },
   },
-  components: {
-    DescriptionListItem,
-  },
-});
+})
 </script>

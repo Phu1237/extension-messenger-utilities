@@ -11,35 +11,33 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
-    margin: 0;
-    padding: 0;
-    font-size: 15px;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
 }
 
 body {
-    min-width: 280px;
-    color: #999;
+  min-width: 280px;
+  color: #999;
 }
 
 .filter-switch label {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .filter-switch-item input {
-    &:checked+label {
-        @apply font-medium #{!important};
-        color: inherit;
-    }
+  &:checked + label {
+    @apply font-medium #{!important};
+    color: inherit;
+  }
 
-    &:not(:checked)+label {
-        @apply bg-opacity-0 #{!important};
-        @apply shadow-none #{!important};
-    }
+  &:not(:checked) + label {
+    @apply bg-opacity-0 #{!important};
+    @apply shadow-none #{!important};
+  }
 }
 
-
 .uppercase-first-letter::first-letter {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }

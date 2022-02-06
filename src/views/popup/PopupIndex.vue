@@ -2,30 +2,12 @@
   <div class="p-1">
     <div
       id="alert"
-      class="
-        hidden
-        p-1
-        rounded-md
-        border border-gray-400
-        bg-green-300
-        text text-black
-      "
+      class="hidden p-1 rounded-md border border-gray-400 bg-green-300 text text-black"
     ></div>
     <div class="px-2">
       <div class="font-medium">Protect status</div>
       <ul
-        class="
-          filter-switch
-          inline-flex
-          items-center
-          relative
-          h-10
-          p-1
-          space-x-1
-          bg-gray-300
-          rounded-md
-          text-blue-600
-        "
+        class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600"
       >
         <li class="filter-switch-item flex relative h-8 bg-gray-300">
           <input
@@ -38,18 +20,7 @@
           />
           <label
             for="protect_status_disable"
-            class="
-              h-8
-              py-1
-              px-2
-              bg-white
-              text-sm
-              leading-6
-              text-gray-600
-              hover:text-blue-600
-              rounded
-              shadow
-            "
+            class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow"
           >
             Disable
           </label>
@@ -65,18 +36,7 @@
           />
           <label
             for="protect_status_enable"
-            class="
-              h-8
-              py-1
-              px-2
-              bg-white
-              text-sm
-              leading-6
-              text-gray-600
-              hover:text-blue-600
-              rounded
-              shadow
-            "
+            class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow"
           >
             Enable
           </label>
@@ -93,18 +53,7 @@
         /> -->
       </div>
       <ul
-        class="
-          filter-switch
-          inline-flex
-          items-center
-          relative
-          h-10
-          p-1
-          space-x-1
-          bg-gray-300
-          rounded-md
-          text-blue-600
-        "
+        class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600"
       >
         <li class="filter-switch-item flex relative h-8 bg-gray-300x">
           <input
@@ -117,18 +66,7 @@
           />
           <label
             for="protect_type_none"
-            class="
-              h-8
-              py-1
-              px-2
-              bg-white
-              text-sm
-              leading-6
-              text-gray-600
-              hover:text-blue-600
-              rounded
-              shadow
-            "
+            class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow"
           >
             None
           </label>
@@ -144,18 +82,7 @@
           />
           <label
             for="protect_type_blur"
-            class="
-              h-8
-              py-1
-              px-2
-              bg-white
-              text-sm
-              leading-6
-              text-gray-600
-              hover:text-blue-600
-              rounded
-              shadow
-            "
+            class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow"
           >
             Blur
           </label>
@@ -170,18 +97,7 @@
           />
           <label
             for="protect_type_reverse"
-            class="
-              h-8
-              py-1
-              px-2
-              bg-white
-              text-sm
-              leading-6
-              text-gray-600
-              hover:text-blue-600
-              rounded
-              shadow
-            "
+            class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow"
           >
             Reverse
           </label>
@@ -198,18 +114,7 @@
         /> -->
       </div>
       <ul
-        class="
-          filter-switch
-          inline-flex
-          items-center
-          relative
-          h-10
-          p-1
-          space-x-1
-          bg-gray-300
-          rounded-md
-          text-blue-600
-        "
+        class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600"
       >
         <li class="filter-switch-item flex relative h-8 bg-gray-300x">
           <input
@@ -222,18 +127,7 @@
           />
           <label
             for="display_type_none"
-            class="
-              h-8
-              py-1
-              px-2
-              bg-white
-              text-sm
-              leading-6
-              text-gray-600
-              hover:text-blue-600
-              rounded
-              shadow
-            "
+            class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow"
           >
             None
           </label>
@@ -249,18 +143,7 @@
           />
           <label
             for="display_type_hover"
-            class="
-              h-8
-              py-1
-              px-2
-              bg-white
-              text-sm
-              leading-6
-              text-gray-600
-              hover:text-blue-600
-              rounded
-              shadow
-            "
+            class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow"
           >
             Hover
           </label>
@@ -269,16 +152,7 @@
     </div>
     <button
       id="save_btn"
-      class="
-        w-full
-        mt-2
-        py-3
-        bg-blue-500
-        hover:bg-blue-700
-        focus:outline-none
-        font-semibold
-        text-white
-      "
+      class="w-full mt-2 py-3 bg-blue-500 hover:bg-blue-700 focus:outline-none font-semibold text-white"
     >
       Save
     </button>

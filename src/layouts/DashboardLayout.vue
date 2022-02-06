@@ -53,13 +53,13 @@
 </template>
 
 <script>
-import TheBanner from "@/components/TheBanner.vue";
-import NavLink from "@/components/dashboard/NavLink.vue";
+import TheBanner from '@/components/TheBanner.vue'
+import NavLink from '@/components/dashboard/NavLink.vue'
 
 export default {
   components: {
     TheBanner,
     NavLink,
   },
-};
+}
 </script>
