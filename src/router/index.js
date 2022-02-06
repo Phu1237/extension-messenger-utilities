@@ -24,6 +24,14 @@ const routes = [
           title: 'Options',
         },
       },
+      {
+        path: 'about',
+        name: 'about',
+        component: () => import('@/views/dashboard/DashboardAbout.vue'),
+        meta: {
+          title: 'About',
+        },
+      }
     ],
   },
   {

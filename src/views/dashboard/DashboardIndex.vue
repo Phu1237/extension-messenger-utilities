@@ -1,22 +1,37 @@
 <template>
-  <div>
-    <p v-for="(item, index) in storage" :key="index">
-      {{ item }}
-    </p>
-  </div>
+  <DescriptionList
+    label="Application information"
+    description="General information of application"
+    :data="information"
+  />
 </template>
 
 <script>
 import { defineComponent } from "vue";
+import DescriptionList from "../../components/dashboard/DescriptionList.vue";
 
 export default defineComponent({
-  created() {
-    this.$store.dispatch("getStorage");
+  components: {
+    DescriptionList,
   },
-  computed: {
-    storage() {
-      return this.$store.state.storage;
-    },
+  data() {
+    return {
+      information: [
+        {
+          label: "Version",
+          value: this.app("version"),
+          isBadge: true,
+        },
+        {
+          label: "Last Changelog",
+          value: this.getChangelog(1)[0].changes,
+        },
+        {
+          label: "Last Filter Updated",
+          value: "",
+        },
+      ],
+    };
   },
 });
 </script>

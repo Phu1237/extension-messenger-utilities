@@ -32,8 +32,14 @@ body {
         @apply font-medium #{!important};
         color: inherit;
     }
+
     &:not(:checked)+label {
         @apply bg-opacity-0 #{!important};
         @apply shadow-none #{!important};
     }
+}
+
+
+.uppercase-first-letter::first-letter {
+    text-transform: uppercase;
 }
