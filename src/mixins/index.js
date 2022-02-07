@@ -3,6 +3,14 @@ import app from '../../package.json'
 import Changelog from '@/core/changelog'
 
 export default {
+  computed: {
+    _syncStorage() {
+      return this.$store.state.storage.sync
+    },
+    _localStorage() {
+      return this.$store.state.storage.local
+    },
+  },
   methods: {
     /**
      * Format date
@@ -20,6 +28,34 @@ export default {
      */
     app(key) {
       return app[key]
+    },
+    /**
+     * Find tab(s) and re-inject the code
+     */
+    reinject() {
+      chrome.tabs.query(
+        {
+          url: ['*://*.messenger.com/*'],
+        },
+        (tabs) => {
+          if (tabs.length > 0) {
+            for (var i = 0; i < tabs.length; ++i) {
+              console.log(tabs[i].url)
+              if (tabs[i].url.includes('messenger.com')) {
+                chrome.tabs.sendMessage(
+                  tabs[i].id,
+                  { action: 'reinject' },
+                  (response) => {
+                    console.log(response)
+                  }
+                )
+              }
+            }
+          } else {
+            console.log('Not found any tab that match with query!')
+          }
+        }
+      )
     },
     /**
      * Get changelog from file

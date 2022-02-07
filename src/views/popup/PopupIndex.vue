@@ -16,7 +16,8 @@
             type="radio"
             class="sr-only"
             value="disable"
-            checked
+            :checked="protect_status === 'disable'"
+            @change="protect_status = 'disable'"
           />
           <label
             for="protect_status_disable"
@@ -33,6 +34,8 @@
             type="radio"
             class="sr-only"
             value="enable"
+            :checked="protect_status === 'enable'"
+            @change="protect_status = 'enable'"
           />
           <label
             for="protect_status_enable"
@@ -46,11 +49,7 @@
     <div class="px-2">
       <div class="font-medium">
         Protect type
-        <!-- <img
-          class="inline-block h-4"
-          src="../icons/svgs/info-with-circle.svg"
-          title="The style of hide item"
-        /> -->
+        <InformationIcon title="The style of hide item" />
       </div>
       <ul
         class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600"
@@ -62,7 +61,8 @@
             type="radio"
             class="sr-only"
             value="none"
-            checked
+            :checked="protect_type === 'none'"
+            @change="protect_type = 'none'"
           />
           <label
             for="protect_type_none"
@@ -79,6 +79,8 @@
             type="radio"
             class="sr-only"
             value="blur"
+            :checked="protect_type === 'blur'"
+            @change="protect_type = 'blur'"
           />
           <label
             for="protect_type_blur"
@@ -94,6 +96,8 @@
             type="radio"
             class="sr-only"
             value="reverse"
+            :checked="protect_type === 'reverse'"
+            @change="protect_type = 'reverse'"
           />
           <label
             for="protect_type_reverse"
@@ -105,14 +109,7 @@
       </ul>
     </div>
     <div class="px-2">
-      <div class="font-medium">
-        Display type
-        <!-- <img
-          class="inline-block h-4"
-          src="../icons/svgs/info-with-circle.svg"
-          title="The event that when it triggers, the hide item will be unhide"
-        /> -->
-      </div>
+      <div class="font-medium">Display type</div>
       <ul
         class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600"
       >
@@ -123,7 +120,8 @@
             type="radio"
             class="sr-only"
             value="none"
-            checked
+            :checked="display_type === 'none'"
+            @click="display_type = 'none'"
           />
           <label
             for="display_type_none"
@@ -140,6 +138,8 @@
             type="radio"
             class="sr-only"
             value="hover"
+            :checked="display_type === 'hover'"
+            @click="display_type = 'hover'"
           />
           <label
             for="display_type_hover"
@@ -153,9 +153,74 @@
     <button
       id="save_btn"
       class="w-full mt-2 py-3 bg-blue-500 hover:bg-blue-700 focus:outline-none font-semibold text-white"
+      @click="save"
     >
       Save
     </button>
-    <button id="go-to-options">> Go to options page</button>
+    <button id="go-to-options" @click="goToDashboard">> Go to Dashboard</button>
   </div>
 </template>
+
+<script>
+import { defineComponent } from 'vue'
+import InformationIcon from '../../components/InformationIcon.vue'
+
+export default defineComponent({
+  components: { InformationIcon },
+  data() {
+    return {
+      form: {
+        protect_status: 'disable',
+        protect_type: 'none',
+        display_type: 'none',
+      },
+    }
+  },
+  computed: {
+    protect_status: {
+      get() {
+        return this._syncStorage.protect_status
+      },
+      set(value) {
+        this.form.protect_status = value
+      },
+    },
+    protect_type: {
+      get() {
+        return this._syncStorage.protect_type
+      },
+      set(value) {
+        this.form.protect_type = value
+      },
+    },
+    display_type: {
+      get() {
+        return this._syncStorage.display_type
+      },
+      set(value) {
+        this.form.display_type = value
+      },
+    },
+  },
+  methods: {
+    save() {
+      this.$store
+        .dispatch('storage/set', {
+          storage: 'sync',
+          data: this.form,
+        })
+        .then(() => {
+          this.$store.dispatch('storage/fetch')
+          this.reinject()
+        })
+    },
+    goToDashboard() {
+      if (chrome.runtime.openOptionsPage) {
+        chrome.runtime.openOptionsPage()
+      } else {
+        window.open(chrome.runtime.getURL('index.html'))
+      }
+    },
+  },
+})
+</script>

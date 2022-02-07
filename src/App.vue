@@ -6,16 +6,9 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  computed: {
-    _syncStorage() {
-      return this.$store.state.storage.sync
-    },
-    _localStorage() {
-      return this.$store.state.storage.local
-    },
-  },
   mounted() {
     this.$store.dispatch('storage/fetch').then(() => {
+      console.log(this._syncStorage, this._localStorage)
       let update = true
       if (
         this._localStorage.filter &&
@@ -29,6 +22,19 @@ export default defineComponent({
       }
       if (update) {
         this.fetchFilter()
+      }
+    })
+    // Open in new tab when click link
+    this.$el.addEventListener('DOMContentLoaded', function () {
+      var links = this.$el.getElementsByTagName('a')
+      for (var i = 0; i < links.length; i++) {
+        ;(function () {
+          var ln = links[i]
+          var location = ln.href
+          ln.onclick = function () {
+            chrome.tabs.create({ active: true, url: location })
+          }
+        })()
       }
     })
   },

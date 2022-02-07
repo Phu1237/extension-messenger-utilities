@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import commonjs from '@rollup/plugin-commonjs';
+import commonjs from '@rollup/plugin-commonjs'
 const path = require('path')
 
 // https://vitejs.dev/config/
@@ -16,13 +16,6 @@ export default defineConfig({
   },
   build: {
     watch: {},
-    commonjsOptions: {
-      input: 'src/core/content.js',
-      output: {
-        file: 'dist/content.js',
-        format: 'es'
-      }
-    },
     rollupOptions: {
       input: {
         index: path.resolve(__dirname, 'index.html'),
@@ -30,8 +23,8 @@ export default defineConfig({
         content: path.resolve(__dirname, 'src/core/content.js'),
       },
       output: {
-        entryFileNames: '[name].js'
-      }
+        entryFileNames: '[name].js',
+      },
     },
   },
 })

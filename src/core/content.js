@@ -1,14 +1,13 @@
-import { configs, helpers } from './global'
+import { configs, helpers } from './helpers'
 
 let delay = 100 // Time in ms
 
 // Get the storage and inject protect css to page
 function handleInject() {
   chrome.storage.sync.get(null, (result) => {
-    let defaultConfigs = helpers.configs(configs)
-    let injectConfigs = Object.assign(defaultConfigs, result)
-    chrome.storage.local.get(['filter'], (local) => {
-      console.log(injectConfigs, local)
+    let injectConfigs = configs.merge(result)
+    chrome.storage.local.get(null, (local) => {
+      helpers.log(injectConfigs, local)
       inject(injectConfigs, local)
     })
   })
