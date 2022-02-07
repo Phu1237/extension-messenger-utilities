@@ -22,12 +22,12 @@ export default {
     /**
      * Fetch data from the chrome storage
      */
-    async fetch({ commit, dispatch }) {
-      await dispatch('get', { storage: 'sync' }).then((result) => {
+    async asyncFetch({ commit, dispatch }) {
+      await dispatch('fetch', { storage: 'sync' }).then((result) => {
         let data = configs.merge(result)
         commit('setStorage', { storage: 'sync', data: data })
       })
-      await dispatch('get', { storage: 'local' }).then((result) => {
+      await dispatch('fetch', { storage: 'local' }).then((result) => {
         commit('setStorage', { storage: 'local', data: result })
       })
       return
@@ -37,8 +37,8 @@ export default {
      * @param {*} param0
      * @param {*} payload
      */
-    get(_, payload) {
-      return new Promise((resolve) => {
+    fetch(_, payload) {
+      return new Promise((resolve, reject) => {
         switch (payload.storage) {
           case 'sync':
             chrome.storage.sync.get(null, (result) => {
@@ -50,6 +50,8 @@ export default {
               resolve(result)
             })
             break
+          default:
+            reject('Storage type not found')
         }
       })
     },
@@ -58,14 +60,20 @@ export default {
      * @param {Object} payload
      */
     set(_, payload) {
-      switch (payload.storage) {
-        case 'sync':
-          chrome.storage.sync.set(payload.data)
-          break
-        case 'local':
-          chrome.storage.local.set(payload.data)
-          break
-      }
+      return new Promise((resolve, reject) => {
+        switch (payload.storage) {
+          case 'sync':
+            chrome.storage.sync.set(payload.data)
+            resolve(true)
+            break
+          case 'local':
+            chrome.storage.local.set(payload.data)
+            resolve(true)
+            break
+          default:
+            reject('Storage type not found')
+        }
+      })
     },
   },
 }

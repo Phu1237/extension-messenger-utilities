@@ -7,7 +7,7 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   mounted() {
-    this.$store.dispatch('storage/fetch').then(() => {
+    this.$store.dispatch('storage/asyncFetch').then(() => {
       console.log(this._syncStorage, this._localStorage)
       let update = true
       if (

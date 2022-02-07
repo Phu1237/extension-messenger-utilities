@@ -16,8 +16,8 @@
             type="radio"
             class="sr-only"
             value="disable"
-            :checked="protect_status === 'disable'"
-            @change="protect_status = 'disable'"
+            :checked="form.protect_status === 'disable'"
+            @change="form.protect_status = 'disable'"
           />
           <label
             for="protect_status_disable"
@@ -34,8 +34,8 @@
             type="radio"
             class="sr-only"
             value="enable"
-            :checked="protect_status === 'enable'"
-            @change="protect_status = 'enable'"
+            :checked="form.protect_status === 'enable'"
+            @change="form.protect_status = 'enable'"
           />
           <label
             for="protect_status_enable"
@@ -61,8 +61,8 @@
             type="radio"
             class="sr-only"
             value="none"
-            :checked="protect_type === 'none'"
-            @change="protect_type = 'none'"
+            :checked="form.protect_type === 'none'"
+            @change="form.protect_type = 'none'"
           />
           <label
             for="protect_type_none"
@@ -79,8 +79,8 @@
             type="radio"
             class="sr-only"
             value="blur"
-            :checked="protect_type === 'blur'"
-            @change="protect_type = 'blur'"
+            :checked="form.protect_type === 'blur'"
+            @change="form.protect_type = 'blur'"
           />
           <label
             for="protect_type_blur"
@@ -96,8 +96,8 @@
             type="radio"
             class="sr-only"
             value="reverse"
-            :checked="protect_type === 'reverse'"
-            @change="protect_type = 'reverse'"
+            :checked="form.protect_type === 'reverse'"
+            @change="form.protect_type = 'reverse'"
           />
           <label
             for="protect_type_reverse"
@@ -120,8 +120,8 @@
             type="radio"
             class="sr-only"
             value="none"
-            :checked="display_type === 'none'"
-            @click="display_type = 'none'"
+            :checked="form.display_type === 'none'"
+            @click="form.display_type = 'none'"
           />
           <label
             for="display_type_none"
@@ -138,8 +138,8 @@
             type="radio"
             class="sr-only"
             value="hover"
-            :checked="display_type === 'hover'"
-            @click="display_type = 'hover'"
+            :checked="form.display_type === 'hover'"
+            @click="form.display_type = 'hover'"
           />
           <label
             for="display_type_hover"
@@ -176,31 +176,10 @@ export default defineComponent({
       },
     }
   },
-  computed: {
-    protect_status: {
-      get() {
-        return this._syncStorage.protect_status
-      },
-      set(value) {
-        this.form.protect_status = value
-      },
-    },
-    protect_type: {
-      get() {
-        return this._syncStorage.protect_type
-      },
-      set(value) {
-        this.form.protect_type = value
-      },
-    },
-    display_type: {
-      get() {
-        return this._syncStorage.display_type
-      },
-      set(value) {
-        this.form.display_type = value
-      },
-    },
+  created() {
+    this.form.protect_status = this._syncStorage.protect_status
+    this.form.protect_type = this._syncStorage.protect_type
+    this.form.display_type = this._syncStorage.display_type
   },
   methods: {
     save() {
@@ -210,8 +189,11 @@ export default defineComponent({
           data: this.form,
         })
         .then(() => {
-          this.$store.dispatch('storage/fetch')
+          this.$store.dispatch('storage/asyncFetch')
           this.reinject()
+        })
+        .catch((err) => {
+          console.error(err)
         })
     },
     goToDashboard() {
