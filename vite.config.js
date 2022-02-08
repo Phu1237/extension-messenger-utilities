@@ -24,6 +24,9 @@ export default defineConfig({
       },
       output: {
         entryFileNames: '[name].js',
+        globals: {
+          configs: path.resolve(__dirname, 'src/core/configs.js'),
+        },
       },
     },
   },
