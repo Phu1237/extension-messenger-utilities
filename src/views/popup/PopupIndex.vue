@@ -16,8 +16,8 @@
             type="radio"
             class="sr-only"
             value="disable"
-            :checked="form.protect_status === 'disable'"
-            @change="form.protect_status = 'disable'"
+            :checked="!form.protect_status"
+            @change="form.protect_status = false"
           />
           <label
             for="protect_status_disable"
@@ -34,8 +34,8 @@
             type="radio"
             class="sr-only"
             value="enable"
-            :checked="form.protect_status === 'enable'"
-            @change="form.protect_status = 'enable'"
+            :checked="form.protect_status"
+            @change="form.protect_status = true"
           />
           <label
             for="protect_status_enable"
@@ -170,16 +170,16 @@ export default defineComponent({
   data() {
     return {
       form: {
-        protect_status: 'disable',
-        protect_type: 'none',
-        display_type: 'none',
+        protect_status: null,
+        protect_type: null,
+        display_type: null,
       },
     }
   },
   created() {
-    this.form.protect_status = this._syncStorage.protect_status
-    this.form.protect_type = this._syncStorage.protect_type
-    this.form.display_type = this._syncStorage.display_type
+    this.form.protect_status = this._syncStorage.protect_status.value
+    this.form.protect_type = this._syncStorage.protect_type.value
+    this.form.display_type = this._syncStorage.display_type.value
   },
   methods: {
     save() {

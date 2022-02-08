@@ -1,5 +1,5 @@
 <template>
-  <form class="space-y-8 divide-y divide-gray-200">
+  <div class="space-y-8 divide-y divide-gray-200">
     <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
       <div>
         <div>
@@ -13,7 +13,7 @@
           <div>
             <FormGroup id="protect_type" label="Protect type">
               <InputToggle
-                :checked="protect_status.value"
+                :checked="protect_status"
                 @input="protect_status.value = !protect_status.value"
               />
             </FormGroup>
@@ -29,12 +29,6 @@
           </div>
           <div class="pt-6 sm:pt-5">
             <FormGroup id="display_type" label="Display type">
-              <!-- <InputRadioField
-                label="ABC"
-                :options="display_type.options"
-                :value="display_type.value"
-                @updateValue="display_type.value = $event"
-              /> -->
               <InputRadio
                 :options="display_type.options"
                 :value="display_type.value"
@@ -49,24 +43,24 @@
     <div class="pt-5">
       <div class="flex justify-end">
         <button
-          type="button"
           class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           Cancel
         </button>
         <button
-          type="submit"
           class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          @click="save"
         >
           Save
         </button>
       </div>
     </div>
-  </form>
+  </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
+import configs from '@/core/configs'
 import FormGroup from '@/components/dashboard/form/FormGroup.vue'
 import InputRadio from '@/components/dashboard/form/radio/StackedCards.vue'
 import InputToggle from '@/components/dashboard/InputToggle.vue'
@@ -81,45 +75,27 @@ export default defineComponent({
   },
   data() {
     return {
-      protect_status: {
-        value: true,
-      },
-      protect_type: {
-        value: 'blur',
-        options: [
-          {
-            label: 'None',
-            value: 'none',
-            description: 'None',
-          },
-          {
-            label: 'Blur',
-            value: 'blur',
-            description: 'Blur',
-          },
-          {
-            label: 'Reverse',
-            value: 'reverse',
-            description: 'Reverse',
-          },
-        ],
-      },
-      display_type: {
-        value: 'none',
-        options: [
-          {
-            label: 'None',
-            value: 'none',
-            description: 'None',
-          },
-          {
-            label: 'Hover',
-            value: 'hover',
-            description: 'Hover',
-          },
-        ],
-      },
+      protect_status: null,
+      protect_type: null,
+      display_type: null,
     }
+  },
+  created() {
+    this.protect_status = this._syncStorage.protect_status
+    this.protect_type = this._syncStorage.protect_type
+    this.display_type = this._syncStorage.display_type
+    console.log(
+      configs.defaultConfigs,
+      configs.mergeObject(
+        configs.defaultConfigs,
+        configs.objectToArray(this._syncStorage)
+      )
+    )
+  },
+  methods: {
+    save() {
+      console.log('save')
+    },
   },
 })
 </script>
