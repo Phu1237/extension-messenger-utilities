@@ -85,7 +85,7 @@ export default {
 
         // Examine the text in the response
         response.json().then((data) => {
-          const filter = data
+          const filter = data.data
           chrome.storage.local.set({
             filter: filter,
             last_filter_updated: Date.now(),
