@@ -1,13 +1,12 @@
-import { configs, helpers } from './helpers'
+import { helpers, configs } from './helpers'
 
 let delay = 100 // Time in ms
 
 // Get the storage and inject protect css to page
 function handleInject() {
   chrome.storage.sync.get(null, (result) => {
-    let injectConfigs = configs.merge(result)
+    let injectConfigs = configs.toKeyValueOnly(configs.merge(result))
     chrome.storage.local.get(null, (local) => {
-      helpers.log(injectConfigs, local)
       inject(injectConfigs, local)
     })
   })
@@ -29,18 +28,18 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 function reinject() {
   handleInject()
 }
-
 /**
  * Inject protect css to page
  */
-function inject(configs, local) {
+function inject(storage, local) {
   let e_id = 'messenger-utilities'
   setTimeout(function () {
-    if (configs.protect_status == 'enable') {
+    helpers.log('Injecting...', storage, local)
+    if (storage.protect_status) {
       let css = ''
       let protect_css = ''
       let display_css = ''
-      const filter = local.filter
+      let filter = local.filter
 
       /**
        * Add css to string
@@ -50,7 +49,7 @@ function inject(configs, local) {
         protect_css += css_add
         display_css += css_add
         if (css_add !== ',') {
-          if (configs.display_type === 'hover') {
+          if (storage.display_type === 'hover') {
             display_css += ':hover'
           }
         }
@@ -80,17 +79,17 @@ function inject(configs, local) {
       let addCSSProperties = function (level = 0) {
         let output = '{'
         if (level != 0) {
-          if (configs.protect_type === 'blur') {
+          if (storage.protect_type === 'blur') {
             output += 'filter: blur(' + level + 'px)'
           }
-          if (configs.protect_type === 'reverse') {
+          if (storage.protect_type === 'reverse') {
             output += `-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-o-transform:rotateY(180deg);-ms-transform:rotateY(180deg);unicode-bidi:bidi-override;direction:rtl;`
           }
         } else {
-          if (configs.protect_type === 'blur') {
+          if (storage.protect_type === 'blur') {
             output += 'filter: blur(0)'
           }
-          if (configs.protect_type === 'reverse') {
+          if (storage.protect_type === 'reverse') {
             output += `-webkit-transform:rotateY(0deg);-moz-transform:rotateY(0deg);-o-transform:rotateY(0deg);-ms-transform:rotateY(0deg);unicode-bidi:normal;direction:ltr;`
           }
         }
@@ -104,8 +103,8 @@ function inject(configs, local) {
        */
       let combineCSS = function () {
         css = protect_css
-        css += addCSSProperties(configs.protect_level)
-        if (configs.display_type != 'none') {
+        css += addCSSProperties(storage.protect_level)
+        if (storage.display_type != 'none') {
           css += display_css
           css += addCSSProperties(0)
         }
@@ -114,7 +113,10 @@ function inject(configs, local) {
       // Handle & Combine
       helpers.log(filter)
       for (element in filter) {
-        if (configs.protect_items.includes(element)) {
+        console.log(element)
+        if (
+          Object.prototype.hasOwnProperty.call(storage.protect_items, element)
+        ) {
           var element = filter[element]
           handleCSS(element.selector)
         }
@@ -145,13 +147,13 @@ function inject(configs, local) {
     } else {
       helpers.log(
         'Not inject with protect_status(' +
-          configs.protect_status +
+          storage.protect_status +
           '), protect_type(' +
-          configs.protect_type +
+          storage.protect_type +
           '), protect_level(' +
-          configs.protect_level +
+          storage.protect_level +
           '), display type(' +
-          configs.display_type +
+          storage.display_type +
           ')'
       )
       let find = document.getElementById(e_id)
