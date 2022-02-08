@@ -113,7 +113,6 @@ function inject(storage, local) {
       // Handle & Combine
       helpers.log(filter)
       for (element in filter) {
-        console.log(element)
         if (
           Object.prototype.hasOwnProperty.call(storage.protect_items, element)
         ) {
