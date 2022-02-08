@@ -77,7 +77,7 @@ class Configs {
    */
   toKeyValueOnly(object) {
     return Object.entries(object).map(([key, value]) => {
-      value = typeof value === 'object' ? this.toKeyValue(value) : value
+      value = typeof value === 'object' ? this.toKeyValueOnly(value) : value
       return {
         key,
         value,
