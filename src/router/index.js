@@ -5,7 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router'
  */
 const routes = [
   {
-    path: '/index.html',
+    path: '/dashboard.html',
     component: () => import('@/layouts/DashboardLayout.vue'),
     children: [
       {

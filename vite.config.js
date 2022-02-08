@@ -7,7 +7,7 @@ const path = require('path')
 export default defineConfig({
   plugins: [vue(), commonjs()],
   server: {
-    open: '/index.html',
+    open: '/dashboard.html',
   },
   resolve: {
     alias: {
@@ -18,7 +18,7 @@ export default defineConfig({
     watch: {},
     rollupOptions: {
       input: {
-        index: path.resolve(__dirname, 'index.html'),
+        dashboard: path.resolve(__dirname, 'dashboard.html'),
         popup: path.resolve(__dirname, 'popup.html'),
         content: path.resolve(__dirname, 'src/core/content.js'),
         background: path.resolve(__dirname, 'src/core/background.js'),
