@@ -76,13 +76,14 @@ class Configs {
    * @returns
    */
   toKeyValueOnly(object) {
-    return Object.entries(object).map(([key, value]) => {
-      value = typeof value === 'object' ? this.toKeyValueOnly(value) : value
-      return {
-        key,
-        value,
-      }
-    })
+    if (typeof object === 'object') {
+      Object.entries(object).forEach(([key, value]) => {
+        value = value.value
+        value = typeof value === 'object' ? this.toKeyValueOnly(value) : value
+        object[key] = value
+      })
+    }
+    return object
   }
   /**
    * Get a value from config

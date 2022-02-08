@@ -6,12 +6,11 @@ class Helpers {
   /**
    * Print log
    *
-   * @param {*} data
-   * @param {Boolean} force
+   * @param {*} ...data
    * @returns
    */
   log(...data) {
-    if (this.inDebugMode === true) {
+    if (this.inDebugMode) {
       console.log(data)
       return true
     }
@@ -24,11 +23,41 @@ class Helpers {
    * @param {String} key
    * @param {*} value
    */
-  setStorage(key, value) {
-    this.log('Storage: set ' + key + '=' + value)
-    chrome.storage.sync.set({ [key]: value })
+  setStorage(key, value, storage = 'sync') {
+    switch (storage) {
+      case 'sync':
+        this.log('Sync storage: set ' + key + '=' + value)
+        chrome.storage.sync.set({ [key]: value })
+        break
+      case 'local':
+        this.log('Sync storage: set ' + key + '=' + value)
+        chrome.storage.local.set({ [key]: value })
+        break
+    }
   }
 
+  fetchFilter() {
+    return new Promise((resolve, reject) => {
+      fetch(import.meta.env.VITE_FILTER_URL).then((response) => {
+        if (response.status !== 200) {
+          this.log(
+            'Looks like there was a problem. Status Code: ' + response.status
+          )
+          reject(response)
+        }
+
+        // Examine the text in the response
+        response.json().then((data) => {
+          const filter = data.data
+          chrome.storage.local.set({
+            filter: filter,
+            last_filter_updated: Date.now(),
+          })
+          resolve(filter)
+        })
+      })
+    })
+  }
   /**
    * Find tab(s) and re-inject the code
    */
@@ -143,6 +172,7 @@ class Configs {
     if (typeof object === 'object') {
       Object.entries(object).forEach(([key, value]) => {
         value = value.value
+        value = typeof value === 'object' ? this.toKeyValueOnly(value) : value
         object[key] = value
       })
     }
