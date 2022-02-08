@@ -21,12 +21,10 @@ export default defineConfig({
         index: path.resolve(__dirname, 'index.html'),
         popup: path.resolve(__dirname, 'popup.html'),
         content: path.resolve(__dirname, 'src/core/content.js'),
+        background: path.resolve(__dirname, 'src/core/background.js'),
       },
       output: {
         entryFileNames: '[name].js',
-        globals: {
-          configs: path.resolve(__dirname, 'src/core/configs.js'),
-        },
       },
     },
   },
