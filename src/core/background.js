@@ -17,7 +17,7 @@ function fetchFilter() {
       const filter = data.data
       chrome.storage.local.set({
         filter: filter,
-        last_filter_updated: Date.now(),
+        filter_last_updated: Date.now(),
       })
       console.log('Filter have just been updated')
     })
@@ -40,9 +40,7 @@ function addContentScript() {
                 target: { tabId: tabs[i].id },
                 files: ['content.js'],
               },
-              (result) => {
-                console.log(result)
-              }
+              () => {}
             )
           }
         }
@@ -57,7 +55,36 @@ function addContentScript() {
  * Run when browser start
  */
 chrome.runtime.onStartup.addListener(() => {
-  fetchFilter()
+  chrome.storage.local.get(
+    ['filter_update_interval', 'filter_last_updated'],
+    (result) => {
+      if (result.filter_update_interval && result.filter_last_updated) {
+        const now = Date.now()
+        const lastUpdated = result.filter_last_updated
+        let interval = null
+        switch (result.filter_update_interval) {
+          case 'daily':
+            interval = 86400000
+            break
+          case 'weekly':
+            interval = 604800000
+            break
+          case 'monthly':
+            interval = 2592000000
+            break
+          case 'startup':
+            interval = -1
+            break
+          default:
+            interval = 86400000
+            break
+        }
+        if (interval === -1 || now - lastUpdated > interval) {
+          fetchFilter()
+        }
+      }
+    }
+  )
 })
 
 /**
@@ -67,8 +94,8 @@ chrome.runtime.onInstalled.addListener(() => {
   mergeStorage('sync')
   mergeStorage('local')
   fetchFilter()
-  addContentScript()
   installedLog()
+  addContentScript()
 })
 
 function installedLog() {

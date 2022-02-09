@@ -80,7 +80,8 @@ export const default_local_storage = {
     name: 'filter_update_interval',
     label: 'Filter update interval',
     description: 'Filter update interval',
-    type: 'daily', // ['daily', 'weekly', 'monthly', 'never','manual']
+    type: String,
+    value: 'daily', // ['daily', 'weekly', 'monthly', 'startup','manual']
   },
 }
 

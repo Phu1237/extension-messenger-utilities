@@ -7,23 +7,8 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   mounted() {
-    this.$store.dispatch('storage/asyncFetch').then(() => {
-      console.log(this._syncStorage, this._localStorage)
-      let update = true
-      if (
-        this._localStorage.filter &&
-        this._localStorage['last_filter_updated']
-      ) {
-        const diff = Date.now() - this._localStorage['last_filter_updated']
-        const limit_time = 60 * 60 * 24 // 1 day
-        if (diff < limit_time) {
-          update = false
-        }
-      }
-      if (update) {
-        this.fetchFilter()
-      }
-    })
+    // Fetch storage into vuex
+    this.$store.dispatch('storage/asyncFetch')
     // Open in new tab when click link
     this.$el.addEventListener('DOMContentLoaded', function () {
       var links = this.$el.getElementsByTagName('a')

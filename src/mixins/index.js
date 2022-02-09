@@ -88,7 +88,7 @@ export default {
           const filter = data.data
           chrome.storage.local.set({
             filter: filter,
-            last_filter_updated: Date.now(),
+            filter_last_updated: Date.now(),
           })
           console.log('Filter have just been updated')
         })
