@@ -60,7 +60,6 @@
 
 <script>
 import { defineComponent } from 'vue'
-import configs from '@/core/configs'
 import FormGroup from '@/components/dashboard/form/FormGroup.vue'
 import InputRadio from '@/components/dashboard/form/radio/StackedCards.vue'
 import InputToggle from '@/components/dashboard/InputToggle.vue'
@@ -84,13 +83,6 @@ export default defineComponent({
     this.protect_status = this._syncStorage.protect_status
     this.protect_type = this._syncStorage.protect_type
     this.display_type = this._syncStorage.display_type
-    console.log(
-      configs.defaultConfigs,
-      configs.mergeObject(
-        configs.defaultConfigs,
-        configs.objectToArray(this._syncStorage)
-      )
-    )
   },
   methods: {
     save() {

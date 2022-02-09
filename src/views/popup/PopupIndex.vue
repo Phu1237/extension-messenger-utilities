@@ -177,9 +177,9 @@ export default defineComponent({
     }
   },
   created() {
-    this.form.protect_status = this._syncStorage.protect_status.value
-    this.form.protect_type = this._syncStorage.protect_type.value
-    this.form.display_type = this._syncStorage.display_type.value
+    this.form.protect_status = this._syncStorage.protect_status
+    this.form.protect_type = this._syncStorage.protect_type
+    this.form.display_type = this._syncStorage.display_type
   },
   methods: {
     save() {

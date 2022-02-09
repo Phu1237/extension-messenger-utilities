@@ -1,5 +1,3 @@
-import configs from '@/core/configs'
-
 export default {
   namespaced: true,
   state: () => ({
@@ -24,8 +22,7 @@ export default {
      */
     async asyncFetch({ commit, dispatch }) {
       await dispatch('fetch', { storage: 'sync' }).then((result) => {
-        let data = configs.merge(result)
-        commit('setStorage', { storage: 'sync', data: data })
+        commit('setStorage', { storage: 'sync', data: result })
       })
       await dispatch('fetch', { storage: 'local' }).then((result) => {
         commit('setStorage', { storage: 'local', data: result })
