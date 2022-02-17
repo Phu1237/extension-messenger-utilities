@@ -27,18 +27,31 @@ function reinject() {
   handleInject()
 }
 
+function getFilter(filter) {
+  let messengerRegex = new RegExp('(.*)://(.*).messenger.com/(.*)')
+  let facebookRegex = new RegExp('(.*)://(.*).facebook.com/(.*)')
+  let domain = document.location.href
+  if (messengerRegex.test(domain)) {
+    return filter['messenger.com']
+  } else if (facebookRegex.test(domain)) {
+    // return Object.assign({}, filter['messenger.com'], filter['facebook.com'])
+    return null
+  }
+}
+
 /**
  * Inject protect css to page
  */
 function inject(storage, local) {
+  helpers.log('Injecting into ' + document.location.href)
   let e_id = 'messenger-utilities'
 
-  helpers.log('Injecting...', storage, local)
   if (storage.protect_status) {
     let css = ''
     let protect_css = ''
     let display_css = ''
-    let filter = local.filter
+    let filter = getFilter(local.filter)
+    helpers.log('Injecting...', storage, local)
 
     /**
      * Add css to string

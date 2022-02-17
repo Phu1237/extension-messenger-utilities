@@ -27,10 +27,16 @@
     "128": "/icons/icon_128.png"
   },
   "permissions": ["storage", "tabs", "scripting"],
-  "host_permissions": ["*://*.messenger.com/*"],
+  "host_permissions": [
+    "*://*.facebook.com/*",
+    "*://*.messenger.com/*"
+  ],
   "content_scripts": [
     {
-      "matches": ["*://*.messenger.com/*"],
+      "matches": [
+        "*://*.facebook.com/*",
+        "*://*.messenger.com/*"
+      ],
       "js": ["content.js"]
     }
   ]

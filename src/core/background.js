@@ -15,7 +15,7 @@ function fetchFilter() {
 
       // Examine the text in the response
       response.json().then((data) => {
-        const filter = data.data
+        const filter = data.data.filter
         chrome.storage.local.set({
           filter: filter,
           filter_last_updated: Date.now(),
@@ -31,20 +31,18 @@ function fetchFilter() {
 function addContentScript() {
   chrome.tabs.query(
     {
-      url: ['*://*.messenger.com/*'],
+      url: ['*://*.facebook.com/*', '*://*.messenger.com/*'],
     },
     (tabs) => {
       if (tabs.length > 0) {
         for (var i = 0; i < tabs.length; ++i) {
-          if (tabs[i].url.includes('messenger.com')) {
-            chrome.scripting.executeScript(
-              {
-                target: { tabId: tabs[i].id },
-                files: ['content.js'],
-              },
-              () => {}
-            )
-          }
+          chrome.scripting.executeScript(
+            {
+              target: { tabId: tabs[i].id },
+              files: ['content.js'],
+            },
+            () => {}
+          )
         }
       } else {
         console.log('Not found any tab that match with query!')
