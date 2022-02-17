@@ -6,12 +6,20 @@ class Helpers {
   /**
    * Print log
    *
-   * @param {*} ...data
+   * arguments length > 1: group, = 1: log
    * @returns
    */
-  log(...data) {
+  log() {
     if (this.inDebugMode) {
-      console.log(data)
+      if (arguments.length > 1) {
+        console.group(arguments[0])
+        for (let i = 1; i < arguments.length; i++) {
+          console.log(arguments[i])
+        }
+        console.groupEnd()
+      } else {
+        console.log(arguments[0])
+      }
       return true
     }
     return false
