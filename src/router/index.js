@@ -1,11 +1,25 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 /**
  * List of routes
  */
 const routes = [
   {
-    path: '/dashboard.html',
+    path: '/',
+    component: () => import('@/layouts/PopupLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'popup',
+        component: () => import('@/views/popup/PopupIndex.vue'),
+        meta: {
+          title: 'Popup',
+        },
+      },
+    ],
+  },
+  {
+    path: '/dashboard',
     component: () => import('@/layouts/DashboardLayout.vue'),
     children: [
       {
@@ -34,30 +48,16 @@ const routes = [
       },
     ],
   },
-  {
-    path: '/popup.html',
-    component: () => import('@/layouts/PopupLayout.vue'),
-    children: [
-      {
-        path: '',
-        name: 'popup',
-        component: () => import('@/views/popup/PopupIndex.vue'),
-        meta: {
-          title: 'Popup',
-        },
-      },
-    ],
-  },
 ]
 
 /**
  * Create router
  */
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: routes,
 })
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   document.title = String(to.meta.title) || 'Dashboard'
   next()
 })
