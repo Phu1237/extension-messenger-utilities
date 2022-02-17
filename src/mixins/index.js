@@ -94,5 +94,17 @@ export default {
         })
       })
     },
+    convertUnixTimestamp(timestamp) {
+      var a = new Date(timestamp)
+      var dmy = a.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      })
+      var hour = a.getHours()
+      var min = a.getMinutes()
+      var time = dmy + ' ' + hour + ':' + min
+      return time
+    },
   },
 }

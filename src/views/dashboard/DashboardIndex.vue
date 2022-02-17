@@ -33,5 +33,13 @@ export default defineComponent({
       ],
     }
   },
+  computed: {
+    lastFilterUpdated() {
+      return this.convertUnixTimestamp(this._localStorage.filter_last_updated)
+    },
+  },
+  created() {
+    this.information[2].value = this.lastFilterUpdated
+  },
 })
 </script>

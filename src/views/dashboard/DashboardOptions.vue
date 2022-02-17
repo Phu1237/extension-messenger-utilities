@@ -14,25 +14,28 @@
             <FormGroup id="protect_type" label="Protect type">
               <InputToggle
                 :checked="protect_status"
-                @input="protect_status.value = !protect_status.value"
+                @input="protect_status = !protect_status"
               />
             </FormGroup>
           </div>
           <div class="pt-6 sm:pt-5">
-            <FormGroup id="protect_type" label="Protect type">
+            <FormGroup
+              :id="description.protect_type.name"
+              :label="description.protect_type.label"
+            >
               <InputRadioField
-                :options="protect_type.options"
-                :value="protect_type.value"
-                @input="protect_type.value = String($event)"
+                :options="description.protect_type.value"
+                :value="protect_type"
+                @input="protect_type = String($event)"
               />
             </FormGroup>
           </div>
           <div class="pt-6 sm:pt-5">
             <FormGroup id="display_type" label="Display type">
               <InputRadio
-                :options="display_type.options"
-                :value="display_type.value"
-                @input="display_type.value = String($event)"
+                :options="description.display_type.value"
+                :value="display_type"
+                @input="display_type = String($event)"
               />
             </FormGroup>
           </div>
@@ -60,6 +63,7 @@
 
 <script>
 import { defineComponent } from 'vue'
+import { default_sync_storage } from '@/core/storage-description'
 import FormGroup from '@/components/dashboard/form/FormGroup.vue'
 import InputRadio from '@/components/dashboard/form/radio/StackedCards.vue'
 import InputToggle from '@/components/dashboard/InputToggle.vue'
@@ -77,6 +81,7 @@ export default defineComponent({
       protect_status: null,
       protect_type: null,
       display_type: null,
+      description: default_sync_storage,
     }
   },
   created() {
