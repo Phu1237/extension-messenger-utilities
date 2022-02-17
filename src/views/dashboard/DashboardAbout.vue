@@ -252,7 +252,7 @@
 
 <script>
 import { defineComponent } from 'vue'
-import TimeLine from '@/components/dashboard/Timeline.vue'
+import TimeLine from '@/components/dashboard/TimeLine.vue'
 
 export default defineComponent({
   components: {
