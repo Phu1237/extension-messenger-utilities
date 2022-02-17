@@ -4,24 +4,26 @@ import { mergeStorage } from './storage'
  * Fetch filter from API
  */
 function fetchFilter() {
-  fetch(import.meta.env.VITE_FILTER_URL).then((response) => {
-    if (response.status !== 200) {
-      console.log(
-        'Looks like there was a problem. Status Code: ' + response.status
-      )
-      return
-    }
+  fetch(import.meta.env.VITE_FILTER_URL + '?time=' + Date.now()).then(
+    (response) => {
+      if (response.status !== 200) {
+        console.log(
+          'Looks like there was a problem. Status Code: ' + response.status
+        )
+        return
+      }
 
-    // Examine the text in the response
-    response.json().then((data) => {
-      const filter = data.data
-      chrome.storage.local.set({
-        filter: filter,
-        filter_last_updated: Date.now(),
+      // Examine the text in the response
+      response.json().then((data) => {
+        const filter = data.data
+        chrome.storage.local.set({
+          filter: filter,
+          filter_last_updated: Date.now(),
+        })
+        console.log('Filter have just been updated')
       })
-      console.log('Filter have just been updated')
-    })
-  })
+    }
+  )
 }
 /**
  * Add content script to existed page when installed, enabled
