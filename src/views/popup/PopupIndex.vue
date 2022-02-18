@@ -47,6 +47,48 @@
       </ul>
     </div>
     <div class="px-2">
+      <div class="font-medium">Hide status</div>
+      <ul
+        class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600"
+      >
+        <li class="filter-switch-item flex relative h-8 bg-gray-300">
+          <input
+            id="hide_status_disable"
+            name="hide_status"
+            type="radio"
+            class="sr-only"
+            value="disable"
+            :checked="!form.hide_status"
+            @change="form.hide_status = false"
+          />
+          <label
+            for="hide_status_disable"
+            class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow"
+          >
+            Disable
+          </label>
+          <div aria-hidden="true" class="filter-active"></div>
+        </li>
+        <li class="filter-switch-item flex relative h-8 bg-gray-300x">
+          <input
+            id="hide_status_enable"
+            name="hide_status"
+            type="radio"
+            class="sr-only"
+            value="enable"
+            :checked="form.hide_status"
+            @change="form.hide_status = true"
+          />
+          <label
+            for="hide_status_enable"
+            class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow"
+          >
+            Enable
+          </label>
+        </li>
+      </ul>
+    </div>
+    <div class="px-2">
       <div class="font-medium">
         Protect type
         <InformationIcon title="The style of hide item" />
@@ -173,6 +215,7 @@ export default defineComponent({
         protect_status: null,
         protect_type: null,
         display_type: null,
+        hide_status: null,
       },
     }
   },
@@ -180,6 +223,7 @@ export default defineComponent({
     this.form.protect_status = this._syncStorage.protect_status
     this.form.protect_type = this._syncStorage.protect_type
     this.form.display_type = this._syncStorage.display_type
+    this.form.hide_status = this._syncStorage.hide_status
   },
   methods: {
     save() {

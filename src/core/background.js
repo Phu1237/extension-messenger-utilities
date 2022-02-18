@@ -15,9 +15,9 @@ function fetchFilter() {
 
       // Examine the text in the response
       response.json().then((data) => {
-        const filter = data.data.filter
         chrome.storage.local.set({
-          filter: filter,
+          hide: data.data.hide,
+          filter: data.data.filter,
           filter_last_updated: Date.now(),
         })
         console.log('Filter have just been updated')
@@ -118,7 +118,7 @@ function installedLog() {
       console.groupEnd()
     })
 
-    const autoClearStorage = false
+    const autoClearStorage = true
     if (autoClearStorage) {
       /**
        * Delete all sync storage items

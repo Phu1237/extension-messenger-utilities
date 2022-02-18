@@ -1,4 +1,5 @@
 <template>
+  <!-- http://127.0.0.1:5500/components/application-ui/forms/toggles/#component-b99e1c97056ef7d294767c9def084f7b -->
   <div class="flex items-center">
     <button
       type="button"
@@ -17,8 +18,9 @@
       />
     </button>
     <span id="annual-billing-label" class="ml-3">
-      <span class="text-sm font-medium text-gray-900">Annual billing </span>
-      <span class="text-sm text-gray-500">(Save 10%)</span>
+      <span class="text-sm font-medium text-gray-900">
+        {{ checked === true ? 'Enable' : 'Disable' }}
+      </span>
     </span>
   </div>
 </template>
@@ -28,6 +30,14 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
+    label: {
+      type: String,
+      default: '',
+    },
+    subLabel: {
+      type: String,
+      default: '',
+    },
     checked: {
       type: Boolean,
       default: false,

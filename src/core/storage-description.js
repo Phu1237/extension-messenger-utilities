@@ -7,42 +7,44 @@ export const default_sync_storage = {
     label: 'Protect status',
     description: 'Protect status',
     type: Boolean,
-    value: true,
   },
   protect_type: {
     name: 'protect_type',
     label: 'Protect type',
-    description: 'Protect type',
+    description: 'Type of protection',
     type: String,
-    value: {
+    options: {
+      none: {
+        name: 'none',
+        label: 'None',
+        description: 'None',
+        type: String,
+      },
       blur: {
         name: 'blur',
         label: 'Blur',
-        description: 'Blur',
+        description: 'Blur the content',
         type: String,
-        value: 'blur',
       },
       reverse: {
         name: 'reverse',
         label: 'Reverse',
-        description: 'Reverse',
+        description: 'Reverse the content',
         type: String,
-        value: 'reverse',
       },
     },
   },
   protect_items: {
     name: 'protect_items',
     label: 'Protect items',
-    description: 'Protect items',
+    description: 'Items to protect',
     type: Object,
-    value: {
+    options: {
       general: {
         name: 'general',
         label: 'General items',
         description: 'Tooltip, etc',
         type: Boolean,
-        value: true,
       },
       image: {
         name: 'image',
@@ -50,52 +52,69 @@ export const default_sync_storage = {
         description:
           'Avatar, icon message, seen avatar icon, seen avatar icon in group, video, chatter avatar, etc',
         type: Boolean,
-        value: true,
       },
       name: {
         name: 'name',
         label: 'Name',
         description: 'Left sidebar name, chatter name, right sidebar name, etc',
         type: Boolean,
-        value: true,
       },
       message: {
         name: 'message',
         label: 'Message',
         description: 'Left sidebar message, call block, chatter message, etc',
         type: Boolean,
-        value: true,
       },
       chatbox: {
         name: 'chatbox',
         label: 'Chatbox',
         description: 'Chatbox',
         type: Boolean,
-        value: false,
       },
     },
   },
   protect_level: {
     name: 'protect_level',
     label: 'Protect level',
-    description: 'Protect level',
+    description: 'Level of protection',
     type: Number,
     value: 8,
   },
   display_type: {
     name: 'display_type',
     label: 'Display type',
-    description: 'Display type',
+    description: 'Type of display event to unprotect',
     type: String,
-    value: {
+    options: {
+      none: {
+        name: 'none',
+        label: 'None',
+        description: 'None',
+        type: String,
+      },
       hover: {
         name: 'hover',
         label: 'Hover',
-        description: 'Hover',
+        description: 'Hover the content',
         type: String,
-        value: 'hover',
       },
     },
+  },
+  hide_status: {
+    name: 'hide_status',
+    label: 'Hide status',
+    description: 'Hide status',
+    type: Boolean,
+    value: true,
+  },
+  hide_list: {
+    name: 'hide_list',
+    label: 'Hide list',
+    description:
+      'List of chat will be hidden. One hidden chat id per line.<br/>- How to get:<br/>https://www.messenger.com/t/1xxxxxxxxxxxxxx<br/>=> 1xxxxxxxxxxxxxx',
+    placeholder: '1xxxxxxxxxxxxxx\n1xxxxxxxxxxxxxx',
+    type: String,
+    value: '',
   },
 }
 export const default_local_storage = {

@@ -108,5 +108,22 @@ export default {
       var time = dmy + ' ' + hour + ':' + min
       return time
     },
+    objectToArray(object) {
+      return Object.entries(object)
+        .map(([key, value]) => {
+          if (value === true) {
+            return key
+          }
+        })
+        .filter((item) => {
+          return item != undefined
+        })
+    },
+    arrayToObject(array) {
+      return array.reduce((obj, item) => {
+        obj[item] = true
+        return obj
+      }, {})
+    },
   },
 }
