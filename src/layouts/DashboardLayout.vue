@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import TheBanner from '@/components/TheBanner.vue'
+import TheBanner from '@/components/dashboard/TheBanner.vue'
 import NavLink from '@/components/dashboard/NavLink.vue'
 
 export default {
