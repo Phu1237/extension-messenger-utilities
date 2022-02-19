@@ -20,21 +20,23 @@ export default {
     /**
      * Fetch data from the chrome storage
      */
-    async asyncFetch({ commit, dispatch }) {
-      await dispatch('fetch', { storage: 'sync' }).then((result) => {
-        commit('setStorage', { storage: 'sync', data: result })
+    fetch({ commit, dispatch }) {
+      return new Promise((resolve) => {
+        dispatch('get', { storage: 'sync' }).then((result) => {
+          commit('setStorage', { storage: 'sync', data: result })
+        })
+        dispatch('get', { storage: 'local' }).then((result) => {
+          commit('setStorage', { storage: 'local', data: result })
+        })
+        resolve()
       })
-      await dispatch('fetch', { storage: 'local' }).then((result) => {
-        commit('setStorage', { storage: 'local', data: result })
-      })
-      return
     },
     /**
      * Get data from the chrome storage
      * @param {*} param0
      * @param {*} payload
      */
-    fetch(_, payload) {
+    get(_, payload) {
       return new Promise((resolve, reject) => {
         switch (payload.storage) {
           case 'sync':

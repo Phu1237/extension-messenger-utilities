@@ -165,7 +165,7 @@ export default defineComponent({
           data: this.form,
         })
         .then(() => {
-          this.$store.dispatch('storage/asyncFetch')
+          this.$store.dispatch('storage/fetch')
           this.$toast.success('Saved!')
           this.reinject()
         })
