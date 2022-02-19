@@ -12,12 +12,11 @@ function log() {
         console.log(arguments[i])
       }
       console.groupEnd()
-    } else {
-      console.log(arguments[0])
+      return
     }
-    return true
+    console.log(arguments[0])
+    return
   }
-  return false
 }
 
 function getFilter(filter) {
@@ -36,7 +35,7 @@ export function inject(sync, local) {
   let css = ''
   let protect_css = ''
   let display_css = ''
-  let filter = getFilter(local.filter)
+  let filter = getFilter(local.protect_privacy)
   log('Injecting...', sync, local)
 
   /**

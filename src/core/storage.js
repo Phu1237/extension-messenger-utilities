@@ -128,6 +128,27 @@ export const default_local_storage = {
 }
 
 /**
+ * Print log
+ *
+ * arguments length > 1: group, = 1: log
+ * @returns
+ */
+function log() {
+  if (import.meta.env.DEV) {
+    if (arguments.length > 1) {
+      console.group(arguments[0])
+      for (let i = 1; i < arguments.length; i++) {
+        console.log(arguments[i])
+      }
+      console.groupEnd()
+      return
+    }
+    console.log(arguments[0])
+    return
+  }
+}
+
+/**
  * Convert object to key-value only
  * @param {*} object
  * @returns
@@ -147,7 +168,7 @@ function objectToKeyValueOnly(object) {
  */
 function mergeStorageObject(default_storage_value, current_value) {
   default_storage_value = objectToKeyValueOnly(default_storage_value)
-  console.log('mergeStorageObject', default_storage_value, current_value)
+  log('mergeStorageObject', default_storage_value, current_value)
   let new_storage = default_storage_value
   if (current_value !== null) {
     Object.entries(current_value).forEach(([key, value]) => {

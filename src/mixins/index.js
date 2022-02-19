@@ -30,6 +30,26 @@ export default {
       return app[key]
     },
     /**
+     * Print log
+     *
+     * arguments length > 1: group, = 1: log
+     * @returns
+     */
+    log() {
+      if (import.meta.env.DEV) {
+        if (arguments.length > 1) {
+          console.group(arguments[0])
+          for (let i = 1; i < arguments.length; i++) {
+            console.log(arguments[i])
+          }
+          console.groupEnd()
+          return
+        }
+        console.log(arguments[0])
+        return
+      }
+    },
+    /**
      * Find tab(s) and re-inject the code
      */
     reinject() {
@@ -40,19 +60,19 @@ export default {
         (tabs) => {
           if (tabs.length > 0) {
             for (var i = 0; i < tabs.length; ++i) {
-              console.log(tabs[i].url)
+              this.log(tabs[i].url)
               if (tabs[i].url.includes('messenger.com')) {
                 chrome.tabs.sendMessage(
                   tabs[i].id,
                   { action: 'reinject' },
                   (response) => {
-                    console.log(response)
+                    this.log(response)
                   }
                 )
               }
             }
           } else {
-            console.log('Not found any tab that match with query!')
+            this.log('Not found any tab that match with query!')
           }
         }
       )
@@ -78,7 +98,7 @@ export default {
       fetch(import.meta.env.VITE_FETCH_URL + '?time=' + Date.now()).then(
         (response) => {
           if (response.status !== 200) {
-            console.log(
+            this.log(
               'Looks like there was a problem. Status Code: ' + response.status
             )
             return
@@ -91,7 +111,7 @@ export default {
               filter: data.data.filter,
               last_updated: Date.now(),
             })
-            console.log('Extension data have just been updated')
+            this.log('Extension data have just been updated')
           })
         }
       )

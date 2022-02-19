@@ -12,12 +12,11 @@ function log() {
         console.log(arguments[i])
       }
       console.groupEnd()
-    } else {
-      console.log(arguments[0])
+      return
     }
-    return true
+    console.log(arguments[0])
+    return
   }
-  return false
 }
 
 export function inject(hide_string, list) {

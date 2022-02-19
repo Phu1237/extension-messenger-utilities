@@ -3,30 +3,48 @@ import packageJson from '../../package.json?raw'
 
 const app = JSON.parse(packageJson)
 /**
+ * Print log
+ *
+ * arguments length > 1: group, = 1: log
+ * @returns
+ */
+function log() {
+  if (import.meta.env.DEV) {
+    if (arguments.length > 1) {
+      console.group(arguments[0])
+      for (let i = 1; i < arguments.length; i++) {
+        console.log(arguments[i])
+      }
+      console.groupEnd()
+      return
+    }
+    console.log(arguments[0])
+    return
+  }
+}
+/**
  * Fetch from API
  */
 function fetchData() {
   fetch(import.meta.env.VITE_FETCH_URL + '?time=' + Date.now()).then(
     (response) => {
       if (response.status !== 200) {
-        console.log(
-          'Looks like there was a problem. Status Code: ' + response.status
-        )
+        log('Looks like there was a problem. Status Code: ' + response.status)
         return
       }
 
       // Examine the text in the response
       response.json().then((data) => {
-        console.log('Requirements:', data.dependencies)
+        log('Requirements:', data.dependencies)
         if (app['version'] >= data.dependencies['messenger-utilities']) {
           chrome.storage.local.set({
             ...data.data,
             last_updated: Date.now(),
           })
-          console.log('Extension data have just been updated')
+          log('Extension data have just been updated')
         } else {
-          console.log('Requirements:', data.dependencies)
-          console.log('Extension version is not meet the requirement')
+          log('Requirements:', data.dependencies)
+          log('Extension version is not meet the requirement')
         }
       })
     }
@@ -52,7 +70,7 @@ function addContentScript() {
           )
         }
       } else {
-        console.log('Not found any tab that match with query!')
+        log('Not found any tab that match with query!')
       }
     }
   )
@@ -108,18 +126,14 @@ function installedLog() {
      * Print all sync storage items
      */
     chrome.storage.sync.get(null, function (result) {
-      console.group('All sync storage items')
-      console.log(result)
-      console.groupEnd()
+      log('All sync storage items', result)
     })
 
     /**
      * Print all local storage items
      */
     chrome.storage.local.get(null, function (result) {
-      console.group('All local storage items')
-      console.log(result)
-      console.groupEnd()
+      log('All local storage items', result)
     })
 
     const autoClearStorage = true
@@ -128,13 +142,13 @@ function installedLog() {
        * Delete all sync storage items
        */
       chrome.storage.sync.clear().then(() => {
-        console.log('Cleared all sync storage items')
+        log('Cleared all sync storage items')
       })
       /**
        * Delete all local storage items
        */
       chrome.storage.local.clear().then(() => {
-        console.log('Cleared all local storage items')
+        log('Cleared all local storage items')
       })
     }
   }
