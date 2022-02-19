@@ -1,9 +1,6 @@
 <template>
   <div class="p-1">
-    <div
-      id="alert"
-      class="hidden p-1 rounded-md border border-gray-400 bg-green-300 text text-black"
-    ></div>
+    <Alert v-if="alert.message" :type="alert.type" :message="alert.message" />
     <div class="px-2">
       <div class="font-medium">Protect status</div>
       <ul
@@ -89,68 +86,6 @@
       </ul>
     </div>
     <div class="px-2">
-      <div class="font-medium">
-        Protect type
-        <InformationIcon title="The style of hide item" />
-      </div>
-      <ul
-        class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600"
-      >
-        <li class="filter-switch-item flex relative h-8 bg-gray-300x">
-          <input
-            id="protect_type_none"
-            name="protect_type"
-            type="radio"
-            class="sr-only"
-            value="none"
-            :checked="form.protect_type === 'none'"
-            @change="form.protect_type = 'none'"
-          />
-          <label
-            for="protect_type_none"
-            class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow"
-          >
-            None
-          </label>
-          <div aria-hidden="true" class="filter-active"></div>
-        </li>
-        <li class="filter-switch-item flex relative h-8 bg-gray-300x">
-          <input
-            id="protect_type_blur"
-            name="protect_type"
-            type="radio"
-            class="sr-only"
-            value="blur"
-            :checked="form.protect_type === 'blur'"
-            @change="form.protect_type = 'blur'"
-          />
-          <label
-            for="protect_type_blur"
-            class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow"
-          >
-            Blur
-          </label>
-        </li>
-        <li class="filter-switch-item flex relative h-8 bg-gray-300x">
-          <input
-            id="protect_type_reverse"
-            name="protect_type"
-            type="radio"
-            class="sr-only"
-            value="reverse"
-            :checked="form.protect_type === 'reverse'"
-            @change="form.protect_type = 'reverse'"
-          />
-          <label
-            for="protect_type_reverse"
-            class="h-8 py-1 px-2 bg-white text-sm leading-6 text-gray-600 hover:text-blue-600 rounded shadow"
-          >
-            Reverse
-          </label>
-        </li>
-      </ul>
-    </div>
-    <div class="px-2">
       <div class="font-medium">Display type</div>
       <ul
         class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600"
@@ -205,15 +140,22 @@
 
 <script>
 import { defineComponent } from 'vue'
-import InformationIcon from '../../components/InformationIcon.vue'
+import InformationIcon from '@/components/popup/InformationIcon.vue'
+import Alert from '@/components/Alert.vue'
 
 export default defineComponent({
-  components: { InformationIcon },
+  components: {
+    InformationIcon,
+    Alert,
+  },
   data() {
     return {
+      alert: {
+        type: '',
+        message: '',
+      },
       form: {
         protect_status: null,
-        protect_type: null,
         display_type: null,
         hide_status: null,
       },
@@ -221,11 +163,14 @@ export default defineComponent({
   },
   created() {
     this.form.protect_status = this._syncStorage.protect_status
-    this.form.protect_type = this._syncStorage.protect_type
     this.form.display_type = this._syncStorage.display_type
     this.form.hide_status = this._syncStorage.hide_status
   },
   methods: {
+    pushAlert(type, message) {
+      this.alert.type = type
+      this.alert.message = message
+    },
     save() {
       this.$store
         .dispatch('storage/set', {
@@ -234,10 +179,11 @@ export default defineComponent({
         })
         .then(() => {
           this.$store.dispatch('storage/asyncFetch')
+          this.pushAlert('success', 'Saved')
           this.reinject()
         })
         .catch((err) => {
-          console.error(err)
+          this.pushAlert('error', err.message)
         })
     },
     goToDashboard() {

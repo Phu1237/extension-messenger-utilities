@@ -12,11 +12,5 @@
     >
       <font-awesome-icon :icon="['fab', 'facebook-messenger']" class="h-6" />
     </a>
-    <div
-      id="protect_status_box"
-      class="flex justify-center items-center w-1/6 p-3 bg-gray-300"
-    >
-      <font-awesome-icon :icon="['fas', 'eye']" class="h-6" />
-    </div>
   </div>
 </template>

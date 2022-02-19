@@ -5,6 +5,10 @@ import {
   faEyeSlash,
   faClockRotateLeft,
   faPlus,
+  faCircleInfo,
+  faCircleCheck,
+  faTriangleExclamation,
+  faXmark,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faEnvelope,
@@ -18,7 +22,16 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 
 // Solid
-library.add(faEye, faEyeSlash, faClockRotateLeft, faPlus)
+library.add(
+  faEye,
+  faEyeSlash,
+  faClockRotateLeft,
+  faPlus,
+  faCircleInfo,
+  faCircleCheck,
+  faTriangleExclamation,
+  faXmark
+)
 // Regular
 library.add(faEnvelope, faCircleQuestion)
 // Brands

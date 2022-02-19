@@ -29,10 +29,10 @@
       <font-awesome-icon :icon="['fab', 'linkedin']" class="h-6" />
     </a>
   </footer>
-  <div class="flex justify-between px-2">
+  <footer class="flex justify-between px-2">
     Author: Phu1237
-    <span id="version">v</span>
-  </div>
+    <span id="version">v{{ app('version') }}</span>
+  </footer>
 </template>
 
 <style lang="scss">

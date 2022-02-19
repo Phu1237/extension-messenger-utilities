@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import TheHeader from '@/components/TheHeader.vue'
-import TheFooter from '@/components/TheFooter.vue'
+import TheHeader from '@/components/popup/TheHeader.vue'
+import TheFooter from '@/components/popup/TheFooter.vue'
 
 export default {
   components: {
