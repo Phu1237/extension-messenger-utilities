@@ -35,17 +35,25 @@ function fetchData() {
 
       // Examine the text in the response
       response.json().then((data) => {
-        log('Requirements:', data.dependencies)
-        if (app['version'] >= data.dependencies['messenger-utilities']) {
-          chrome.storage.local.set({
-            ...data.data,
-            last_updated: Date.now(),
-          })
-          log('Extension data have just been updated')
-        } else {
+        chrome.storage.local.get(['version'], function (result) {
+          log('Current data version', result.version)
+          log('Upcoming data version', data.version)
           log('Requirements:', data.dependencies)
-          log('Extension version is not meet the requirement')
-        }
+          if (!result.version || result.version < data.version) {
+            if (app['version'] >= data.dependencies['messenger-utilities']) {
+              chrome.storage.local.set({
+                ...data.data,
+                version: data.version,
+                last_updated: Date.now(),
+              })
+              log('Extension data have just been updated')
+            } else {
+              log('Extension version is not meet the requirements')
+            }
+          } else {
+            log('Extension data is up to date')
+          }
+        })
       })
     }
   )
