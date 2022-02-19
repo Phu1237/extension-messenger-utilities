@@ -118,12 +118,12 @@ export const default_sync_storage = {
   },
 }
 export const default_local_storage = {
-  filter_update_interval: {
-    name: 'filter_update_interval',
-    label: 'Filter update interval',
-    description: 'Filter update interval',
+  update_interval: {
+    name: 'update_interval',
+    label: 'Update interval',
+    description: 'Update interval',
     type: String,
-    value: 'daily', // ['daily', 'weekly', 'monthly', 'startup','manual']
+    value: 'startup', // ['daily', 'weekly', 'monthly', 'startup','manual']
   },
 }
 

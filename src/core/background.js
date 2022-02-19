@@ -1,5 +1,7 @@
 import { mergeStorage } from './storage'
+import packageJson from '../../package.json?raw'
 
+const app = JSON.parse(packageJson)
 /**
  * Fetch from API
  */
@@ -15,12 +17,17 @@ function fetchData() {
 
       // Examine the text in the response
       response.json().then((data) => {
-        chrome.storage.local.set({
-          hide: data.data.hide,
-          filter: data.data.filter,
-          last_updated: Date.now(),
-        })
-        console.log('Extension data have just been updated')
+        console.log('Requirements:', data.dependencies)
+        if (app['version'] >= data.dependencies['messenger-utilities']) {
+          chrome.storage.local.set({
+            ...data.data,
+            last_updated: Date.now(),
+          })
+          console.log('Extension data have just been updated')
+        } else {
+          console.log('Requirements:', data.dependencies)
+          console.log('Extension version is not meet the requirement')
+        }
       })
     }
   )
@@ -55,36 +62,33 @@ function addContentScript() {
  * Run when browser start
  */
 chrome.runtime.onStartup.addListener(() => {
-  chrome.storage.local.get(
-    ['filter_update_interval', 'last_updated'],
-    (result) => {
-      if (result.filter_update_interval && result.last_updated) {
-        const now = Date.now()
-        const lastUpdated = result.last_updated
-        let interval = null
-        switch (result.filter_update_interval) {
-          case 'daily':
-            interval = 86400000
-            break
-          case 'weekly':
-            interval = 604800000
-            break
-          case 'monthly':
-            interval = 2592000000
-            break
-          case 'startup':
-            interval = -1
-            break
-          default:
-            interval = 86400000
-            break
-        }
-        if (interval === -1 || now - lastUpdated > interval) {
-          fetchData()
-        }
+  chrome.storage.local.get(['update_interval', 'last_updated'], (result) => {
+    if (result.update_interval && result.last_updated) {
+      const now = Date.now()
+      const lastUpdated = result.last_updated
+      let interval = -1
+      // switch (result.update_interval) {
+      //   case 'daily':
+      //     interval = 86400000
+      //     break
+      //   case 'weekly':
+      //     interval = 604800000
+      //     break
+      //   case 'monthly':
+      //     interval = 2592000000
+      //     break
+      //   case 'startup':
+      //     interval = -1
+      //     break
+      //   default:
+      //     interval = 86400000
+      //     break
+      // }
+      if (interval === -1 || now - lastUpdated > interval) {
+        fetchData()
       }
     }
-  )
+  })
 })
 
 /**
