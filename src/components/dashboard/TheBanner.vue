@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-indigo-600">
+  <div v-if="isShow" class="bg-indigo-600">
     <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between flex-wrap">
         <div class="w-0 flex-1 flex items-center">
@@ -22,17 +22,17 @@
             </svg>
           </span>
           <p class="ml-3 font-medium text-white truncate">
-            <span class="md:hidden"> We announced a new product! </span>
-            <span class="hidden md:inline">
-              Big news! We're excited to announce a brand new product.
+            <span>
+              {{ notification.message }}
             </span>
           </p>
         </div>
         <div
+          v-if="notification.url != ''"
           class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto"
         >
           <a
-            href="#"
+            :href="notification.url"
             class="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
           >
             Learn more
@@ -42,6 +42,7 @@
           <button
             type="button"
             class="-mr-1 flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
+            @click="dismiss"
           >
             <span class="sr-only">Dismiss</span>
             <!-- Heroicon name: outline/x -->
@@ -66,3 +67,39 @@
     </div>
   </div>
 </template>
+
+<script>
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  computed: {
+    notification() {
+      return this._localStorage.notification
+    },
+    isShow() {
+      if (
+        this._localStorage.notification_closed == true &&
+        this._localStorage.notification_time != this.notification.time
+      ) {
+        return false
+      }
+      return true
+    },
+  },
+  methods: {
+    dismiss() {
+      this.$store
+        .dispatch('storage/set', {
+          storage: 'local',
+          data: {
+            notification_closed: true,
+            notification_time: this.notification.time,
+          },
+        })
+        .then(() => {
+          this.$store.dispatch('storage/asyncFetch')
+        })
+    },
+  },
+})
+</script>

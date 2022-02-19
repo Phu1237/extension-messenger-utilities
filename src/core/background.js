@@ -35,6 +35,7 @@ function fetchData() {
 
       // Examine the text in the response
       response.json().then((data) => {
+        chrome.storage.local.set({ notification: data.notification })
         chrome.storage.local.get(['version'], function (result) {
           log('Current data version', result.version)
           log('Upcoming data version', data.version)
