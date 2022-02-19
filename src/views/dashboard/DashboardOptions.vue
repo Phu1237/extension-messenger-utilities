@@ -166,9 +166,11 @@ export default defineComponent({
         })
         .then(() => {
           this.$store.dispatch('storage/asyncFetch')
+          this.$toast.success('Saved!')
           this.reinject()
         })
         .catch((err) => {
+          this.$toast.error(err)
           console.error(err)
         })
     },
