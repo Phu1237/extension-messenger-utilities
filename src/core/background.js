@@ -36,7 +36,8 @@ function fetchData() {
       // Examine the text in the response
       response.json().then((data) => {
         chrome.storage.local.set({ notification: data.notification })
-        chrome.storage.local.get(['version'], function (result) {
+        chrome.storage.local.set({ last_updated: Date.now() })
+        chrome.storage.local.get(['version'], (result) => {
           log('Current data version', result.version)
           log('Upcoming data version', data.version)
           log('Requirements:', data.dependencies)
@@ -45,7 +46,6 @@ function fetchData() {
               chrome.storage.local.set({
                 ...data.data,
                 version: data.version,
-                last_updated: Date.now(),
               })
               log('Extension data have just been updated')
             } else {

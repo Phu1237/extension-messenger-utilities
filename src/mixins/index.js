@@ -106,16 +106,37 @@ export default {
 
           // Examine the text in the response
           response.json().then((data) => {
-            chrome.storage.local.set({
-              hide: data.data.hide,
-              filter: data.data.filter,
-              last_updated: Date.now(),
+            chrome.storage.local.set({ notification: data.notification })
+            chrome.storage.local.set({ last_updated: Date.now() })
+            chrome.storage.local.get(['version'], (result) => {
+              this.log('Current data version', result.version)
+              this.log('Upcoming data version', data.version)
+              this.log('Requirements:', data.dependencies)
+              if (!result.version || result.version < data.version) {
+                if (
+                  app['version'] >= data.dependencies['messenger-utilities']
+                ) {
+                  chrome.storage.local.set({
+                    ...data.data,
+                    version: data.version,
+                  })
+                  this.log('Extension data have just been updated')
+                } else {
+                  this.log('Extension version is not meet the requirements')
+                }
+              } else {
+                this.log('Extension data is up to date')
+              }
             })
-            this.log('Extension data have just been updated')
           })
         }
       )
     },
+    /**
+     * Convert unix timestamp to readable datetime
+     * @param {*} timestamp
+     * @returns
+     */
     convertUnixTimestamp(timestamp) {
       var a = new Date(timestamp)
       var dmy = a.toLocaleDateString('en-US', {
@@ -128,6 +149,11 @@ export default {
       var time = dmy + ' ' + hour + ':' + min
       return time
     },
+    /**
+     * Convert object to array
+     * @param {Object} object
+     * @returns {Array}
+     */
     objectToArray(object) {
       return Object.entries(object)
         .map(([key, value]) => {
@@ -139,6 +165,11 @@ export default {
           return item != undefined
         })
     },
+    /**
+     * Convert array to object
+     * @param {Array} array
+     * @returns {Object}
+     */
     arrayToObject(array) {
       return array.reduce((obj, item) => {
         obj[item] = true
