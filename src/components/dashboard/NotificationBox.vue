@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isShow" class="bg-indigo-600">
+  <div v-if="isShow()" class="bg-indigo-600">
     <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between flex-wrap">
         <div class="w-0 flex-1 flex items-center">
@@ -72,21 +72,27 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  computed: {
-    notification() {
-      return this._localStorage.notification
+  props: {
+    notification: {
+      type: Object,
+      required: true,
     },
+    closed: {
+      type: Boolean,
+      default: false,
+    },
+    time: {
+      type: String,
+      default: '0',
+    },
+  },
+  methods: {
     isShow() {
-      if (
-        this._localStorage.notification_closed == true &&
-        this._localStorage.notification_time != this.notification.time
-      ) {
+      if (this.closed == true && this.time != this.notification.time) {
         return false
       }
       return true
     },
-  },
-  methods: {
     dismiss() {
       this.$store
         .dispatch('storage/set', {
@@ -97,7 +103,7 @@ export default defineComponent({
           },
         })
         .then(() => {
-          this.$store.dispatch('storage/asyncFetch')
+          this.$store.dispatch('storage/fetch')
         })
     },
   },

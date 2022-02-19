@@ -32,7 +32,11 @@
           </div>
         </div>
       </nav>
-      <TheBanner />
+      <NotificationBox
+        :notification="notification"
+        :closed="notification_closed"
+        :time="notification_time"
+      />
       <header class="py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 class="text-3xl font-bold text-white">Dashboard</h1>
@@ -53,13 +57,25 @@
 </template>
 
 <script>
-import TheBanner from '@/components/dashboard/TheBanner.vue'
 import NavLink from '@/components/dashboard/NavLink.vue'
+import NotificationBox from '@/components/dashboard/NotificationBox.vue'
 
 export default {
   components: {
-    TheBanner,
     NavLink,
+    NotificationBox,
+  },
+  data() {
+    return {
+      notification: null,
+      notification_closed: false,
+      notification_time: null,
+    }
+  },
+  created() {
+    this.notification = this._localStorage.notification
+    this.notification_closed = this._localStorage.notification_closed
+    this.notification_time = this._localStorage.notification_time
   },
 }
 </script>
