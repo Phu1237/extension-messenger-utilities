@@ -19,6 +19,22 @@ function log() {
   }
 }
 
+function mergeFilters(to, from) {
+  Object.entries(from).forEach(([key]) => {
+    if (Object.prototype.hasOwnProperty.call(to, key)) {
+      log('mergeFilter', to[key], from[key])
+      if (Array.isArray(to[key].selector)) {
+        to[key].selector = to[key].selector.concat(from[key].selector)
+      }
+    } else {
+      to[key] = {
+        ...from[key],
+      }
+    }
+  })
+  return to
+}
+
 function getFilter(filter) {
   let messengerRegex = new RegExp('(.*)://(.*).messenger.com/(.*)')
   let facebookRegex = new RegExp('(.*)://(.*).facebook.com/(.*)')
@@ -26,8 +42,7 @@ function getFilter(filter) {
   if (messengerRegex.test(domain)) {
     return filter['messenger.com']
   } else if (facebookRegex.test(domain)) {
-    // return Object.assign({}, filter['messenger.com'], filter['facebook.com'])
-    return null
+    return mergeFilters(filter['messenger.com'], filter['facebook.com'])
   }
 }
 
