@@ -1,10 +1,10 @@
 import { mergeStorage } from './storage'
 
 /**
- * Fetch filter from API
+ * Fetch from API
  */
-function fetchFilter() {
-  fetch(import.meta.env.VITE_FILTER_URL + '?time=' + Date.now()).then(
+function fetchData() {
+  fetch(import.meta.env.VITE_FETCH_URL + '?time=' + Date.now()).then(
     (response) => {
       if (response.status !== 200) {
         console.log(
@@ -18,9 +18,9 @@ function fetchFilter() {
         chrome.storage.local.set({
           hide: data.data.hide,
           filter: data.data.filter,
-          filter_last_updated: Date.now(),
+          last_updated: Date.now(),
         })
-        console.log('Filter have just been updated')
+        console.log('Extension data have just been updated')
       })
     }
   )
@@ -56,11 +56,11 @@ function addContentScript() {
  */
 chrome.runtime.onStartup.addListener(() => {
   chrome.storage.local.get(
-    ['filter_update_interval', 'filter_last_updated'],
+    ['filter_update_interval', 'last_updated'],
     (result) => {
-      if (result.filter_update_interval && result.filter_last_updated) {
+      if (result.filter_update_interval && result.last_updated) {
         const now = Date.now()
-        const lastUpdated = result.filter_last_updated
+        const lastUpdated = result.last_updated
         let interval = null
         switch (result.filter_update_interval) {
           case 'daily':
@@ -80,7 +80,7 @@ chrome.runtime.onStartup.addListener(() => {
             break
         }
         if (interval === -1 || now - lastUpdated > interval) {
-          fetchFilter()
+          fetchData()
         }
       }
     }
@@ -93,7 +93,7 @@ chrome.runtime.onStartup.addListener(() => {
 chrome.runtime.onInstalled.addListener(() => {
   mergeStorage('sync')
   mergeStorage('local')
-  fetchFilter()
+  fetchData()
   installedLog()
   addContentScript()
 })

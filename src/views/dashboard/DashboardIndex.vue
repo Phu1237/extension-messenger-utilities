@@ -27,19 +27,19 @@ export default defineComponent({
           value: this.getChangelog(1)[0].changes,
         },
         {
-          label: 'Last Filter Updated',
+          label: 'Last Extension Data Updated',
           value: '',
         },
       ],
     }
   },
   computed: {
-    lastFilterUpdated() {
-      return this.convertUnixTimestamp(this._localStorage.filter_last_updated)
+    lastDataUpdated() {
+      return this.convertUnixTimestamp(this._localStorage.last_updated)
     },
   },
   created() {
-    this.information[2].value = this.lastFilterUpdated
+    this.information[2].value = this.lastDataUpdated
   },
 })
 </script>

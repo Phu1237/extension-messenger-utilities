@@ -53,7 +53,7 @@
                   class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   <!-- Heroicon name: solid/mail -->
-                  <FontAwesomeIcon :icon="['fa', 'envelope']" />
+                  <FontAwesomeIcon :icon="['far', 'envelope']" />
                 </button>
                 <button
                   type="button"
@@ -259,15 +259,9 @@ export default defineComponent({
     TimeLine,
   },
   computed: {
-    storage() {
-      return this.$store.state.storage.storage
-    },
     changelog() {
       return this.getChangelog(5)
     },
-  },
-  created() {
-    this.$store.dispatch('storage/getStorage')
   },
 })
 </script>

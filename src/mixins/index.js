@@ -72,10 +72,10 @@ export default {
       return changelog
     },
     /**
-     * Fetch filter from api
+     * Fetch from API
      */
-    fetchFilter() {
-      fetch(import.meta.env.VITE_FILTER_URL + '?time=' + Date.now()).then(
+    fetchData() {
+      fetch(import.meta.env.VITE_FETCH_URL + '?time=' + Date.now()).then(
         (response) => {
           if (response.status !== 200) {
             console.log(
@@ -86,12 +86,12 @@ export default {
 
           // Examine the text in the response
           response.json().then((data) => {
-            const filter = data.data.filter
             chrome.storage.local.set({
-              filter: filter,
-              filter_last_updated: Date.now(),
+              hide: data.data.hide,
+              filter: data.data.filter,
+              last_updated: Date.now(),
             })
-            console.log('Filter have just been updated')
+            console.log('Extension data have just been updated')
           })
         }
       )
