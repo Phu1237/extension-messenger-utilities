@@ -7,12 +7,14 @@ export const default_sync_storage = {
     label: 'Protect status',
     description: 'Protect status',
     type: Boolean,
+    value: true,
   },
   protect_type: {
     name: 'protect_type',
     label: 'Protect type',
     description: 'Type of protection',
     type: String,
+    value: 'blur',
     options: {
       none: {
         name: 'none',
@@ -39,6 +41,12 @@ export const default_sync_storage = {
     label: 'Protect items',
     description: 'Items to protect',
     type: Object,
+    value: {
+      general: true,
+      image: true,
+      name: true,
+      message: true,
+    },
     options: {
       general: {
         name: 'general',
@@ -85,6 +93,7 @@ export const default_sync_storage = {
     label: 'Display type',
     description: 'Type of display event to unprotect',
     type: String,
+    value: 'hover',
     options: {
       none: {
         name: 'none',
@@ -111,7 +120,7 @@ export const default_sync_storage = {
     name: 'hide_list',
     label: 'Hide list',
     description:
-      'List of chat will be hidden. One hidden chat id per line.<br/>- How to get:<br/>https://www.messenger.com/t/<b>1xxxxxxxxxxxxxx</b><br/>=> 1xxxxxxxxxxxxxx',
+      'List of chat will be hidden. One hidden chat id per line.<br/>- How to get:<br/>https://www.messenger.com/t/1xxxxxxxxxxxxxx<br/>=> 1xxxxxxxxxxxxxx',
     placeholder: '1xxxxxxxxxxxxxx\n1xxxxxxxxxxxxxx',
     type: String,
     value: '',

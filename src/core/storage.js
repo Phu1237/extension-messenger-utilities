@@ -7,12 +7,14 @@ export const default_sync_storage = {
     label: 'Protect status',
     description: 'Protect status',
     type: Boolean,
+    value: true,
   },
   protect_type: {
     name: 'protect_type',
     label: 'Protect type',
     description: 'Type of protection',
     type: String,
+    value: 'blur',
     options: {
       none: {
         name: 'none',
@@ -39,6 +41,12 @@ export const default_sync_storage = {
     label: 'Protect items',
     description: 'Items to protect',
     type: Object,
+    value: {
+      general: true,
+      image: true,
+      name: true,
+      message: true,
+    },
     options: {
       general: {
         name: 'general',
@@ -85,6 +93,7 @@ export const default_sync_storage = {
     label: 'Display type',
     description: 'Type of display event to unprotect',
     type: String,
+    value: 'hover',
     options: {
       none: {
         name: 'none',
