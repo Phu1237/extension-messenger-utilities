@@ -19,6 +19,7 @@
     "moment": "^2.29.1",
     "vue": "^3.2.25",
     "vue-router": "4",
+    "vue-toast-notification": "3.0",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

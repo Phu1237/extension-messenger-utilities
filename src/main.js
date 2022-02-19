@@ -6,6 +6,7 @@ import store from './store'
 import mixins from './mixins'
 // Plugins
 import FontAwesomeIcon from './plugins/fontawesome'
+import VueToast from './plugins/vue-toast-notification'
 
 const app = createApp(App)
 
@@ -13,7 +14,10 @@ const app = createApp(App)
 app.mixin(mixins)
 app.use(router)
 app.use(store)
-// FontAwesome
+// Plugins
+app.use(VueToast, {
+  position: 'top-right',
+})
 app.component('FontAwesomeIcon', FontAwesomeIcon)
 // Mount app
 app.mount('#app')
