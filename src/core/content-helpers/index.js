@@ -56,7 +56,7 @@ export function inject(sync, local) {
     console.group('Injecting hide chat...')
     let hide_list = sync.hide_list
     hide_list = hide_list.split('\n')
-    css += injectHideChat(local.hide['messenger.com'], hide_list)
+    css += injectHideChat(local.hide_chat['messenger.com'], hide_list)
     console.groupEnd()
   }
   log('Injecting with css ', css)
