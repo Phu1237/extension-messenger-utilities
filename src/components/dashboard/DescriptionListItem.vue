@@ -1,18 +1,29 @@
 <template>
   <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
     <dt class="text-sm font-medium text-gray-500">{{ label }}</dt>
-    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-      <slot>
-        <p v-if="Array.isArray(data)" class="uppercase-first-letter">
-          <template
-            v-for="(value_item, value_index) in data"
-            :key="label + value_index"
-          >
-            {{ value_item }}
-          </template>
-        </p>
-        <template v-else>{{ data }}</template>
-      </slot>
+    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+      <span class="flex-grow">
+        <slot>
+          <p v-if="Array.isArray(data)" class="uppercase-first-letter">
+            <template
+              v-for="(value_item, value_index) in data"
+              :key="label + value_index"
+            >
+              {{ value_item }}
+            </template>
+          </p>
+          <template v-else>{{ data }}</template>
+        </slot>
+      </span>
+      <span class="ml-4 flex-shrink-0">
+        <button
+          type="button"
+          class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          @click="$emit('action', 'updateData')"
+        >
+          {{ action }}
+        </button>
+      </span>
     </dd>
   </div>
 </template>
@@ -30,6 +41,11 @@ export default defineComponent({
       type: [Array, String],
       default: null,
     },
+    action: {
+      type: String,
+      default: null,
+    },
   },
+  emits: ['action'],
 })
 </script>

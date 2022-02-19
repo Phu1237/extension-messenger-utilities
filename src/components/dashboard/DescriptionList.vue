@@ -14,6 +14,8 @@
         :key="index"
         :label="item.label"
         :data="item.value"
+        :action="item.action"
+        @action="$emit('action', $event)"
       >
         <template v-if="item.isBadge">
           <span
@@ -56,5 +58,6 @@ export default defineComponent({
       required: true,
     },
   },
+  emits: ['action'],
 })
 </script>

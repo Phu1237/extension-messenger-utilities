@@ -3,6 +3,7 @@
     label="Application information"
     description="General information of application"
     :data="information"
+    @action="action($event)"
   />
 </template>
 
@@ -29,17 +30,37 @@ export default defineComponent({
         {
           label: 'Last Extension Data Updated',
           value: '',
+          action: 'Update',
         },
       ],
     }
   },
   computed: {
-    lastDataUpdated() {
+    last_data_updated() {
       return this.convertUnixTimestamp(this._localStorage.last_updated)
     },
   },
   created() {
-    this.information[2].value = this.lastDataUpdated
+    this.information[2].value = this.last_data_updated
+  },
+  methods: {
+    action(data) {
+      switch (data) {
+        case 'updateData':
+          this.$store.commit('storage/setStorage', {
+            storage: 'sync',
+            data: null,
+          })
+          this.$store.commit('storage/setStorage', {
+            storage: 'local',
+            data: null,
+          })
+
+          this.fetchData()
+          this.$store.dispatch('storagefetch')
+          break
+      }
+    },
   },
 })
 </script>
