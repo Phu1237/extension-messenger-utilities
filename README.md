@@ -2,13 +2,13 @@
 
 ![logo](public/icons/icon.png)
 Utilities for Facebook Messenger
-Extension for Chrome / Edge / Opera / Chromium based browsers
+Extension for Chrome / Edge / Opera / Chromium-based browsers
 
 ## Features
 
 Available features:
 
-- Protect your privacy: let you control what and when contents should be display in messenger.com.
+- Protect your privacy: Let you control what and when contents should be displayed on messenger.com.
 - Hide chat: Hide the chat from the list of chats.
 
 Under development features:
@@ -17,7 +17,7 @@ Under development features:
 
 ## Download
 
-Get it from extension store:
+Get it from the extension store:
 
 - [Edge](https://microsoftedge.microsoft.com/addons/detail/dikgifmgfijhmfapckmkbgldlljmihea)
 - [Opera](https://addons.opera.com/en/extensions/details/messenger-utilities)
@@ -52,6 +52,13 @@ Run the following command:
 |Yarn|`yarn build`|`yarn build:dev`
 
 Turn on the **developer mode** and move the "dist" folder into the **extensions page**.
+
+## Donations
+
+If you like my works, please consider buying me a coffee ☕
+
+- [Buy me a coffee](https://www.buymeacoffee.com/Phu1237)
+- [Momo](https://me.momo.vn/Phu1237)
 
 ## Contributors
 
