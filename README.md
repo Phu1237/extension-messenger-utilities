@@ -2,18 +2,18 @@
 
 ![logo](public/icons/icon.png)
 Utilities for Facebook Messenger
-Extension for Chrome / Edge / Opera / Chromium based browser
+Extension for Chrome / Edge / Opera / Chromium based browsers
 
 ## Features
 
 Available features:
 
-- Protect your privacy, let you control what and when contents should be display in messenger.com.
+- Protect your privacy: let you control what and when contents should be display in messenger.com.
+- Hide chat: Hide the chat from the list of chats.
 
 Under development features:
 
-- Password protect for extension
-- Password protect for messenger.com
+- Password protectition
 
 ## Download
 
@@ -43,6 +43,7 @@ More? Go to [screenshots](screenshots)
 
 ### Build
 
+Edit **.env** file
 Run the following command:
 
 | |Production|Development|
