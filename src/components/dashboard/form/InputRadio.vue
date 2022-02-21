@@ -8,9 +8,6 @@
       <label
         v-for="(option, index) in options"
         :key="index"
-        :label="option.label"
-        :value="option.value"
-        :description="option.description"
         class="relative border p-4 flex cursor-pointer focus:outline-none"
         :class="[
           index === 0 ? 'rounded-tl-md rounded-tr-md' : '',
@@ -27,21 +24,21 @@
           :name="id"
           :value="option.name"
           class="h-4 w-4 mt-0.5 cursor-pointer text-indigo-600 border-gray-300 focus:ring-indigo-500"
-          :aria-labelledby="option.name + '-' + index + '-label'"
-          :aria-describedby="option.name + '-' + index + '-description'"
+          :aria-labelledby="id + '-' + option.name + '-label'"
+          :aria-describedby="id + '-' + option.name + '-description'"
         />
         <div class="ml-3 flex flex-col">
           <span
-            id="privacy-setting-0-label"
+            :id="id + '-' + option.name + '-label'"
             class="block text-sm font-medium"
             :class="[
-              option.value === value ? 'text-indigo-900' : 'text-gray-900',
+              option.name == value ? 'text-indigo-900' : 'text-gray-900',
             ]"
           >
             {{ option.label }}
           </span>
           <span
-            id="privacy-setting-0-description"
+            :id="id + '-' + option.name + '-description'"
             class="block text-sm"
             :class="[checked ? 'text-indigo-700' : 'text-gray-500']"
           >

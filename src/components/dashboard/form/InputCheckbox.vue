@@ -11,9 +11,9 @@
     >
       <div class="flex items-center h-5">
         <input
-          :id="option.name"
+          :id="id + '-' + option.name"
           v-model="checked"
-          :aria-describedby="option.name + '-description'"
+          :aria-describedby="id + '-' + option.name + '-description'"
           :name="id"
           :value="option.name"
           type="checkbox"
@@ -21,10 +21,10 @@
         />
       </div>
       <div class="ml-3 text-sm">
-        <label :for="option.name" class="font-medium text-gray-700">
+        <label :for="id + '-' + option.name" class="font-medium text-gray-700">
           {{ option.label }}
         </label>
-        <p :id="option.name + '-description'" class="text-gray-500">
+        <p :id="id + '-' + option.name + '-description'" class="text-gray-500">
           {{ option.description }}
         </p>
       </div>
