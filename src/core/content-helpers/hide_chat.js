@@ -23,7 +23,8 @@ export function inject(hide_string, list) {
   log('Injecting...', hide_string, list)
   let selectors = []
   list.forEach((item) => {
-    let selector = hide_string.replace('{id}', item)
+    let id = item.split('|')[0]
+    let selector = hide_string.replace('{id}', id)
     selectors.push(selector)
   })
   return selectors.join(',') + '{display:none !important}'
