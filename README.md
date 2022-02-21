@@ -29,9 +29,12 @@ Or you can download the released version [here](https://github.com/Phu1237/exten
 - Video:
   - [Youtube](https://youtu.be/xYn46sTrNPI)
 - Screenshots:
-![screenshot](screenshots/edge-1.png)
-![screenshot](screenshots/edge-2.png)
-More? Go to [screenshots](screenshots)
+![screenshot](screenshots/1.png)
+![screenshot](screenshots/2.png)
+![screenshot](screenshots/3.png)
+![screenshot](screenshots/4.png)
+![screenshot](screenshots/5.png)
+![screenshot](screenshots/6.png)
 
 
 ## How to build
