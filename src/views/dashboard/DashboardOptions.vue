@@ -137,7 +137,7 @@
 
 <script>
 import { defineComponent } from 'vue'
-import { default_sync_storage } from '@/core/storage-description'
+import { default_sync_storage } from '@/core/storage'
 import FormGroup from '@/components/dashboard/form/FormGroup.vue'
 import InputToggle from '@/components/dashboard/form/InputToggle.vue'
 import InputRadio from '@/components/dashboard/form/InputRadio.vue'

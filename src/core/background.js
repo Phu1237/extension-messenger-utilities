@@ -1,4 +1,4 @@
-import { mergeStorage } from './storage'
+import { mergeStorage } from './storage?inline'
 import packageJson from '../../package.json?raw'
 
 const app = JSON.parse(packageJson)
