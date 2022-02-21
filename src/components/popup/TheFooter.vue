@@ -1,39 +1,53 @@
 <template>
-  <footer class="grid grid-cols-4 text-center">
-    <a
-      class="grid justify-center items-center py-3 bg-blue-500"
-      href="https://www.facebook.com/Phu1237"
-      title="Facebook"
-    >
-      <font-awesome-icon :icon="['fab', 'facebook']" class="h-6" />
-    </a>
-    <a
-      class="grid justify-center items-center py-3 bg-black"
-      href="https://github.com/phu1237/"
-      title="Github"
-    >
-      <font-awesome-icon :icon="['fab', 'github']" class="h-6" />
-    </a>
-    <a
-      class="grid justify-center items-center py-3 bg-red-500"
-      href="mailto:phu1237@gmail.com"
-      title="Mail"
-    >
-      <font-awesome-icon :icon="['far', 'envelope']" class="h-6" />
-    </a>
-    <a
-      class="grid justify-center items-center py-3 bg-blue-700"
-      href="https://www.linkedin.com/in/phu1237/"
-      title="Linkedin"
-    >
-      <font-awesome-icon :icon="['fab', 'linkedin']" class="h-6" />
-    </a>
-  </footer>
-  <footer class="flex justify-between px-2">
-    Author: Phu1237
-    <span id="version">v{{ app('version') }}</span>
+  <footer>
+    <div>
+      <div class="bg-blue-600">
+        <div class="max-w-7xl mx-auto py-2 px-2 sm:px-4 lg:px-6">
+          <div class="flex items-center justify-between flex-wrap">
+            <div class="w-0 flex-1 flex items-center">
+              <span class="flex p-2 rounded-lg bg-blue-800 text-white">
+                <FontAwesomeIcon :icon="['fas', 'star']" />
+              </span>
+              <p class="ml-3 font-medium text-white truncate">
+                <span>More options?</span>
+              </p>
+            </div>
+            <div class="order-3 flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
+              <button
+                class="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-blue-600 bg-white hover:bg-blue-50"
+                @click="goToDashboard"
+              >
+                <FontAwesomeIcon
+                  :icon="['fas', 'arrow-up-right-from-square']"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-between px-2">
+      Author: Phu1237
+      <span id="version">v{{ app('version') }}</span>
+    </div>
   </footer>
 </template>
+
+<script>
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  methods: {
+    goToDashboard() {
+      if (chrome.runtime.openOptionsPage) {
+        chrome.runtime.openOptionsPage()
+      } else {
+        window.open(chrome.runtime.getURL('dashboard.html'))
+      }
+    },
+  },
+})
+</script>
 
 <style lang="scss">
 footer {

@@ -12,6 +12,7 @@ import {
   faStar,
   faFaceSmile,
   faFaceMeh,
+  faArrowUpRightFromSquare,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faEnvelope,
@@ -38,7 +39,8 @@ library.add(
   faXmark,
   faStar,
   faFaceSmile,
-  faFaceMeh
+  faFaceMeh,
+  faArrowUpRightFromSquare
 )
 // Regular
 library.add(faEnvelope, faCircleQuestion)
