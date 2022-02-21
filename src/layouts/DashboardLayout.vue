@@ -22,6 +22,14 @@
                     >
                       🎉 Buy me a coffee ☕
                     </button>
+                    <a
+                      v-if="isDev"
+                      :href="đata_export_url"
+                      download="messenger-utilities.json"
+                      class="text-white font-medium"
+                    >
+                      ⬇️ Export Data
+                    </a>
                   </div>
                 </div>
               </div>
@@ -35,6 +43,9 @@
             <NavLink :to="{ name: 'dashboard' }" exact>Dashboard</NavLink>
             <NavLink :to="{ name: 'options' }">Options</NavLink>
             <NavLink :to="{ name: 'about' }">About</NavLink>
+            <button class="text-white font-medium" @click="openDonationModal">
+              🎉 Buy me a coffee ☕
+            </button>
           </div>
         </div>
       </nav>
@@ -64,6 +75,7 @@
 </template>
 
 <script>
+import dataJson from '@/core/messenger-utilities.js'
 import NavLink from '@/components/dashboard/NavLink.vue'
 import NotificationBox from '@/components/dashboard/NotificationBox.vue'
 import DonationModal from '@/components/DonationModal.vue'
@@ -80,7 +92,15 @@ export default {
       notification_closed: false,
       notification_time: null,
       is_donation_modal_open: false,
+      isDev: import.meta.env.DEV,
     }
+  },
+  computed: {
+    đata_export_url() {
+      let str = JSON.stringify(dataJson)
+      //Save the file contents as a DataURI
+      return 'data:application/json;charset=utf-8,' + encodeURIComponent(str)
+    },
   },
   created() {
     this.notification = this._localStorage.notification
