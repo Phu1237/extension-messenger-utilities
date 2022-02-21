@@ -23,6 +23,14 @@ const routes = [
     component: () => import('@/layouts/DashboardLayout.vue'),
     children: [
       {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: () => import('@/views/NotFound.vue'),
+        meta: {
+          title: 'Not Found',
+        },
+      },
+      {
         path: '',
         name: 'dashboard',
         component: () => import('@/views/dashboard/DashboardIndex.vue'),
