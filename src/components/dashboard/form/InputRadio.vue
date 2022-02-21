@@ -12,7 +12,7 @@
         :class="[
           index === 0 ? 'rounded-tl-md rounded-tr-md' : '',
           index === options.length - 1 ? 'rounded-bl-md rounded-br-md' : '',
-          option.value === value
+          option.name === value
             ? 'bg-indigo-50 border-indigo-200 z-10'
             : 'border-gray-200',
         ]"
@@ -32,7 +32,7 @@
             :id="id + '-' + option.name + '-label'"
             class="block text-sm font-medium"
             :class="[
-              option.name == value ? 'text-indigo-900' : 'text-gray-900',
+              option.name === value ? 'text-indigo-900' : 'text-gray-900',
             ]"
           >
             {{ option.label }}
