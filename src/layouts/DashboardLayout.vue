@@ -45,7 +45,7 @@
       />
       <header class="py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 class="text-3xl font-bold text-white">Dashboard</h1>
+          <h1 class="text-3xl font-bold text-white">{{ title() }}</h1>
         </div>
       </header>
     </div>
@@ -88,6 +88,9 @@ export default {
     this.notification_time = this._localStorage.notification_time
   },
   methods: {
+    title() {
+      return this.$route.meta.title || 'Dashboard'
+    },
     openDonationModal() {
       this.is_donation_modal_open = true
     },
