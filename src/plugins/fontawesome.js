@@ -9,6 +9,9 @@ import {
   faCircleCheck,
   faTriangleExclamation,
   faXmark,
+  faStar,
+  faFaceSmile,
+  faFaceMeh,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faEnvelope,
@@ -19,6 +22,8 @@ import {
   faFacebookMessenger,
   faGithub,
   faLinkedin,
+  faEdge,
+  faOpera,
 } from '@fortawesome/free-brands-svg-icons'
 
 // Solid
@@ -30,11 +35,21 @@ library.add(
   faCircleInfo,
   faCircleCheck,
   faTriangleExclamation,
-  faXmark
+  faXmark,
+  faStar,
+  faFaceSmile,
+  faFaceMeh
 )
 // Regular
 library.add(faEnvelope, faCircleQuestion)
 // Brands
-library.add(faFacebook, faFacebookMessenger, faGithub, faLinkedin)
+library.add(
+  faFacebook,
+  faFacebookMessenger,
+  faGithub,
+  faLinkedin,
+  faEdge,
+  faOpera
+)
 
 export default FontAwesomeIcon

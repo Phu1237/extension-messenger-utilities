@@ -16,6 +16,12 @@
                     </NavLink>
                     <NavLink :to="{ name: 'options' }">Options</NavLink>
                     <NavLink :to="{ name: 'about' }">About</NavLink>
+                    <button
+                      class="text-white font-medium"
+                      @click="openDonationModal"
+                    >
+                      🎉 Buy me a coffee ☕
+                    </button>
                   </div>
                 </div>
               </div>
@@ -54,28 +60,40 @@
       </div>
     </main>
   </div>
+  <DonationModal v-if="is_donation_modal_open" @close="closeDonationModal" />
 </template>
 
 <script>
 import NavLink from '@/components/dashboard/NavLink.vue'
 import NotificationBox from '@/components/dashboard/NotificationBox.vue'
+import DonationModal from '@/components/DonationModal.vue'
 
 export default {
   components: {
     NavLink,
     NotificationBox,
+    DonationModal,
   },
   data() {
     return {
       notification: null,
       notification_closed: false,
       notification_time: null,
+      is_donation_modal_open: false,
     }
   },
   created() {
     this.notification = this._localStorage.notification
     this.notification_closed = this._localStorage.notification_closed
     this.notification_time = this._localStorage.notification_time
+  },
+  methods: {
+    openDonationModal() {
+      this.is_donation_modal_open = true
+    },
+    closeDonationModal() {
+      this.is_donation_modal_open = false
+    },
   },
 }
 </script>
