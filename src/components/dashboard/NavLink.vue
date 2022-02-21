@@ -1,7 +1,7 @@
 <template>
   <router-link
     :to="to"
-    class="nav-link px-3 py-2 rounded-md text-sm font-medium"
+    class="nav-link px-3 py-2 rounded-md text-base font-medium"
   >
     <slot />
   </router-link>

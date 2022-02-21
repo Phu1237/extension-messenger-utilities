@@ -23,7 +23,7 @@
             <h1 class="text-2xl font-bold text-gray-900">
               Messenger Utilities
             </h1>
-            <p class="text-sm font-medium text-gray-500">
+            <p class="text-base font-medium text-gray-500">
               Utilities for Facebook Messenger Extension for Chrome / Edge /
               Chromium based browsers
             </p>
@@ -38,7 +38,7 @@
             <SimpleButton
               type="leading-icon"
               color="primary"
-              size="lg"
+              size="xl"
               :icon="['fab', 'edge']"
             >
               Rate me on Edge
@@ -50,7 +50,7 @@
             <SimpleButton
               type="trailing-icon"
               color="primary"
-              size="lg"
+              size="xl"
               :icon="['fab', 'opera']"
             >
               Rate me on Opera
@@ -69,36 +69,44 @@
               <div class="">
                 <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                   <div class="sm:col-span-1">
-                    <dt class="text-sm font-medium text-gray-500">Author</dt>
-                    <dd class="mt-1 text-sm text-gray-900">Phu1237</dd>
+                    <dt class="text-base font-medium text-gray-500">Author</dt>
+                    <dd class="mt-1 text-base text-gray-900">Phu1237</dd>
                   </div>
                   <div class="sm:col-span-1">
-                    <dt class="text-sm font-medium text-gray-500">
+                    <dt class="text-base font-medium text-gray-500">
                       Email address
                     </dt>
-                    <dd class="mt-1 text-sm text-gray-900">
-                      <a href="mailto:phu1237@gmail.com" target="_blank">
+                    <dd class="mt-1 text-base text-gray-900">
+                      <a
+                        href="mailto:phu1237@gmail.com"
+                        class="text-base"
+                        target="_blank"
+                      >
                         Phu1237@gmail.com
                       </a>
                     </dd>
                   </div>
                   <div class="sm:col-span-2">
-                    <dt class="text-sm font-medium text-gray-500">
-                      Bugs report
+                    <dt class="text-base font-medium text-gray-500">
+                      Report bugs
                     </dt>
-                    <dd class="mt-1 text-sm text-gray-900">
+                    <dd class="mt-1 text-base text-gray-900">
                       <a
                         href="https://github.com/Phu1237/extension-messenger-utilities/issues"
+                        title="Report bugs"
+                        class="text-base"
+                        target="_blank"
                       >
                         https://github.com/Phu1237/extension-messenger-utilities/issues
                       </a>
+                      <br />or send me a email
                     </dd>
                   </div>
                   <div class="sm:col-span-2">
-                    <dt class="text-sm font-medium text-gray-500">
+                    <dt class="text-base font-medium text-gray-500">
                       Contact me
                     </dt>
-                    <dd class="mt-1 text-sm text-gray-900">
+                    <dd class="mt-1 text-base text-gray-900">
                       <a
                         href="https://www.facebook.com/Phu1237"
                         title="Facebook"
@@ -196,10 +204,10 @@
                         class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4"
                       >
                         <div>
-                          <p class="text-sm text-gray-500">Protect privacy</p>
+                          <p class="text-base text-gray-500">Protect privacy</p>
                         </div>
                         <div
-                          class="text-right text-sm whitespace-nowrap text-gray-500"
+                          class="text-right text-base whitespace-nowrap text-gray-500"
                         >
                           Stable
                         </div>
@@ -228,10 +236,10 @@
                         class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4"
                       >
                         <div>
-                          <p class="text-sm text-gray-500">Hide chat</p>
+                          <p class="text-base text-gray-500">Hide chat</p>
                         </div>
                         <div
-                          class="text-right text-sm whitespace-nowrap text-gray-500"
+                          class="text-right text-base whitespace-nowrap text-gray-500"
                         >
                           Stable
                         </div>
@@ -261,12 +269,12 @@
                         class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4"
                       >
                         <div>
-                          <p class="text-sm text-gray-500">
+                          <p class="text-base text-gray-500">
                             Password protection
                           </p>
                         </div>
                         <div
-                          class="text-right text-sm whitespace-nowrap text-gray-500"
+                          class="text-right text-base whitespace-nowrap text-gray-500"
                         >
                           Not yet
                         </div>

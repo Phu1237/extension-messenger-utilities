@@ -53,24 +53,24 @@
             <div class="mt-3 text-center sm:mt-5">
               <h3
                 id="modal-title"
-                class="text-lg leading-6 font-medium text-gray-900"
+                class="text-xl leading-6 font-medium text-gray-900"
               >
                 Buy me a coffee
               </h3>
               <div class="mt-2">
-                <p class="text-sm text-gray-500">
+                <p class="text-base text-gray-500">
                   Thank you for using my product 🎉<br />
                   This product is totally free but if you like my works and you
                   want to support me, buy me a coffee ☕<br />
                   Methods:
-                  <b class="text-sm">Buy me a coffee</b>
+                  <b class="text-base">Buy me a coffee</b>
                   (<a
                     href="https://help.buymeacoffee.com/en/articles/4539170-frequently-asked-questions"
-                    class="text-sm underline"
+                    class="text-base underline"
                     target="_blank"
                     >FAQs</a
-                  >) & <b class="text-sm">Paypal</b> &
-                  <b class="text-sm">Momo</b> (For Vietnamese users)
+                  >) & <b class="text-base">Paypal</b> &
+                  <b class="text-base">Momo</b> (For Vietnamese users)
                 </p>
               </div>
             </div>

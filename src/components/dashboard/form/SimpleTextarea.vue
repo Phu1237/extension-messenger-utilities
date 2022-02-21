@@ -1,6 +1,6 @@
 <template>
   <template v-if="label !== ''">
-    <label :for="id" class="block text-sm text-gray-700" v-html="label" />
+    <label :for="id" class="block text-base text-gray-700" v-html="label" />
   </template>
   <div class="mt-1">
     <textarea

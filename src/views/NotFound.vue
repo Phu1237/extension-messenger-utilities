@@ -12,7 +12,7 @@
       <div class="py-16">
         <div class="text-center">
           <p
-            class="text-sm font-semibold text-indigo-600 uppercase tracking-wide"
+            class="text-base font-semibold text-indigo-600 uppercase tracking-wide"
           >
             404 error
           </p>
@@ -21,7 +21,7 @@
           >
             Page not found.
           </h1>
-          <p class="mt-2 text-base text-gray-500">
+          <p class="mt-2 text-lg text-gray-500">
             Sorry, we couldn’t find the page you’re looking for.
           </p>
         </div>
@@ -29,7 +29,7 @@
     </main>
     <footer class="flex-shrink-0 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
       <nav class="flex justify-center space-x-4">
-        <span class="text-sm font-medium text-gray-500 hover:text-gray-600">
+        <span class="text-base font-medium text-gray-500 hover:text-gray-600">
           Phu1237
         </span>
         <span
@@ -38,7 +38,7 @@
         ></span>
         <span
           href="#"
-          class="text-sm font-medium text-gray-500 hover:text-gray-600"
+          class="text-base font-medium text-gray-500 hover:text-gray-600"
         >
           Messenger Utilities {{ app('version') }}
         </span>

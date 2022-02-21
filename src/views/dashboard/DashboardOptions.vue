@@ -4,7 +4,7 @@
       <div>
         <div>
           <h2 class="text-lg leading-6 font-medium text-gray-900">Protect</h2>
-          <p class="mt-1 max-w-2xl text-sm text-gray-500">
+          <p class="mt-1 max-w-2xl text-base text-gray-500">
             We'll always let you know about important changes, but you pick what
             else you want to hear about.
           </p>
@@ -70,7 +70,7 @@
       <div class="pt-6 space-y-6 sm:pt-5 sm:space-y-5">
         <div>
           <h2 class="text-lg leading-6 font-medium text-gray-900">Hide chat</h2>
-          <p class="mt-1 max-w-2xl text-sm text-gray-500">
+          <p class="mt-1 max-w-2xl text-base text-gray-500">
             We'll always let you know about important changes, but you pick what
             else you want to hear about.
           </p>
@@ -107,12 +107,12 @@
                     index != hide_list.length - 1 ? 'sm:mb-2' : '',
                   ]"
                 >
-                  <div class="text-sm leading-5 font-medium text-gray-900">
+                  <div class="text-base leading-5 font-medium text-gray-900">
                     {{ hideItemName(hide_item) }}
                   </div>
-                  <div class="ml-2 text-sm leading-5 text-gray-500">
+                  <div class="ml-2 text-base leading-5 text-gray-500">
                     <a :href="hideItemUrl(hide_item)" target="_blank">
-                      <SimpleButton type="round" color="secondary" size="sm">
+                      <SimpleButton type="round" color="secondary" size="md">
                         Chat
                       </SimpleButton>
                     </a>
@@ -127,17 +127,9 @@
 
     <div class="pt-5">
       <div class="flex justify-end">
-        <button
-          class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
-          Cancel
-        </button>
-        <button
-          class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          @click="save"
-        >
+        <SimpleButton color="primary" size="xl" @click="save">
           Save
-        </button>
+        </SimpleButton>
       </div>
     </div>
   </div>

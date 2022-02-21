@@ -2,7 +2,7 @@
   <!-- http://127.0.0.1:5500/components/application-ui/forms/checkboxes/#component-f03fb959d6ba814eb987d39ae40961f0 -->
   <fieldset class="space-y-5">
     <template v-if="label !== ''">
-      <legend class="text-sm text-gray-900">{{ label }}</legend>
+      <legend class="text-base text-gray-900">{{ label }}</legend>
     </template>
     <div
       v-for="(option, index) in options"

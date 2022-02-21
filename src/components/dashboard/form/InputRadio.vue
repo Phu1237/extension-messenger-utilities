@@ -2,7 +2,7 @@
   <!-- http://127.0.0.1:5500/components/application-ui/forms/radio-groups/#component-7b583a008c3fc62c0fe403d10ca042bb -->
   <fieldset>
     <template v-if="label !== ''">
-      <legend class="text-sm text-gray-900">{{ label }}</legend>
+      <legend class="text-base text-gray-900">{{ label }}</legend>
     </template>
     <div class="mt-4 bg-white rounded-md -space-y-px">
       <label
