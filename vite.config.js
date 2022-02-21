@@ -7,7 +7,7 @@ const path = require('path')
 export default defineConfig({
   plugins: [vue(), commonjs()],
   server: {
-    open: '/dashboard.html',
+    open: '/ui.html',
   },
   resolve: {
     alias: {
