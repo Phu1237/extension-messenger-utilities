@@ -56,4 +56,16 @@ export default [
     time: new Date('2019-01-01'),
     changes: ['fix left sidebar name and avatar'],
   },
+  {
+    id: 8,
+    label: 'Version 1.2.0',
+    time: new Date('2019-01-01'),
+    changes: [
+      'add hide chat',
+      'add automatic update extension data',
+      'add support for facebook.com',
+      'new UI',
+      "add notification box so that you don't miss any new extension's message",
+    ],
+  },
 ]

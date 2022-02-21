@@ -7,7 +7,7 @@
       :class="[checked ? 'bg-indigo-600' : 'bg-gray-200']"
       role="switch"
       :aria-checked="checked"
-      aria-labelledby="annual-billing-label"
+      :aria-labelledby="id + '-label'"
       @click="toggleChecked"
     >
       <span
@@ -17,7 +17,7 @@
         @click="toggleChecked"
       />
     </button>
-    <span id="annual-billing-label" class="ml-3">
+    <span :id="id + '-label'" class="ml-3">
       <span class="text-sm font-medium text-gray-900">
         {{ checked === true ? 'Enable' : 'Disable' }}
       </span>
@@ -30,6 +30,10 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     label: {
       type: String,
       default: '',

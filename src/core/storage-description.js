@@ -120,7 +120,7 @@ export const default_sync_storage = {
     name: 'hide_list',
     label: 'Hide list',
     description:
-      'List of chat will be hidden. One hidden chat id per line. (<b class="text-sm">Format</b>: id|display name)<br/><b class="text-sm">- How to get:</b><br/>https://www.messenger.com/t/<b class="text-sm">xxxxxxxxxxxxxxx</b><br/><b class="text-sm">- Example:</b><br/>xxxxxxxxxxxxxxx<br/>xxxxxxxxxxxxxxx|Mr. X',
+      'List of chat will be hidden. One hidden chat id per line. (<b class="text-base">Format</b>: id|display name)<br/><b class="text-base">- How to get:</b><br/>https://www.messenger.com/t/<b class="text-base">xxxxxxxxxxxxxxx</b><br/><b class="text-base">- Example:</b><br/>xxxxxxxxxxxxxxx<br/>xxxxxxxxxxxxxxx|Mr. X',
     placeholder: 'xxxxxxxxxxxxxxx\nxxxxxxxxxxxxxxx|Mr. X',
     type: String,
     value: '',
