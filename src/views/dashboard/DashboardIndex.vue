@@ -39,36 +39,31 @@ export default defineComponent({
       ],
     }
   },
-
-  watch: {
-    '_localStorage.notitication.message'(value) {
-      this.information[1].value = value
+  computed: {
+    notification() {
+      return this._localStorage.notification
     },
-    '_localStorage.last_updated'(value) {
-      this.information[3].value = this.convertUnixTimestamp(value || Date.now())
+    last_update() {
+      return this.convertUnixTimestamp(this._localStorage.last_updated)
+    },
+  },
+  watch: {
+    'notification.message'(new_value) {
+      this.information[1].value = new_value
+    },
+    last_update(new_value) {
+      this.information[3].value = new_value
     },
   },
   created() {
-    this.information[1].value = this._localStorage.notification.message
-    this.information[3].value = this.convertUnixTimestamp(
-      this._localStorage.last_updated
-    )
+    this.information[1].value = this.notification.message
+    this.information[3].value = this.last_update
   },
   methods: {
     action(data) {
       switch (data) {
         case 'update-extension-data':
-          this.$store.commit('storage/setStorage', {
-            storage: 'sync',
-            data: {},
-          })
-          this.$store.commit('storage/setStorage', {
-            storage: 'local',
-            data: {},
-          })
-
           this.fetchData()
-          this.$store.dispatch('storage/fetch')
           break
       }
     },

@@ -130,6 +130,9 @@ export default {
                 this.$toast.info('Extension data is up to date')
               }
             })
+            chrome.storage.local.set({}, () => {
+              this.$store.dispatch('storage/fetch')
+            })
           })
         }
       )
@@ -148,7 +151,8 @@ export default {
       })
       var hour = a.getHours()
       var min = a.getMinutes()
-      var time = dmy + ' ' + hour + ':' + min
+      var sec = a.getSeconds()
+      var time = dmy + ' ' + hour + ':' + min + ':' + sec
       return time
     },
     /**
