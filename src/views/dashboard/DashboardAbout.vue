@@ -1,267 +1,295 @@
 <template>
   <div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10">
-      <div>
-        <div
-          id="label"
-          class="text-base font-medium text-gray-900 sm:text-xl sm:text-gray-700"
-        >
-          About me
-        </div>
-        <div>
-          <!-- This example requires Tailwind CSS v2.0+ -->
-          <div class="bg-white py-5 border-b border-gray-200">
-            <div
-              class="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap"
-            >
-              <div class="ml-4 mt-4">
-                <div class="flex items-center">
-                  <div class="flex-shrink-0">
-                    <img
-                      class="h-12 w-12 rounded-full"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                  </div>
-                  <div class="ml-4">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">
-                      Phu1237
-                    </h3>
-                    <p class="text-sm text-gray-500">
-                      <a href="#"> @tom_cook </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="ml-4 mt-4 flex-shrink-0 flex">
-                <button
-                  type="button"
-                  class="relative inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  <!-- Heroicon name: solid/phone -->
-                  <FontAwesomeIcon :icon="['fab', 'facebook']" />
-                </button>
-                <button
-                  type="button"
-                  class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  <!-- Heroicon name: solid/mail -->
-                  <FontAwesomeIcon :icon="['fab', 'github']" />
-                </button>
-                <button
-                  type="button"
-                  class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  <!-- Heroicon name: solid/mail -->
-                  <FontAwesomeIcon :icon="['far', 'envelope']" />
-                </button>
-                <button
-                  type="button"
-                  class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  <!-- Heroicon name: solid/mail -->
-                  <FontAwesomeIcon :icon="['fab', 'linkedin']" />
-                </button>
-              </div>
+    <main>
+      <!-- Page header -->
+      <div
+        class="max-w-3xl mx-auto md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl"
+      >
+        <div class="flex items-center space-x-5">
+          <div class="flex-shrink-0">
+            <div class="relative">
+              <img
+                class="h-16 w-16 rounded-full"
+                src="/icons/icon.png"
+                alt="Logo"
+              />
+              <span
+                class="absolute inset-0 shadow-inner rounded-full"
+                aria-hidden="true"
+              ></span>
             </div>
           </div>
-          <ul role="list" class="divide-y divide-gray-200">
-            <li>
-              <a href="#" class="block hover:bg-gray-50">
-                <div class="px-4 py-4 sm:px-6">
-                  <div class="flex items-center justify-between">
-                    <div class="text-sm font-medium text-indigo-600 truncate">
-                      Back End Developer
-                    </div>
-                    <div class="ml-2 flex-shrink-0 flex">
-                      <span
-                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
-                      >
-                        Full-time
-                      </span>
-                    </div>
-                  </div>
-                  <div class="mt-2 flex justify-between">
-                    <div class="sm:flex">
-                      <div class="flex items-center text-sm text-gray-500">
-                        <svg
-                          class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                          x-description="Heroicon name: solid/users"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"
-                          ></path>
-                        </svg>
-                        Engineering
-                      </div>
-                    </div>
-                    <div class="ml-2 flex items-center text-sm text-gray-500">
-                      <svg
-                        class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                        x-description="Heroicon name: solid/location-marker"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                      Remote
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="block hover:bg-gray-50">
-                <div class="px-4 py-4 sm:px-6">
-                  <div class="flex items-center justify-between">
-                    <div class="text-sm font-medium text-indigo-600 truncate">
-                      Front End Developer
-                    </div>
-                    <div class="ml-2 flex-shrink-0 flex">
-                      <span
-                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
-                      >
-                        Full-time
-                      </span>
-                    </div>
-                  </div>
-                  <div class="mt-2 flex justify-between">
-                    <div class="sm:flex">
-                      <div class="flex items-center text-sm text-gray-500">
-                        <svg
-                          class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                          x-description="Heroicon name: solid/users"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"
-                          ></path>
-                        </svg>
-                        Engineering
-                      </div>
-                    </div>
-                    <div class="ml-2 flex items-center text-sm text-gray-500">
-                      <svg
-                        class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                        x-description="Heroicon name: solid/location-marker"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                      Remote
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="block hover:bg-gray-50">
-                <div class="px-4 py-4 sm:px-6">
-                  <div class="flex items-center justify-between">
-                    <div class="text-sm font-medium text-indigo-600 truncate">
-                      User Interface Designer
-                    </div>
-                    <div class="ml-2 flex-shrink-0 flex">
-                      <span
-                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
-                      >
-                        Full-time
-                      </span>
-                    </div>
-                  </div>
-                  <div class="mt-2 flex justify-between">
-                    <div class="sm:flex">
-                      <div class="flex items-center text-sm text-gray-500">
-                        <svg
-                          class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                          x-description="Heroicon name: solid/users"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"
-                          ></path>
-                        </svg>
-                        Design
-                      </div>
-                    </div>
-                    <div class="ml-2 flex items-center text-sm text-gray-500">
-                      <svg
-                        class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                        x-description="Heroicon name: solid/location-marker"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                      Remote
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </li>
-          </ul>
+          <div>
+            <h1 class="text-2xl font-bold text-gray-900">
+              Messenger Utilities
+            </h1>
+            <p class="text-sm font-medium text-gray-500">
+              Utilities for Facebook Messenger Extension for Chrome / Edge /
+              Chromium based browsers
+            </p>
+          </div>
         </div>
-      </div>
-      <div>
-        <!-- This example requires Tailwind CSS v2.0+ -->
         <div
-          id="label"
-          class="text-base font-medium text-gray-900 sm:text-xl sm:text-gray-700"
+          class="mt-6 flex flex-col-reverse justify-stretch space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-x-reverse sm:space-y-0 sm:space-x-3 md:mt-0 md:flex-row md:space-x-3"
         >
-          Changelog (Last 5 versions)
-        </div>
-        <!-- This example requires Tailwind CSS v2.0+ -->
-        <div>
-          <TimeLine :timeline="changelog" />
+          <a
+            href="https://microsoftedge.microsoft.com/addons/detail/dikgifmgfijhmfapckmkbgldlljmihea"
+          >
+            <SimpleButton
+              type="leading-icon"
+              color="primary"
+              size="lg"
+              :icon="['fab', 'edge']"
+            >
+              Rate me on Edge
+            </SimpleButton>
+          </a>
+          <a
+            href="https://addons.opera.com/en/extensions/details/messenger-utilities"
+          >
+            <SimpleButton
+              type="trailing-icon"
+              color="primary"
+              size="lg"
+              :icon="['fab', 'opera']"
+            >
+              Rate me on Opera
+            </SimpleButton>
+          </a>
         </div>
       </div>
-    </div>
+
+      <div
+        class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3"
+      >
+        <div class="space-y-6 lg:col-start-1 lg:col-span-2">
+          <!-- Description list-->
+          <section aria-labelledby="applicant-information-title">
+            <div>
+              <div class="">
+                <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+                  <div class="sm:col-span-1">
+                    <dt class="text-sm font-medium text-gray-500">Author</dt>
+                    <dd class="mt-1 text-sm text-gray-900">Phu1237</dd>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <dt class="text-sm font-medium text-gray-500">
+                      Email address
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      <a href="mailto:phu1237@gmail.com" target="_blank">
+                        Phu1237@gmail.com
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <dt class="text-sm font-medium text-gray-500">
+                      Bugs report
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      <a
+                        href="https://github.com/Phu1237/extension-messenger-utilities/issues"
+                      >
+                        https://github.com/Phu1237/extension-messenger-utilities/issues
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <dt class="text-sm font-medium text-gray-500">
+                      Contact me
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      <a
+                        href="https://www.facebook.com/Phu1237"
+                        title="Facebook"
+                        target="_blank"
+                        class="mr-1"
+                      >
+                        <SimpleButton
+                          type="leading-icon"
+                          color="secondary"
+                          :icon="['fab', 'facebook']"
+                        >
+                          Facebook
+                        </SimpleButton>
+                      </a>
+                      <a
+                        href="https://github.com/phu1237/"
+                        title="Github"
+                        target="_blank"
+                        class="mr-1"
+                      >
+                        <SimpleButton
+                          type="leading-icon"
+                          color="secondary"
+                          :icon="['fab', 'github']"
+                        >
+                          Github
+                        </SimpleButton>
+                      </a>
+                      <a
+                        href="mailto:phu1237@gmail.com"
+                        title="Email"
+                        target="_blank"
+                        class="mr-1"
+                      >
+                        <SimpleButton
+                          type="leading-icon"
+                          color="secondary"
+                          :icon="['far', 'envelope']"
+                        >
+                          Email
+                        </SimpleButton>
+                      </a>
+                      <a
+                        href="https://www.linkedin.com/in/phu1237/"
+                        title="Linkedin"
+                        target="_blank"
+                      >
+                        <SimpleButton
+                          type="leading-icon"
+                          color="secondary"
+                          :icon="['fab', 'linkedin']"
+                        >
+                          Linkedin
+                        </SimpleButton>
+                      </a>
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section
+          aria-labelledby="timeline-title"
+          class="lg:col-start-3 lg:col-span-1"
+        >
+          <div class="">
+            <h2 id="timeline-title" class="text-lg font-medium text-gray-900">
+              Features
+            </h2>
+
+            <!-- Activity Feed -->
+            <div class="mt-6 flow-root">
+              <ul role="list" class="-mb-8">
+                <!-- Available -->
+                <li>
+                  <div class="relative pb-8">
+                    <span
+                      class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200"
+                      aria-hidden="true"
+                    ></span>
+                    <div class="relative flex space-x-3">
+                      <div>
+                        <span
+                          class="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center ring-8 ring-white"
+                        >
+                          <FontAwesomeIcon
+                            :icon="['fas', 'face-smile']"
+                            class="w-5 h-5 text-white"
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4"
+                      >
+                        <div>
+                          <p class="text-sm text-gray-500">Protect privacy</p>
+                        </div>
+                        <div
+                          class="text-right text-sm whitespace-nowrap text-gray-500"
+                        >
+                          Stable
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="relative pb-8">
+                    <span
+                      class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200"
+                      aria-hidden="true"
+                    ></span>
+                    <div class="relative flex space-x-3">
+                      <div>
+                        <span
+                          class="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center ring-8 ring-white"
+                        >
+                          <FontAwesomeIcon
+                            :icon="['fas', 'face-smile']"
+                            class="w-5 h-5 text-white"
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4"
+                      >
+                        <div>
+                          <p class="text-sm text-gray-500">Hide chat</p>
+                        </div>
+                        <div
+                          class="text-right text-sm whitespace-nowrap text-gray-500"
+                        >
+                          Stable
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <!-- Under-development -->
+                <li>
+                  <div class="relative pb-8">
+                    <span
+                      class="absolute top-4 left-4 -ml-px w-0.5 bg-gray-200"
+                      aria-hidden="true"
+                    ></span>
+                    <div class="relative flex space-x-3">
+                      <div>
+                        <span
+                          class="h-8 w-8 rounded-full bg-gray-400 flex items-center justify-center ring-8 ring-white"
+                        >
+                          <FontAwesomeIcon
+                            :icon="['fas', 'face-meh']"
+                            class="w-5 h-5 text-white"
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4"
+                      >
+                        <div>
+                          <p class="text-sm text-gray-500">
+                            Password protection
+                          </p>
+                        </div>
+                        <div
+                          class="text-right text-sm whitespace-nowrap text-gray-500"
+                        >
+                          Not yet
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-import TimeLine from '@/components/dashboard/TimeLine.vue'
+import SimpleButton from '@/components/dashboard/button/SimpleButton.vue'
 
 export default defineComponent({
   components: {
-    TimeLine,
-  },
-  computed: {
-    changelog() {
-      return this.getChangelog(5)
-    },
+    SimpleButton,
   },
 })
 </script>
