@@ -4,14 +4,15 @@
     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
       <span class="flex-grow">
         <slot>
-          <p v-if="Array.isArray(data)" class="uppercase-first-letter">
-            <template
+          <template v-if="Array.isArray(data)">
+            <p
               v-for="(value_item, value_index) in data"
               :key="label + value_index"
+              class="uppercase-first-letter"
             >
               {{ value_item }}
-            </template>
-          </p>
+            </p>
+          </template>
           <template v-else>{{ data }}</template>
         </slot>
       </span>
@@ -19,7 +20,7 @@
         <button
           type="button"
           class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          @click="$emit('action', 'updateData')"
+          @click="$emit('action', slug(action))"
         >
           {{ action }}
         </button>
@@ -47,5 +48,13 @@ export default defineComponent({
     },
   },
   emits: ['action'],
+  methods: {
+    slug(text) {
+      return text
+        .toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '')
+    },
+  },
 })
 </script>

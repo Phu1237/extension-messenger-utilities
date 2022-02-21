@@ -120,12 +120,14 @@ export default {
                     ...data.data,
                     version: data.version,
                   })
-                  this.log('Extension data have just been updated')
+                  this.$toast.success('Extension data have just been updated')
                 } else {
-                  this.log('Extension version is not meet the requirements')
+                  this.$toast.error(
+                    'Extension version is not meet the requirements'
+                  )
                 }
               } else {
-                this.log('Extension data is up to date')
+                this.$toast.info('Extension data is up to date')
               }
             })
           })

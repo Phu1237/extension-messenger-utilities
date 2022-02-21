@@ -9,7 +9,7 @@
 
 <script>
 import { defineComponent } from 'vue'
-import DescriptionList from '../../components/dashboard/DescriptionList.vue'
+import DescriptionList from '@/components/dashboard/DescriptionList.vue'
 
 export default defineComponent({
   components: {
@@ -24,40 +24,51 @@ export default defineComponent({
           isBadge: true,
         },
         {
+          label: 'Last Notification',
+          value: '',
+        },
+        {
           label: 'Last Changelog',
           value: this.getChangelog(1)[0].changes,
         },
         {
           label: 'Last Extension Data Updated',
           value: '',
-          action: 'Update',
+          action: 'Update Extension Data',
         },
       ],
     }
   },
-  computed: {
-    last_data_updated() {
-      return this.convertUnixTimestamp(this._localStorage.last_updated)
+
+  watch: {
+    '_localStorage.notitication.message'(value) {
+      this.information[1].value = value
+    },
+    '_localStorage.last_updated'(value) {
+      this.information[3].value = this.convertUnixTimestamp(value || Date.now())
     },
   },
   created() {
-    this.information[2].value = this.last_data_updated
+    this.information[1].value = this._localStorage.notification.message
+    this.information[3].value = this.convertUnixTimestamp(
+      this._localStorage.last_updated
+    )
   },
   methods: {
     action(data) {
       switch (data) {
-        case 'updateData':
+        case 'update-extension-data':
           this.$store.commit('storage/setStorage', {
             storage: 'sync',
-            data: null,
+            data: {},
           })
           this.$store.commit('storage/setStorage', {
             storage: 'local',
-            data: null,
+            data: {},
           })
 
           this.fetchData()
-          this.$store.dispatch('storagefetch')
+          this.$store.dispatch('storage/fetch')
           break
       }
     },
