@@ -6,7 +6,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  mounted() {
+  beforeCreate() {
     // Fetch storage into vuex
     this.$store.dispatch('storage/fetch')
   },
