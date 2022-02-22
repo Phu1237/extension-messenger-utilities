@@ -106,7 +106,6 @@ export default {
 
           // Examine the text in the response
           response.json().then((data) => {
-            chrome.storage.local.set({ notification: data.notification })
             chrome.storage.local.set({ last_updated: Date.now() })
             chrome.storage.local.get(['version'], (result) => {
               this.log('Current data version', result.version)
@@ -116,22 +115,30 @@ export default {
                 if (
                   app['version'] >= data.dependencies['messenger-utilities']
                 ) {
+                  chrome.storage.local.set({ notification: data.notification })
                   chrome.storage.local.set({
                     ...data.data,
                     version: data.version,
                   })
-                  this.$toast.success('Extension data have just been updated')
+                  chrome.storage.local.set({}, () => {
+                    this.$store.dispatch('storage/fetch')
+                    this.reinject()
+                  })
+                  this.log('Extension data have just been updated')
                 } else {
-                  this.$toast.error(
-                    'Extension version is not meet the requirements'
-                  )
+                  chrome.storage.local.set({
+                    notification: {
+                      message:
+                        'Your version is out-of-date. Please update your extension to the latest version.',
+                      url: '',
+                      time: Date.now(),
+                    },
+                  })
+                  this.log('Extension version is not meet the requirements')
                 }
               } else {
-                this.$toast.info('Extension data is up to date')
+                this.log('Extension data is up-to-date')
               }
-            })
-            chrome.storage.local.set({}, () => {
-              this.$store.dispatch('storage/fetch')
             })
           })
         }

@@ -6,6 +6,8 @@ let notification = {
     'New version is released with many new changes. Please update your extension to the latest version.',
   url: '',
   time: Date.now(),
+  color: 'primary',
+  update: true,
 }
 /**
  * Protect privacy
@@ -43,6 +45,8 @@ let protect_privacy_messenger_data = {
       protect_privacy_messenger_parent_selectors.main +
         ' div[data-testid=mw_message_sender_name]', // name in group chat
       protect_privacy_messenger_parent_selectors.main +
+        ' span[class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=lr9zc1uh][class~=a8c37x1j][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=d3f4x2em][class~=mdeji52x][class~=a5q79mjw][class~=g1cxx5fr][class~=lrazzd5p][class~=oo9gr5id][class~=oqcyycmt]', // name at header of chat
+      protect_privacy_messenger_parent_selectors.main +
         ' div[class~=hyh9befq][class~=pipptul6][class~=sq6gx45u]', // quote name
       protect_privacy_messenger_parent_selectors.main +
         ' div[class~=r9r71o1u][class~=m9osqain][class~=fsrhnwul][class~=d0szoon8][class~=r8blr3vg][class~=qjjbsfad]', // message chat name
@@ -54,6 +58,8 @@ let protect_privacy_messenger_data = {
     selector: [
       protect_privacy_messenger_parent_selectors.left_sidebar +
         ' img[class~=a8c37x1j][class~=d2edcug0][class~=sn7ne77z][class~=bixrwtb6]', // avatar
+      protect_privacy_messenger_parent_selectors.left_sidebar +
+        ' image[preserveAspectRatio~=xMidYMid][preserveAspectRatio~=slice]', // seen avatar
       protect_privacy_messenger_parent_selectors.main + " img[width='32']", // icon message
       protect_privacy_messenger_parent_selectors.main + " img[width='14px']", // seen avatar icon
       protect_privacy_messenger_parent_selectors.main +
