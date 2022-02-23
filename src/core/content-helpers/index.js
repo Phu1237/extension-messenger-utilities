@@ -23,6 +23,17 @@ function log() {
   return false
 }
 
+function getCurrentPage() {
+  let messengerRegex = new RegExp('(.*)://(.*).messenger.com/(.*)')
+  let facebookRegex = new RegExp('(.*)://(.*).facebook.com/(.*)')
+  let domain = document.location.href
+  if (messengerRegex.test(domain)) {
+    return 'messenger.com'
+  } else if (facebookRegex.test(domain)) {
+    return 'facebook.com'
+  }
+}
+
 function injectHTML(css) {
   let e_id = 'messenger-utilities'
   // Inject css into page
@@ -56,7 +67,8 @@ export function inject(sync, local) {
     console.group('Injecting hide chat...')
     let hide_list = sync.hide_list
     hide_list = hide_list.split('\n')
-    css += injectHideChat(local.hide_chat['messenger.com'], hide_list)
+    let hide_chat = local.hide_chat[getCurrentPage()]
+    css += injectHideChat(hide_chat, hide_list)
     console.groupEnd()
   }
   log('Injecting with css ', css)

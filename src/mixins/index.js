@@ -55,13 +55,15 @@ export default {
     reinject() {
       chrome.tabs.query(
         {
-          url: ['*://*.messenger.com/*'],
+          url: ['*://*.facebook.com/*', '*://*.messenger.com/*'],
         },
         (tabs) => {
           if (tabs.length > 0) {
             for (var i = 0; i < tabs.length; ++i) {
-              this.log(tabs[i].url)
-              if (tabs[i].url.includes('messenger.com')) {
+              if (
+                tabs[i].url.includes('messenger.com') ||
+                tabs[i].url.includes('facebook.com')
+              ) {
                 chrome.tabs.sendMessage(
                   tabs[i].id,
                   { action: 'reinject' },
