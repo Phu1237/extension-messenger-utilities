@@ -163,11 +163,14 @@ function log() {
  * @returns
  */
 function objectToKeyValueOnly(object) {
+  let obj = object
   if (typeof object === 'object') {
-    Object.entries(object).forEach(([key, value]) => {
+    // create new object to fix some bugs
+    obj = { ...object }
+    Object.entries(obj).forEach(([key, value]) => {
       value = value.value ?? value
       value = typeof value === 'object' ? objectToKeyValueOnly(value) : value
-      object[key] = value
+      obj[key] = value
     })
   }
   return object
