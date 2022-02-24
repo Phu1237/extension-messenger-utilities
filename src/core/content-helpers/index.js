@@ -60,7 +60,11 @@ export function inject(sync, local) {
   log('Injecting...', sync, local)
   if (sync.protect_status) {
     console.group('Injecting protect privacy...')
-    css += injectProtectPrivacy(sync, local)
+    css += injectProtectPrivacy(
+      sync,
+      local,
+      local.protect_privacy[getCurrentPage()]
+    )
     console.groupEnd()
   }
   if (sync.hide_status) {

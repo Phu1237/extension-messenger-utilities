@@ -19,38 +19,10 @@ function log() {
   }
 }
 
-function mergeFilters(to, from) {
-  Object.entries(from).forEach(([key]) => {
-    if (Object.prototype.hasOwnProperty.call(to, key)) {
-      log('mergeFilter', to[key], from[key])
-      if (Array.isArray(to[key].selector)) {
-        to[key].selector = to[key].selector.concat(from[key].selector)
-      }
-    } else {
-      to[key] = {
-        ...from[key],
-      }
-    }
-  })
-  return to
-}
-
-function getFilter(filter) {
-  let messengerRegex = new RegExp('(.*)://(.*).messenger.com/(.*)')
-  let facebookRegex = new RegExp('(.*)://(.*).facebook.com/(.*)')
-  let domain = document.location.href
-  if (messengerRegex.test(domain)) {
-    return filter['messenger.com']
-  } else if (facebookRegex.test(domain)) {
-    return mergeFilters(filter['messenger.com'], filter['facebook.com'])
-  }
-}
-
-export function inject(sync, local) {
+export function inject(sync, local, filter) {
   let css = ''
   let protect_css = ''
   let display_css = ''
-  let filter = getFilter(local.protect_privacy)
   log('Injecting...', sync, local)
 
   /**

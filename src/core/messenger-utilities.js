@@ -13,11 +13,85 @@ let notification = {
  * Protect privacy
  */
 // facebook.com
+let protect_privacy_facebook_parent_selectors = {
+  right_sidebar: 'div[class~=cxgpxx05][class~=sj5x9vvc]',
+  chat_tabs:
+    'div[class~=pmk7jnqg][class~=lfi1tu6t][class~=cypi58rs][class~=tmrshh9y]',
+  chat_info:
+    'div[class~=rq0escxv][class~=l9j0dhe7][class~=du4w35lb][class~=j83agx80][class~=pfnyh3mw][class~=jifvfom9][class~=bp9cbjyn][class~=owycx6da][class~=btwxx1t3][class~=jb3vyjys]',
+  chatbox: 'div[data-testid=mwchat-tab]',
+  inside_chatbox:
+    'div[class~=buofh1pr][class~=j83agx80][class~=cbu4d94t][class~=d2edcug0][class~=l9j0dhe7][class~=tgvbjcpo]',
+  chat_dropdown: 'div[data-testid=MWJewelThreadListContainer]',
+}
 let protect_privacy_facebook_data = {
   general: {
     name: 'General',
+    selector: [],
+  },
+  image: {
+    name: 'Image',
     selector: [
-      'div[data-pagelet=RightRail] > div[data-visualcompletion=ignore-dynamic]',
+      protect_privacy_facebook_parent_selectors.right_sidebar +
+        ' div[class~=q9uorilb][class~=l9j0dhe7][class~=pzggbiyp][class~=du4w35lb] svg[class=pzggbiyp]', // right sidebar avatar
+      protect_privacy_facebook_parent_selectors.chat_tabs +
+        ' img[class~=k4urcfbm][class~=datstx6m][class~=s45kfl79][class~=emlxlaya][class~=bkmhp75w][class~=spb7xbtv][class~=pzggbiyp][class~=bixrwtb6]', // avatar in chat tabs
+      protect_privacy_facebook_parent_selectors.chat_info + ' image', // avatar in chat info popup
+      protect_privacy_facebook_parent_selectors.chatbox +
+        ' img[class~=a8c37x1j][class~=d2edcug0][class~=sn7ne77z][class~=bixrwtb6]', // chatbox avatar
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        ' img[class~=k4urcfbm][class~=bixrwtb6][class~=datstx6m][class~=q9uorilb]', // inside chatbox avatar
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        ' img[class~=a8c37x1j][class~=d2edcug0][class~=datstx6m][class~=k4urcfbm]', // image message
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        " img[width='32']", // icon message
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        " img[width='14px']", // seen avatar icon float
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        ' div[class~=d2edcug0][class~=l9j0dhe7][class~=tkr6xdv7] div', // sticker image
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        ' img[class~=sf5mxxl7][class~=gab7stmx][class~=i4qgphn6][class~=s45kfl79][class~=emlxlaya][class~=bkmhp75w][class~=spb7xbtv][class~=abpf7j7b][class~=exrn9cbp]', // seen avatar icon
+      protect_privacy_facebook_parent_selectors.chat_dropdown + ' img', // avatar in chat dropdown
+      protect_privacy_facebook_parent_selectors.chat_dropdown + ' image', // seen avatar in chat dropdown
+    ],
+  },
+  name: {
+    name: 'Name',
+    selector: [
+      protect_privacy_facebook_parent_selectors.right_sidebar +
+        ' span[class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=lr9zc1uh][class~=a8c37x1j][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=d3f4x2em][class~=iv3no6db][class~=jq4qci2q][class~=a3bd9o3v][class~=ekzkrbhg][class~=oo9gr5id][class~=hzawbc8m]',
+      protect_privacy_facebook_parent_selectors.chatbox +
+        ' span[class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=lr9zc1uh][class~=a8c37x1j][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=d3f4x2em][class~=iv3no6db][class~=jq4qci2q][class~=a3bd9o3v][class~=lrazzd5p][class~=oo9gr5id][class~=oqcyycmt]', // name of chat seen
+      protect_privacy_facebook_parent_selectors.chatbox +
+        ' span[class~=a8c37x1j][class~=ni8dbmo4][class~=stjgntxs][class~=l9j0dhe7][class~=ltmttdrg][class~=g0qnabr5]', // name of chat not seen
+      protect_privacy_facebook_parent_selectors.chat_info +
+        ' span[class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=lr9zc1uh][class~=a8c37x1j][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=ns63r2gh][class~=iv3no6db][class~=o3w64lxj][class~=b2s5l15y][class~=hnhda86s][class~=oo9gr5id][class~=hzawbc8m]', // name in chat info popup
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        ' span[class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=lr9zc1uh][class~=a8c37x1j][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=d3f4x2em][class~=mdeji52x][class~=a5q79mjw][class~=g1cxx5fr][class~=lrazzd5p][class~=oo9gr5id][class~=oqcyycmt]', // name at header of chat
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        ' div[data-testid=mw_message_sender_name]', // name of sender
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        ' div[class~=hyh9befq][class~=pipptul6][class~=sq6gx45u]', // quote name
+      protect_privacy_facebook_parent_selectors.chat_dropdown +
+        ' span[class~=a8c37x1j][class~=ni8dbmo4][class~=stjgntxs][class~=l9j0dhe7][class~=ltmttdrg][class~=g0qnabr5]', // name in chat dropdown
+    ],
+  },
+  message: {
+    name: 'Message',
+    selector: [
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        ' div[class~=ii04i59q][class~=jq4qci2q][class~=g9io39s2][class~=oo9gr5id]', // chat message (they)
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        ' div[class~=ii04i59q][class~=jq4qci2q][class~=g9io39s2][class~=ljqsnud1]', // chat message (you)
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        ' div[class~=m9osqain][class~=ii04i59q]', // quote message
+    ],
+  },
+  chatbox: {
+    name: 'Chatbox',
+    selector: [
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        ' div[class~=oo9gr5id][class~=lzcic4wl][class~=l9j0dhe7][class~=gsox5hk5][class~=buofh1pr][class~=tw4czcav][class~=cehpxlet][class~=hpfvmrgz][class~=eg9m0zos][class~=notranslate] > p', // chatbox
     ],
   },
 }
@@ -129,12 +203,30 @@ export default {
   notification: notification,
   data: {
     protect_privacy: {
-      'facebook.com': protect_privacy_facebook_data,
       'messenger.com': protect_privacy_messenger_data,
+      'facebook.com': mergeFilters(
+        protect_privacy_messenger_data,
+        protect_privacy_facebook_data
+      ),
     },
     hide_chat: {
       'facebook.com': hide_chat_facebook,
       'messenger.com': hide_chat_messenger,
     },
   },
+}
+
+function mergeFilters(to, from) {
+  Object.entries(from).forEach(([key]) => {
+    if (Object.prototype.hasOwnProperty.call(to, key)) {
+      if (Array.isArray(to[key].selector)) {
+        to[key].selector = to[key].selector.concat(from[key].selector)
+      }
+    } else {
+      to[key] = {
+        ...from[key],
+      }
+    }
+  })
+  return to
 }
