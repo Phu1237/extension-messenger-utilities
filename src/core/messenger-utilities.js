@@ -36,6 +36,8 @@ let protect_privacy_facebook_data = {
         ' div[class~=q9uorilb][class~=l9j0dhe7][class~=pzggbiyp][class~=du4w35lb] svg[class=pzggbiyp]', // right sidebar avatar
       protect_privacy_facebook_parent_selectors.chat_tabs +
         ' img[class~=k4urcfbm][class~=datstx6m][class~=s45kfl79][class~=emlxlaya][class~=bkmhp75w][class~=spb7xbtv][class~=pzggbiyp][class~=bixrwtb6]', // avatar in chat tabs
+      protect_privacy_facebook_parent_selectors.chat_tabs +
+        ' div[class~=j83agx80][class~=l9j0dhe7] > img', // avatar in chat tabs (group)
       protect_privacy_facebook_parent_selectors.chat_info + ' image', // avatar in chat info popup
       protect_privacy_facebook_parent_selectors.chatbox +
         ' img[class~=a8c37x1j][class~=d2edcug0][class~=sn7ne77z][class~=bixrwtb6]', // chatbox avatar
@@ -53,6 +55,8 @@ let protect_privacy_facebook_data = {
         ' img[class~=sf5mxxl7][class~=gab7stmx][class~=i4qgphn6][class~=s45kfl79][class~=emlxlaya][class~=bkmhp75w][class~=spb7xbtv][class~=abpf7j7b][class~=exrn9cbp]', // seen avatar icon
       protect_privacy_facebook_parent_selectors.chat_dropdown + ' img', // avatar in chat dropdown
       protect_privacy_facebook_parent_selectors.chat_dropdown + ' image', // seen avatar in chat dropdown
+      protect_privacy_facebook_parent_selectors.inside_chatbox +
+        " span[class~=pq6dq46d][class~=tbxw36s4][class~=knj5qynh][class~=kvgmc6g5][class~=ditlmg2l][class~=oygrvhab][class~=nvdbi5me][class~=sf5mxxl7][class~=jnigpg78][class~=odw8uiq3] > img[height='20']", // send icon
     ],
   },
   name: {
