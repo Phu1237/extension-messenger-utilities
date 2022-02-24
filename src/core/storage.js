@@ -86,7 +86,7 @@ export const default_sync_storage = {
     label: 'Protect level',
     description: 'Level of protection',
     type: Number,
-    value: 8,
+    value: 10,
   },
   display_type: {
     name: 'display_type',

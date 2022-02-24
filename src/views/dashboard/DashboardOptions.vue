@@ -38,6 +38,23 @@
           </div>
           <div class="pt-6 sm:pt-5">
             <FormGroup
+              :id="description.protect_level.name"
+              :label="description.protect_level.label"
+            >
+              <InputRange
+                :id="description.protect_level.name"
+                :label="
+                  'The level of protection (just for blur for now) - ' +
+                  form.protect_level +
+                  '%'
+                "
+                :value="Number(form.protect_level)"
+                @input="form.protect_level = $event"
+              />
+            </FormGroup>
+          </div>
+          <div class="pt-6 sm:pt-5">
+            <FormGroup
               :id="description.protect_items.name"
               :label="description.protect_items.label"
             >
@@ -144,6 +161,7 @@ import InputRadio from '@/components/dashboard/form/InputRadio.vue'
 import InputCheckbox from '@/components/dashboard/form/InputCheckbox.vue'
 import SimpleTextarea from '@/components/dashboard/form/SimpleTextarea.vue'
 import SimpleButton from '@/components/dashboard/button/SimpleButton.vue'
+import InputRange from '../../components/dashboard/form/InputRange.vue'
 
 export default defineComponent({
   components: {
@@ -153,6 +171,7 @@ export default defineComponent({
     InputCheckbox,
     SimpleTextarea,
     SimpleButton,
+    InputRange,
   },
   data() {
     return {
@@ -160,6 +179,7 @@ export default defineComponent({
         protect_status: null,
         protect_type: null,
         protect_items: null,
+        protect_level: null,
         display_type: null,
         hide_status: null,
         hide_list: null,
@@ -176,6 +196,7 @@ export default defineComponent({
     this.form.protect_status = this._syncStorage.protect_status
     this.form.protect_type = this._syncStorage.protect_type
     this.form.protect_items = this._syncStorage.protect_items
+    this.form.protect_level = this._syncStorage.protect_level
     this.form.display_type = this._syncStorage.display_type
     this.form.hide_status = this._syncStorage.hide_status
     this.form.hide_list = this._syncStorage.hide_list
