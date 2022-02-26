@@ -80,13 +80,24 @@ function addContentScript() {
     (tabs) => {
       if (tabs.length > 0) {
         for (var i = 0; i < tabs.length; ++i) {
-          chrome.scripting.executeScript(
-            {
-              target: { tabId: tabs[i].id },
-              files: ['content.js'],
-            },
-            () => {}
-          )
+          const manifest = chrome.runtime.getManifest()
+          if (manifest.manifest_version == 2) {
+            chrome.tabs.executeScript(
+              tabs[i].id,
+              {
+                file: 'content.js',
+              },
+              () => {}
+            )
+          } else {
+            chrome.scripting.executeScript(
+              {
+                target: { tabId: tabs[i].id },
+                files: ['content.js'],
+              },
+              () => {}
+            )
+          }
         }
       } else {
         log('Not found any tab that match with query!')
