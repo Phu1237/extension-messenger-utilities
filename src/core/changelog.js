@@ -68,4 +68,10 @@ export default [
       "add notification box so that you don't miss any new extension's message",
     ],
   },
+  {
+    id: 9,
+    label: 'Version 1.2.1',
+    time: new Date('2019-01-01'),
+    changes: ['fix unable to install extension on some browsers'],
+  },
 ]
