@@ -61,7 +61,7 @@ export default [
     label: 'Version 1.2.0',
     time: new Date('2019-01-01'),
     changes: [
-      'add hide chat',
+      'add hide chat feature',
       'add automatic update extension data',
       'add support for facebook.com',
       'new UI',
