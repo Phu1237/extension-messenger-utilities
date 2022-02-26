@@ -4,7 +4,7 @@ import commonjs from '@rollup/plugin-commonjs'
 const path = require('path')
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ mode }) => {
   return {
     plugins: [vue(), commonjs()],
     server: {

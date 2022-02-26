@@ -1,6 +1,10 @@
 <template>
   <div class="p-1">
-    <Alert v-if="alert.message" :type="alert.type" :message="alert.message" />
+    <AlertBox
+      v-if="alert.message"
+      :type="alert.type"
+      :message="alert.message"
+    />
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="relative">
       <div class="absolute inset-0 flex items-center" aria-hidden="true">
@@ -159,11 +163,11 @@
 
 <script>
 import { defineComponent } from 'vue'
-import Alert from '@/components/Alert.vue'
+import AlertBox from '@/components/AlertBox.vue'
 
 export default defineComponent({
   components: {
-    Alert,
+    AlertBox,
   },
   data() {
     return {
