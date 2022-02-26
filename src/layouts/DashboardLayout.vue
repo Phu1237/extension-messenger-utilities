@@ -88,9 +88,6 @@ export default {
   },
   data() {
     return {
-      notification: null,
-      notification_closed: false,
-      notification_time: null,
       is_donation_modal_open: false,
       isDev: import.meta.env.DEV,
     }
@@ -101,11 +98,15 @@ export default {
       //Save the file contents as a DataURI
       return 'data:application/json;charset=utf-8,' + encodeURIComponent(str)
     },
-  },
-  created() {
-    this.notification = this._localStorage.notification
-    this.notification_closed = this._localStorage.notification_closed
-    this.notification_time = this._localStorage.notification_time
+    notification() {
+      return this._localStorage.notification
+    },
+    notification_closed() {
+      return this._localStorage.notification_closed
+    },
+    notification_time() {
+      return this._localStorage.notification_time
+    },
   },
   methods: {
     title() {

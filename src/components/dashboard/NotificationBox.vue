@@ -88,7 +88,10 @@ export default defineComponent({
   },
   methods: {
     isShow() {
-      if (this.closed == true && this.time != this.notification.time) {
+      if (
+        (this.closed == true && this.time == this.notification.time) ||
+        this.notification.message == ''
+      ) {
         return false
       }
       return true

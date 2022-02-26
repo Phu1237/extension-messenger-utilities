@@ -37,6 +37,8 @@ function fetchData() {
       response.json().then((data) => {
         chrome.storage.local.set({ last_updated: Date.now() })
         chrome.storage.local.get(['version'], (result) => {
+          // data: response
+          // result: storage
           log('Current data version', result.version)
           log('Upcoming data version', data.version)
           log('Requirements:', data.dependencies)
@@ -52,7 +54,7 @@ function fetchData() {
               chrome.storage.local.set({
                 notification: {
                   message:
-                    'Your version is out-of-date. Please update your extension to the latest version.',
+                    'New version has been released. Please update your extension to the latest version.',
                   url: '',
                   time: Date.now(),
                 },

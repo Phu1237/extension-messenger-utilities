@@ -2,12 +2,10 @@ let dependencies = {
   'messenger-utilities': '1.2.0',
 }
 let notification = {
-  message:
-    'New version is released with many new changes. Please update your extension to the latest version.',
+  message: '',
   url: '',
-  time: Date.now(),
+  time: Date.now(), // Date.now()
   color: 'primary',
-  update: true,
 }
 /**
  * Protect privacy
