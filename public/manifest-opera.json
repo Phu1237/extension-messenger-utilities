@@ -24,11 +24,22 @@
     "48": "/icons/icon_48.png",
     "128": "/icons/icon_128.png"
   },
-  "permissions": ["storage", "tabs", "scripting", "*://*.messenger.com/*"],
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting",
+    "*://*.facebook.com/*",
+    "*://*.messenger.com/*"
+  ],
   "content_scripts": [
     {
-      "matches": ["*://*.messenger.com/*"],
-      "js": ["src/content.js"]
+      "matches": [
+        "*://*.facebook.com/*",
+        "*://*.messenger.com/*"
+      ],
+      "js": [
+        "src/content.js"
+      ]
     }
   ]
 }
