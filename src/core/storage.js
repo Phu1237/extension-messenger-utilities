@@ -173,13 +173,13 @@ function objectToKeyValueOnly(object) {
       obj[key] = value
     })
   }
-  return object
+  return obj
 }
 /**
  * Get a value from config
  */
 function mergeStorageObject(default_storage_value, current_value) {
-  default_storage_value = objectToKeyValueOnly(default_storage_value)
+  default_storage_value = { ...objectToKeyValueOnly(default_storage_value) }
   log('mergeStorageObject', default_storage_value, current_value)
   let new_storage = default_storage_value
   if (current_value !== null) {
@@ -199,12 +199,14 @@ export function mergeStorage(storage) {
     case 'sync':
       chrome.storage.sync.get(null, (result) => {
         let newStorage = mergeStorageObject(default_sync_storage, result)
+        log('mergeStorage', newStorage)
         chrome.storage.sync.set(newStorage)
       })
       return true
     case 'local':
       chrome.storage.local.get(null, (result) => {
         let newStorage = mergeStorageObject(default_local_storage, result)
+        log('mergeStorage', newStorage)
         chrome.storage.local.set(newStorage)
       })
       return true

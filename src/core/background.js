@@ -155,7 +155,7 @@ function installedLog() {
       log('All local storage items', result)
     })
 
-    const autoClearStorage = true
+    const autoClearStorage = false
     if (autoClearStorage) {
       /**
        * Delete all sync storage items
