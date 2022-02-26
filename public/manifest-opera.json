@@ -38,7 +38,7 @@
         "*://*.messenger.com/*"
       ],
       "js": [
-        "src/content.js"
+        "content.js"
       ]
     }
   ]
