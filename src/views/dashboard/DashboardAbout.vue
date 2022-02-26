@@ -99,7 +99,7 @@
                       >
                         https://github.com/Phu1237/extension-messenger-utilities/issues
                       </a>
-                      <br />or send me a email
+                      <br />or send me an email
                     </dd>
                   </div>
                   <div class="sm:col-span-2">
