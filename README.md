@@ -1,28 +1,23 @@
 # Messenger Utilities
 
-![logo](source/icons/icon.png)
+![logo](public/icons/icon.png)
 Utilities for Facebook Messenger
-Extension for Chrome / Edge / Opera / chromium based browser
+Extension for Chrome / Edge / Opera / Chromium-based browsers
 
 ## Features
 
-UPCOMING:
-
-- Auto update filter for protect
-- New code
-
 Available features:
 
-- Protect your privacy, let you control what and when contents should be display in messenger.com.
+- Protect your privacy: Let you control what and when contents should be displayed on messenger.com.
+- Hide chat: Hide the chat from the list of chats.
 
 Under development features:
 
-- Password protect for extension
-- Password protect for messenger.com
+- Password protectition
 
 ## Download
 
-Get it from extension store:
+Get it from the extension store:
 
 - [Edge](https://microsoftedge.microsoft.com/addons/detail/dikgifmgfijhmfapckmkbgldlljmihea)
 - [Opera](https://addons.opera.com/en/extensions/details/messenger-utilities)
@@ -34,9 +29,12 @@ Or you can download the released version [here](https://github.com/Phu1237/exten
 - Video:
   - [Youtube](https://youtu.be/xYn46sTrNPI)
 - Screenshots:
-![screenshot](screenshots/edge-1.png)
-![screenshot](screenshots/edge-2.png)
-More? Go to [screenshots](screenshots)
+![screenshot](screenshots/1.png)
+![screenshot](screenshots/2.png)
+![screenshot](screenshots/3.png)
+![screenshot](screenshots/4.png)
+![screenshot](screenshots/5.png)
+![screenshot](screenshots/6.png)
 
 
 ## How to build
@@ -44,20 +42,26 @@ More? Go to [screenshots](screenshots)
 ### Requirements
 
 - [Nodejs](https://nodejs.org/) or [Yarn](https://yarnpkg.com/)
+- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (Recommended)
 
 ### Build
 
+Edit **.env** file
 Run the following command:
 
-```bash
-npm install
-npm run prod
-# or
-yarn install
-yarn run prod
-```
+| |Production|Development|
+|-|-|-|
+|Npm|`npm run build`|`npm run build:dev`
+|Yarn|`yarn build`|`yarn build:dev`
 
-And then, go to the "dist" directory folder to view built files.
+Turn on the **developer mode** and move the "dist" folder into the **extensions page**.
+
+## Donations
+
+If you like my works, please consider buying me a coffee ☕
+
+- [Buy me a coffee](https://www.buymeacoffee.com/Phu1237)
+- [Momo](https://me.momo.vn/Phu1237)
 
 ## Contributors
 

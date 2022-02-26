@@ -1,6 +1,5 @@
-*.zip
-*copy.*
 node_modules
-/private
-/build.bat
-/dist
+.DS_Store
+dist
+dist-ssr
+*.local
