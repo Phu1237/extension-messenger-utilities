@@ -40,7 +40,7 @@
           href="#"
           class="text-base font-medium text-gray-500 hover:text-gray-600"
         >
-          Messenger Utilities {{ app('version') }}
+          Messenger Utilities {{ manifest('version') }}
         </span>
       </nav>
     </footer>

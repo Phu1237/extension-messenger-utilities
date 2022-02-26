@@ -20,7 +20,7 @@ export default defineComponent({
       information: [
         {
           label: 'Version',
-          value: this.app('version'),
+          value: this.manifest('version'),
           isBadge: true,
         },
         {
