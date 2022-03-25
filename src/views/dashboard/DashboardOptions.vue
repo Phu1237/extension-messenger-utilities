@@ -5,8 +5,8 @@
         <div>
           <h2 class="text-lg leading-6 font-medium text-gray-900">Protect</h2>
           <p class="mt-1 max-w-2xl text-base text-gray-500">
-            We'll always let you know about important changes, but you pick what
-            else you want to hear about.
+            Protect your privacy by prevent content from being shown when you
+            are unwanted.
           </p>
         </div>
         <div class="mt-6 space-y-6 sm:space-y-5">
@@ -86,10 +86,34 @@
       <!-- Hide chat -->
       <div class="pt-6 space-y-6 sm:pt-5 sm:space-y-5">
         <div>
+          <h2 class="text-lg leading-6 font-medium text-gray-900">
+            Protect title
+          </h2>
+          <p class="mt-1 max-w-2xl text-base text-gray-500">
+            {{ description.protect_title.description }}.
+          </p>
+        </div>
+        <div class="mt-6 space-y-6 sm:space-y-5">
+          <div>
+            <FormGroup
+              :id="description.protect_title.name"
+              :label="description.protect_title.label"
+            >
+              <InputToggle
+                :id="description.protect_title.name"
+                :checked="form.protect_title"
+                @input="form.protect_title = !form.protect_title"
+              />
+            </FormGroup>
+          </div>
+        </div>
+      </div>
+      <!-- Hide chat -->
+      <div class="pt-6 space-y-6 sm:pt-5 sm:space-y-5">
+        <div>
           <h2 class="text-lg leading-6 font-medium text-gray-900">Hide chat</h2>
           <p class="mt-1 max-w-2xl text-base text-gray-500">
-            We'll always let you know about important changes, but you pick what
-            else you want to hear about.
+            Hide all the chat you don't want it to be seen.
           </p>
         </div>
         <div class="mt-6 space-y-6 sm:space-y-5">
@@ -181,6 +205,7 @@ export default defineComponent({
         protect_items: null,
         protect_level: null,
         display_type: null,
+        protect_title: null,
         hide_status: null,
         hide_list: null,
       },
@@ -198,6 +223,7 @@ export default defineComponent({
     this.form.protect_items = this._syncStorage.protect_items
     this.form.protect_level = this._syncStorage.protect_level
     this.form.display_type = this._syncStorage.display_type
+    this.form.protect_title = this._syncStorage.protect_title
     this.form.hide_status = this._syncStorage.hide_status
     this.form.hide_list = this._syncStorage.hide_list
   },
