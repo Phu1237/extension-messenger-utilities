@@ -19,18 +19,33 @@ function log() {
   }
 }
 
+function getCurrentPage() {
+  let messengerRegex = new RegExp('(.*)://(.*).messenger.com/(.*)')
+  let facebookRegex = new RegExp('(.*)://(.*).facebook.com/(.*)')
+  let domain = document.location.href
+  if (messengerRegex.test(domain)) {
+    return 'messenger.com'
+  } else if (facebookRegex.test(domain)) {
+    return 'facebook.com'
+  }
+}
+
 export function inject() {
   let title = document.querySelector('title')
   let config = { childList: true }
   let mutation = new MutationObserver((mutations) => {
-    log(mutations, mutations[0].target.text);
-    let text = mutations[0].target.text;
-    if ((/^(?!\([0-9]+\))((?!Messenger).)*$/g).test(text)) {
-      log('Title match! Changing title from ' + text + ' to (*) Messenger');
+    log(mutations, mutations[0].target.text)
+    let text = mutations[0].target.text
+    if (/^(?!\([0-9]+\))((?!Messenger).)*$/g.test(text)) {
+      log('Title match! Changing title from ' + text + ' to (*) Messenger')
       mutation.disconnect()
-      title.text = '(*) Messenger';
-      mutation.observe(title, config);
+      if (getCurrentPage() === 'messenger.com') {
+        title.text = '(*) Messenger'
+      } else if (getCurrentPage() === 'facebook.com') {
+        title.text = '(*) Facebook'
+      }
+      mutation.observe(title, config)
     }
-  });
-  mutation.observe(title, config);
+  })
+  mutation.observe(title, config)
 }
