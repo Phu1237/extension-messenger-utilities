@@ -82,7 +82,7 @@ export default [
   },
   {
     id: 11,
-    label: 'Version 1.3.1',
+    label: 'Version 1.3.1 - 1.3.2',
     time: new Date('2019-01-01'),
     changes: ['fix protect title for facebook'],
   },
