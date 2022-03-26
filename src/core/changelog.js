@@ -80,4 +80,10 @@ export default [
     time: new Date('2019-01-01'),
     changes: ['add protect title'],
   },
+  {
+    id: 11,
+    label: 'Version 1.3.1',
+    time: new Date('2019-01-01'),
+    changes: ['fix protect title for facebook'],
+  },
 ]
