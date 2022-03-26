@@ -36,7 +36,7 @@ export function inject() {
   let mutation = new MutationObserver((mutations) => {
     log(mutations, mutations[0].target.text)
     let text = mutations[0].target.text
-    if (/^(?!\([0-9]+\))((?!Messenger).)*$/g.test(text)) {
+    if (/^(?!\([0-9]+\))((?!Messenger)|(?!Facebook).)*$/g.test(text)) {
       log('Title match! Changing title from ' + text + ' to (*) Messenger')
       mutation.disconnect()
       if (getCurrentPage() === 'messenger.com') {
