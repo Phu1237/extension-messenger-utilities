@@ -28,7 +28,7 @@
     </div>
     <div class="flex justify-between px-2">
       Author: Phu1237
-      <span id="version">v{{ app('version') }}</span>
+      <span id="version">v{{ manifest('version') }}</span>
     </div>
   </footer>
 </template>

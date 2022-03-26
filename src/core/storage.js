@@ -109,6 +109,13 @@ export const default_sync_storage = {
       },
     },
   },
+  protect_title: {
+    name: 'protect_title',
+    label: 'Protect title',
+    description: 'Prevent the name of sender to be shown in the title of page',
+    type: Boolean,
+    value: true,
+  },
   hide_status: {
     name: 'hide_status',
     label: 'Hide status',
@@ -124,7 +131,7 @@ export const default_sync_storage = {
     placeholder: 'xxxxxxxxxxxxxxx\nxxxxxxxxxxxxxxx|Mr. X',
     type: String,
     value: '',
-  },
+  }
 }
 export const default_local_storage = {
   update_interval: {

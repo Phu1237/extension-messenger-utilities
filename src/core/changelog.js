@@ -74,4 +74,16 @@ export default [
     time: new Date('2019-01-01'),
     changes: ['fix unable to install extension on some browsers'],
   },
+  {
+    id: 10,
+    label: 'Version 1.3.0',
+    time: new Date('2019-01-01'),
+    changes: ['add protect title'],
+  },
+  {
+    id: 11,
+    label: 'Version 1.3.3',
+    time: new Date('2019-01-01'),
+    changes: ['fix protect title for facebook'],
+  },
 ]

@@ -1,5 +1,6 @@
 import { inject as injectProtectPrivacy } from './protect_privacy'
 import { inject as injectHideChat } from './hide_chat'
+import { inject as injectProtectTitle } from './title'
 
 /**
  * Print log
@@ -73,6 +74,11 @@ export function inject(sync, local) {
     hide_list = hide_list.split('\n')
     let hide_chat = local.hide_chat[getCurrentPage()]
     css += injectHideChat(hide_chat, hide_list)
+    console.groupEnd()
+  }
+  if (sync.protect_title) {
+    console.group('Injecting protect title...')
+    css += injectProtectTitle()
     console.groupEnd()
   }
   log('Injecting with css ', css)

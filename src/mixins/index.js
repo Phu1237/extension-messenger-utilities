@@ -22,12 +22,21 @@ export default {
       return moment(date).format(format)
     },
     /**
-     * Get value in package.json
+     * Get value from package.json
      * @param {*} key
      * @returns
      */
     app(key) {
       return app[key]
+    },
+    /**
+     * Get value from manifest
+     * @param {*} key
+     * @returns
+     */
+    manifest(key) {
+      const manifest = chrome.runtime.getManifest()
+      return manifest[key]
     },
     /**
      * Print log
