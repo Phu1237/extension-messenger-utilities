@@ -33,6 +33,7 @@ function getCurrentPage() {
 export function inject() {
   let title = document.querySelector('title')
   let config = { childList: true }
+  let isOn = false
   let mutation = new MutationObserver((mutations) => {
     log(mutations, mutations[0].target.text)
     let text = mutations[0].target.text
@@ -43,13 +44,20 @@ export function inject() {
     ) {
       log('Title match! Changing title from ' + text + ' to (*) Messenger')
       mutation.disconnect()
+      let isOn = false
       if (getCurrentPage() === 'messenger.com') {
         title.text = '(*) Messenger'
       } else if (getCurrentPage() === 'facebook.com') {
         title.text = '(*) Facebook'
       }
-      mutation.observe(title, config)
+      setTimeout(() => {
+        if (!isOn) {
+          mutation.observe(title, config)
+          isOn = true
+        }
+      }, 500)
     }
   })
   mutation.observe(title, config)
+  isOn = true
 }
