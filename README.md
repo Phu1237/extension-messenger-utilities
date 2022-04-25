@@ -13,7 +13,7 @@ Available features:
 
 Under development features:
 
-- Password protectition
+- Password protection
 
 ## Download
 
