@@ -33,6 +33,18 @@
           class="mt-6 flex flex-col-reverse justify-stretch space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-x-reverse sm:space-y-0 sm:space-x-3 md:mt-0 md:flex-row md:space-x-3"
         >
           <a
+            href="https://chrome.google.com/webstore/detail/messenger-utilities/hgjapmpobhggbolomlplijepenpbefld?hl=vi&authuser=1"
+          >
+            <SimpleButton
+              type="leading-icon"
+              color="primary"
+              size="xl"
+              :icon="['fab', 'chrome']"
+            >
+              Rate me
+            </SimpleButton>
+          </a>
+          <a
             href="https://microsoftedge.microsoft.com/addons/detail/dikgifmgfijhmfapckmkbgldlljmihea"
           >
             <SimpleButton
@@ -41,19 +53,19 @@
               size="xl"
               :icon="['fab', 'edge']"
             >
-              Rate me on Edge
+              Rate me
             </SimpleButton>
           </a>
           <a
             href="https://addons.opera.com/en/extensions/details/messenger-utilities"
           >
             <SimpleButton
-              type="trailing-icon"
+              type="leading-icon"
               color="primary"
               size="xl"
               :icon="['fab', 'opera']"
             >
-              Rate me on Opera
+              Rate me
             </SimpleButton>
           </a>
         </div>
