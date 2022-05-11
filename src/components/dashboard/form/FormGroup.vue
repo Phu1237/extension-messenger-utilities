@@ -8,6 +8,9 @@
         >
           {{ label }}
         </div>
+        <template v-if="label !== ''">
+            <legend class="text-sm text-gray-900" v-html="description" />
+        </template>
       </div>
       <div class="mt-4 sm:mt-0 sm:col-span-2">
         <div class="max-w-lg space-y-4">
@@ -24,13 +27,17 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   props: {
     id: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     label: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
+    description: {
+        type: String,
+        required: false,
+    }
   },
 })
 </script>

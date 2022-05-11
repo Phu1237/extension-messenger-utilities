@@ -38,10 +38,6 @@ export default defineComponent({
       type: String,
       default: '',
     },
-    subLabel: {
-      type: String,
-      default: '',
-    },
     checked: {
       type: Boolean,
       default: false,

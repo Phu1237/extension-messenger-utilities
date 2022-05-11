@@ -1,7 +1,4 @@
 <template>
-  <template v-if="label !== ''">
-    <label :for="id" class="block text-base text-gray-700" v-html="label" />
-  </template>
   <div class="mt-1">
     <textarea
       v-model="text"
@@ -21,10 +18,6 @@ export default defineComponent({
     id: {
       type: String,
       required: true,
-    },
-    label: {
-      type: String,
-      default: '',
     },
     placeholder: {
       type: String,
