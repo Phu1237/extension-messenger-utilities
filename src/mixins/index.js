@@ -61,7 +61,7 @@ export default {
     /**
      * Find tab(s) and re-inject the code
      */
-    reinject() {
+    reinject(reload = false) {
       chrome.tabs.query(
         {
           url: ['*://*.facebook.com/*', '*://*.messenger.com/*'],
@@ -73,9 +73,10 @@ export default {
                 tabs[i].url.includes('messenger.com') ||
                 tabs[i].url.includes('facebook.com')
               ) {
+                let action = reload ? 'reload' : 'reinject';
                 chrome.tabs.sendMessage(
                   tabs[i].id,
-                  { action: 'reinject' },
+                  { action: action },
                   (response) => {
                     this.log(response)
                   }

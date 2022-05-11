@@ -14,6 +14,7 @@
             <FormGroup
               :id="description.protect_status.name"
               :label="description.protect_status.label"
+              :description="description.protect_status.description"
             >
               <InputToggle
                 :id="description.protect_status.name"
@@ -26,10 +27,10 @@
             <FormGroup
               :id="description.protect_type.name"
               :label="description.protect_type.label"
+              :description="description.protect_type.description"
             >
               <InputRadio
                 :id="description.protect_type.name"
-                :label="description.protect_type.description"
                 :value="form.protect_type"
                 :options="description.protect_type.options"
                 @input="form.protect_type = String($event)"
@@ -40,6 +41,7 @@
             <FormGroup
               :id="description.protect_level.name"
               :label="description.protect_level.label"
+              :description="description.protect_level.description"
             >
               <InputRange
                 :id="description.protect_level.name"
@@ -57,10 +59,10 @@
             <FormGroup
               :id="description.protect_items.name"
               :label="description.protect_items.label"
+              :description="description.protect_items.description"
             >
               <InputCheckbox
                 :id="description.protect_items.name"
-                :label="description.protect_items.description"
                 :value="objectToArray(form.protect_items)"
                 :options="description.protect_items.options"
                 @input="form.protect_items = arrayToObject($event)"
@@ -71,33 +73,21 @@
             <FormGroup
               :id="description.display_type.name"
               :label="description.display_type.label"
+              :description="description.display_type.description"
             >
               <InputRadio
                 :id="description.display_type.name"
-                :label="description.display_type.description"
                 :value="form.display_type"
                 :options="description.display_type.options"
                 @input="form.display_type = String($event)"
               />
             </FormGroup>
           </div>
-        </div>
-      </div>
-      <!-- Hide chat -->
-      <div class="pt-6 space-y-6 sm:pt-5 sm:space-y-5">
-        <div>
-          <h2 class="text-lg leading-6 font-medium text-gray-900">
-            Protect title
-          </h2>
-          <p class="mt-1 max-w-2xl text-base text-gray-500">
-            {{ description.protect_title.description }}.
-          </p>
-        </div>
-        <div class="mt-6 space-y-6 sm:space-y-5">
-          <div>
+          <div class="mt-6 space-y-6 sm:space-y-5">
             <FormGroup
               :id="description.protect_title.name"
               :label="description.protect_title.label"
+              :description="description.protect_title.description"
             >
               <InputToggle
                 :id="description.protect_title.name"
@@ -130,10 +120,10 @@
             <FormGroup
               :id="description.hide_list.name"
               :label="description.hide_list.label"
+              :description="description.hide_list.description"
             >
               <SimpleTextarea
                 :id="description.hide_list.name"
-                :label="description.hide_list.description"
                 :placeholder="description.hide_list.placeholder"
                 :value="form.hide_list"
                 @input="form.hide_list = $event"
@@ -245,8 +235,13 @@ export default defineComponent({
         })
         .then(() => {
           this.$store.dispatch('storage/fetch')
-          this.$toast.success('Saved!')
-          this.reinject()
+          let reload = this._syncStorage.protect_title !== this.form.protect_title
+          if (reload) {
+              this.$toast.success('Saved! The page(s) will be reloaded for the changes to take effect.')
+          } else {
+              this.$toast.success('Saved!')
+          }
+          this.reinject(reload)
         })
         .catch((err) => {
           this.$toast.error(err)
