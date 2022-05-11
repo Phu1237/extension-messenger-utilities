@@ -5,7 +5,7 @@ export const default_sync_storage = {
   protect_status: {
     name: 'protect_status',
     label: 'Protect status',
-    description: 'Protect status',
+    description: '',
     type: Boolean,
     value: true,
   },
@@ -39,7 +39,7 @@ export const default_sync_storage = {
   protect_items: {
     name: 'protect_items',
     label: 'Protect items',
-    description: 'Items to protect',
+    description: 'Items to be protected',
     type: Object,
     value: {
       general: true,
@@ -119,7 +119,7 @@ export const default_sync_storage = {
   hide_status: {
     name: 'hide_status',
     label: 'Hide status',
-    description: 'Hide status',
+    description: '',
     type: Boolean,
     value: true,
   },
@@ -127,7 +127,7 @@ export const default_sync_storage = {
     name: 'hide_list',
     label: 'Hide list',
     description:
-      'List of chat will be hidden. One hidden chat id per line. (<b class="text-base">Format</b>: id|display name)<br/><b class="text-base">- How to get:</b><br/>https://www.messenger.com/t/<b class="text-base">xxxxxxxxxxxxxxx</b><br/><b class="text-base">- Example:</b><br/>xxxxxxxxxxxxxxx<br/>xxxxxxxxxxxxxxx|Mr. X',
+      'List of chat will be hidden. One hidden chat id per line. (<b class="text-sm">Format</b>: id|display name)<br/><b class="text-sm">- How to get:</b><br/>https://www.messenger.com/t/<b class="text-sm">xxxxxxxxxxxxxxx</b><br/><b class="text-sm">- Example:</b><br/>xxxxxxxxxxxxxxx<br/>xxxxxxxxxxxxxxx|Mr. X',
     placeholder: 'xxxxxxxxxxxxxxx\nxxxxxxxxxxxxxxx|Mr. X',
     type: String,
     value: '',
