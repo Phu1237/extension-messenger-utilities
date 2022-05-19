@@ -89,7 +89,6 @@ export default {
   data() {
     return {
       is_donation_modal_open: false,
-      isDev: import.meta.env.DEV,
     }
   },
   computed: {

@@ -3,6 +3,11 @@ import app from '../../package.json'
 import Changelog from '@/core/changelog'
 
 export default {
+  data() {
+    return {
+      isDev: import.meta.env.DEV
+    }
+  },
   computed: {
     _syncStorage() {
       return this.$store.state.storage.sync
