@@ -116,7 +116,7 @@ let protect_privacy_messenger_data = {
     name: 'name',
     selector: [
       protect_privacy_messenger_parent_selectors.left_sidebar +
-      ' span[class~=a8c37x1j][class~=hihg3u9x][class~=ggxiycxj][class~=l9j0dhe7][class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=lr9zc1uh][class~=jq4qci2q][class~=oo9gr5id][class~=d3f4x2em][class~=l3itjdph]', // left sidebar name ([class~=ekzkrbhg][class~=iv3no6db] for seen) ([class~=hnhda86s][class~=hrzyx87i] for unseen)
+			' span[class~=a8c37x1j][class~=hihg3u9x][class~=ggxiycxj][class~=l9j0dhe7][class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=lr9zc1uh][class~=jq4qci2q][class~=oo9gr5id][class~=d3f4x2em]', // left sidebar name ([class~=ekzkrbhg][class~=iv3no6db] for seen) ([class~=hnhda86s][class~=hrzyx87i] for unseen), [class~=dkezsu63] if needed more specific
       protect_privacy_messenger_parent_selectors.main +
       ' span[class~=a8c37x1j][class~=d2edcug0][class~=ni8dbmo4][class~=ltmttdrg][class~=g0qnabr5][class~=ojkyduve]', // main chat name & online status
       protect_privacy_messenger_parent_selectors.main +
@@ -128,7 +128,7 @@ let protect_privacy_messenger_data = {
       protect_privacy_messenger_parent_selectors.main +
       ' div[class~=r9r71o1u][class~=m9osqain][class~=fsrhnwul][class~=d0szoon8][class~=r8blr3vg][class~=qjjbsfad]', // message chat name
       protect_privacy_messenger_parent_selectors.right_sidebar +
-      ' span[class~=a8c37x1j][class~=hihg3u9x][class~=ggxiycxj][class~=l9j0dhe7][class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=lr9zc1uh][class~=a5q79mjw][class~=lrazzd5p][class~=oo9gr5id][class~=oqcyycmt][class~=d3f4x2em][class~=mdeji52x][class~=l3itjdph]', // right sidebar name
+			' span[class~=a8c37x1j][class~=hihg3u9x][class~=ggxiycxj][class~=l9j0dhe7][class~=d2edcug0][class~=hpfvmrgz][class~=qv66sw1b][class~=c1et5uql][class~=fe6kdd0r][class~=mau55g9w][class~=c8b282yb][class~=keod5gw0][class~=nxhoafnm][class~=aigsh9s9][class~=lr9zc1uh][class~=a5q79mjw][class~=lrazzd5p][class~=oo9gr5id][class~=oqcyycmt][class~=d3f4x2em][class~=mdeji52x]', // right sidebar name, [class~=dkezsu63] if needed more specific
     ],
   },
   image: {
