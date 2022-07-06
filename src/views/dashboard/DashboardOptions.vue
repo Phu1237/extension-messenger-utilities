@@ -39,6 +39,20 @@
           </div>
           <div class="pt-6 sm:pt-5">
             <FormGroup
+              :id="description.protect_domains.name"
+              :label="description.protect_domains.label"
+              :description="description.protect_domains.description"
+            >
+              <InputCheckbox
+                :id="description.protect_domains.name"
+                :value="objectToArray(form.protect_domains)"
+                :options="description.protect_domains.options"
+                @input="form.protect_domains = arrayToObject($event)"
+              />
+            </FormGroup>
+          </div>
+          <div class="pt-6 sm:pt-5">
+            <FormGroup
               :id="description.protect_level.name"
               :label="description.protect_level.label"
               :description="description.protect_level.description"
@@ -192,8 +206,9 @@ export default defineComponent({
       form: {
         protect_status: null,
         protect_type: null,
-        protect_items: null,
+        protect_domains: null,
         protect_level: null,
+        protect_items: null,
         display_type: null,
         protect_title: null,
         hide_status: null,
@@ -210,8 +225,9 @@ export default defineComponent({
   created() {
     this.form.protect_status = this._syncStorage.protect_status
     this.form.protect_type = this._syncStorage.protect_type
-    this.form.protect_items = this._syncStorage.protect_items
+    this.form.protect_domains = this._syncStorage.protect_domains
     this.form.protect_level = this._syncStorage.protect_level
+    this.form.protect_items = this._syncStorage.protect_items
     this.form.display_type = this._syncStorage.display_type
     this.form.protect_title = this._syncStorage.protect_title
     this.form.hide_status = this._syncStorage.hide_status

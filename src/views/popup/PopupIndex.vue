@@ -29,6 +29,15 @@
             </ul>
         </div>
         <div class="px-2">
+            <div class="font-medium">Protect domains</div>
+			<div class="px-1">
+				<input type="checkbox" :checked="form.protect_domains['messenger.com']" @click="form.protect_domains['messenger.com'] = !form.protect_domains['messenger.com']" /> messenger.com
+			</div>
+			<div class="px-1">
+				<input type="checkbox" :checked="form.protect_domains['facebook.com']" @click="form.protect_domains['facebook.com'] = !form.protect_domains['facebook.com']" /> facebook.com
+			</div>
+        </div>
+        <div class="px-2">
             <div class="font-medium">Display type</div>
             <ul class="filter-switch inline-flex items-center relative h-10 p-1 space-x-1 bg-gray-300 rounded-md text-blue-600">
                 <li class="filter-switch-item flex relative h-8 bg-gray-300x">
@@ -112,6 +121,7 @@
                 },
                 form: {
                     protect_status: null,
+                    protect_domains: null,
                     display_type: null,
                     protect_title: null,
                     hide_status: null,
@@ -120,6 +130,7 @@
         },
         created() {
             this.form.protect_status = this._syncStorage.protect_status
+            this.form.protect_domains = this._syncStorage.protect_domains
             this.form.display_type = this._syncStorage.display_type
             this.form.protect_title = this._syncStorage.protect_title
             this.form.hide_status = this._syncStorage.hide_status
@@ -130,6 +141,7 @@
                 this.alert.message = message
             },
             save() {
+				console.log(this.form)
                 this.$store
                     .dispatch('storage/set', {
                         storage: 'sync',

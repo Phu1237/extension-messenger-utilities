@@ -59,7 +59,7 @@ function injectHTML(css) {
 export function inject(sync, local) {
   let css = ''
   log('Injecting...', sync, local)
-  if (sync.protect_status) {
+  if (sync.protect_status && sync.protect_domains[getCurrentPage()]) {
     console.group('Injecting protect privacy...')
     css += injectProtectPrivacy(
       sync,

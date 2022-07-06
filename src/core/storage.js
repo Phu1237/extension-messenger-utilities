@@ -36,6 +36,30 @@ export const default_sync_storage = {
       },
     },
   },
+  protect_domains: {
+    name: 'protect_domains',
+    label: 'Protect domains',
+    description: 'Protect domains',
+    type: Object,
+    value: {
+      'messenger.com': true,
+      'facebook.com': true,
+    },
+    options: {
+      'messenger.com': {
+        name: 'messenger.com',
+        label: 'messenger.com',
+        description: 'messenger.com',
+        type: Boolean,
+      },
+      'facebook.com': {
+        name: 'facebook.com',
+        label: 'facebook.com',
+        description: 'facebook.com',
+        type: Boolean,
+      },
+    }
+  },
   protect_items: {
     name: 'protect_items',
     label: 'Protect items',
