@@ -88,4 +88,11 @@ export default [
       'add auto reload page if you update protect title'
     ],
   },
+  {
+    id: 14,
+    label: 'Version 1.4.0',
+    changes: [
+      'add protect for specific domain (messenger.com, facebook.com)',
+    ],
+  },
 ]
