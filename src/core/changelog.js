@@ -95,4 +95,11 @@ export default [
       'add protect for specific domain (messenger.com, facebook.com)',
     ],
   },
+  {
+    id: 15,
+    label: 'Version 1.4.1',
+    changes: [
+      'update logo'
+    ],
+  }
 ]
