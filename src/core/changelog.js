@@ -101,5 +101,12 @@ export default [
     changes: [
       'update logo'
     ],
-  }
+  },
+  {
+    id: 16,
+    label: 'Version 1.4.2',
+    changes: [
+      'turn off facebook.com filter by default'
+    ],
+  },
 ]

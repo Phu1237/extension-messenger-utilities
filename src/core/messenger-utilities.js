@@ -118,7 +118,7 @@ let protect_privacy_messenger_data = {
       protect_privacy_messenger_parent_selectors.main + ' h1 span>span[class~=x1lliihq][class~=x193iq5w][class~=x6ikm8r][class~=xlyipyv][class~=xuxw1ft][class~=x1j85h84]', // main chat name & online status
       protect_privacy_messenger_parent_selectors.main + ' span[class~=x1lliihq][class~=x1plvlek][class~=xryxfnj][class~=x1n2onr6][class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=x1s928wv][class~=xhkezso][class~=x1gmr53x][class~=x1cpjm7i][class~=x1fgarty][class~=x1943h6x][class~=x1xmvt09][class~=x1nxh6w3][class~=x1fcty0u][class~=xi81zsa][class~=x2b8uid][class~=x4zkp8e][class~=x3x7a5m][class~=xq9mrsl]', // main chat name & online status
       protect_privacy_messenger_parent_selectors.main + ' div[data-testid=mw_message_sender_name]', // name in group chat
-      protect_privacy_messenger_parent_selectors.main + ' div[class~=x1h0ha7o][class~=x12scifz][class~=x1pg5gke]', // quote name
+      protect_privacy_messenger_parent_selectors.main + ' div[class~=xi81zsa][class~=x1ncwhqj][class~=x15smj1u][class~=x1k70j0n][class~=x1120s5i][class~=x53iox2]', // quote name
       protect_privacy_messenger_parent_selectors.right_sidebar + ' span[class~=x1lliihq][class~=x1plvlek][class~=xryxfnj][class~=x1n2onr6][class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=x1s928wv][class~=xhkezso][class~=x1gmr53x][class~=x1cpjm7i][class~=x1fgarty][class~=x1943h6x][class~=x1xmvt09][class~=x1lkfr7t][class~=x1s688f][class~=xzsf02u][class~=x2b8uid][class~=xudqn12][class~=x676frb][class~=xq9mrsl]', // right sidebar name
     ],
   },
@@ -138,7 +138,7 @@ let protect_privacy_messenger_data = {
       protect_privacy_messenger_parent_selectors.main + ' img[class~=x1lliihq][class~=x193iq5w][class~=x5yr21d][class~=xh8yej3]', // message img
       protect_privacy_messenger_parent_selectors.main + ' div[class~=x193iq5w][class~=x1n2onr6][class~=x1vjfegm] div[role=img]', // sticker img
       // protect_privacy_messenger_parent_selectors.main + ' div[class~=mfclru0v][class~=alzwoclg][class~=om3e55n1] > img', // link img
-      protect_privacy_messenger_parent_selectors.right_sidebar + ' img[class~=x1lliihq][class~=x193iq5w][class~=x1us19tq][class~=xl1xv1r]', // right avatar
+      protect_privacy_messenger_parent_selectors.right_sidebar + ' svg[class=x3ajldb] g', // right avatar
       // "img:not([width='16'])", // emoji icon
       // "img:not([width='30'])", // emoji icon
     ],
@@ -148,8 +148,8 @@ let protect_privacy_messenger_data = {
       protect_privacy_messenger_parent_selectors.left_sidebar + ' span[class~=x1lliihq][class~=x6ikm8r][class~=x10wlt62][class~=x1n2onr6][class~=xlyipyv][class~=xuxw1ft][class~=x1j85h84]', // left sidebar message
       // protect_privacy_messenger_parent_selectors.left_sidebar + ' span[class~=b6ax4al1][class~=i54nktwv][class~=z2vv26z9][class~=om3e55n1][class~=gvxzyvdx][class~=aeinzg81][class~=t7p7dqev][class~=gh25dzvf][class~=gem102v4][class~=ncib64c9][class~=mrvwc6qr][class~=sx8pxkcf][class~=f597kf1v][class~=cpcgwwas][class~=exr7barw][class~=nfkogyam][class~=o48pnaf2][class~=pbevjfx6][class~=f5mw3jnl][class~=szxhu1pg][class~=qc5lal2y]', // left sidebar group message
       protect_privacy_messenger_parent_selectors.main + ' div[class~=buofh1pr][class~=j83agx80][class~=btwxx1t3][class~=cgat1ltu][class~=a8nywdso][class~=rz4wbd8a]', // call block
-      protect_privacy_messenger_parent_selectors.main + ' div[data-testid=solid-message-bubble] div', // their message
-      protect_privacy_messenger_parent_selectors.main + ' div[class~=ztn2w49o][class~=n3t5jt4f][class~=k1z55t6l][class~=ne6e0wym][class~=qsbzbi57]', // your message
+      protect_privacy_messenger_parent_selectors.main + ' div[class~=x6prxxf][class~=x1fc57z9][class~=x1yc453h][class~=x126k92a][class~=xzsf02u]', // their message
+      protect_privacy_messenger_parent_selectors.main + ' div[class~=x6prxxf][class~=x1fc57z9][class~=x1yc453h][class~=x126k92a][class~=x14ctfv]', // your message
       protect_privacy_messenger_parent_selectors.main + ' blockquote[class~=av1wybal][class~=mk2mc5f4][class~=peup4ujy][class~=hv4rvrfc][class~=dati1w0a][class~=ii04i59q][class~=c1et5uql][class~=e9vueds3][class~=j5wam9gi][class~=aahdfvyu][class~=cxmmr5t8][class~=tvmbv18p][class~=hcukyx3x][class~=ilywhbp3]', // forward message
       protect_privacy_messenger_parent_selectors.main + ' div[data-testid=reply-to-content] div', // quoted message
       protect_privacy_messenger_parent_selectors.main + ' div[class~=jroqu855][class~=nthtkgg5] span div', // quote message in chatbox

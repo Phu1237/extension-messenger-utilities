@@ -43,7 +43,7 @@ export const default_sync_storage = {
     type: Object,
     value: {
       'messenger.com': true,
-      'facebook.com': true,
+      'facebook.com': false,
     },
     options: {
       'messenger.com': {
