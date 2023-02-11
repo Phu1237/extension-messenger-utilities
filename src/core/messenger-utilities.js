@@ -170,7 +170,7 @@ let protect_privacy_messenger_data = {
  * Hide chat
  */
 let hide_chat_facebook = "a[href='/messages/t/{id}/']"
-let hide_chat_messenger = "div[data-testid=mwthreadlist-item-open] a[href='/t/{id}/']"
+let hide_chat_messenger = "div[role='gridcell'] a[href='/t/{id}/']"
 
 export default {
   version: Date.now(),
