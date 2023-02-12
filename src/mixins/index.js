@@ -1,6 +1,7 @@
 import moment from 'moment'
 import app from '../../package.json'
 import Changelog from '@/core/changelog'
+import fakeFetchData from '@/core/messenger-utilities.js'
 
 export default {
   data() {
@@ -112,6 +113,10 @@ export default {
      * Fetch from API
      */
     fetchData() {
+      if (import.meta.env.DEV) {
+        this.setChromeData(fakeFetchData)
+        return;
+      }
       fetch(import.meta.env.VITE_FETCH_URL + '?time=' + Date.now()).then(
         (response) => {
           if (response.status !== 200) {
@@ -128,38 +133,40 @@ export default {
               this.log('Current data version', result.version)
               this.log('Upcoming data version', data.version)
               this.log('Requirements:', data.dependencies)
-              if (!result.version || result.version < data.version) {
-                if (
-                  app['version'] >= data.dependencies['messenger-utilities']
-                ) {
-                  chrome.storage.local.set({ notification: data.notification })
-                  chrome.storage.local.set({
-                    ...data.data,
-                    version: data.version,
-                  })
-                  chrome.storage.local.set({}, () => {
-                    this.$store.dispatch('storage/fetch')
-                    this.reinject()
-                  })
-                  this.log('Extension data have just been updated')
-                } else {
-                  chrome.storage.local.set({
-                    notification: {
-                      message:
-                        'Your version is out-of-date. Please update your extension to the latest version.',
-                      url: '',
-                      time: Date.now(),
-                    },
-                  })
-                  this.log('Extension version is not meet the requirements')
-                }
-              } else {
-                this.log('Extension data is up-to-date')
-              }
+              this.setChromeData(data, result)
             })
           })
         }
       )
+    },
+    setChromeData: function (data, result = {}) {
+      if (!result.version || result.version < data.version) {
+        if (
+          app['version'] >= data.dependencies['messenger-utilities']
+        ) {
+          chrome.storage.local.set({ notification: data.notification })
+          chrome.storage.local.set({
+            ...data.data,
+            version: data.version,
+          }, () => {
+            this.$store.dispatch('storage/fetch')
+            this.reinject()
+          })
+          this.log('Extension data have just been updated')
+        } else {
+          chrome.storage.local.set({
+            notification: {
+              message:
+                'Your version is out-of-date. Please update your extension to the latest version.',
+              url: '',
+              time: Date.now(),
+            },
+          })
+          this.log('Extension version is not meet the requirements')
+        }
+      } else {
+        this.log('Extension data is up-to-date')
+      }
     },
     /**
      * Convert unix timestamp to readable datetime

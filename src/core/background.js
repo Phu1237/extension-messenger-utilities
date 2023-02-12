@@ -1,5 +1,6 @@
 import { mergeStorage } from './storage?inline'
 import packageJson from '../../package.json?raw'
+import fakeFetchData from './messenger-utilities.js?inline'
 
 const app = JSON.parse(packageJson)
 /**
@@ -26,6 +27,10 @@ function log() {
  * Fetch from API
  */
 function fetchData() {
+  if (import.meta.env.DEV) {
+    setChromeData(fakeFetchData)
+    return;
+  }
   fetch(import.meta.env.VITE_FETCH_URL + '?time=' + Date.now()).then(
     (response) => {
       if (response.status !== 200) {
@@ -35,39 +40,36 @@ function fetchData() {
 
       // Examine the text in the response
       response.json().then((data) => {
-        chrome.storage.local.set({ last_updated: Date.now() })
-        chrome.storage.local.get(['version'], (result) => {
-          // data: response
-          // result: storage
-          log('Current data version', result.version)
-          log('Upcoming data version', data.version)
-          log('Requirements:', data.dependencies)
-          if (!result.version || result.version < data.version) {
-            if (app['version'] >= data.dependencies['messenger-utilities']) {
-              chrome.storage.local.set({ notification: data.notification })
-              chrome.storage.local.set({
-                ...data.data,
-                version: data.version,
-              })
-              log('Extension data have just been updated')
-            } else {
-              chrome.storage.local.set({
-                notification: {
-                  message:
-                    'New version has been released. Please update your extension to the latest version.',
-                  url: '',
-                  time: Date.now(),
-                },
-              })
-              log('Extension version is not meet the requirements')
-            }
-          } else {
-            log('Extension data is up-to-date')
-          }
-        })
+        setChromeData(data)
       })
     }
   )
+}
+function setChromeData(data, result = {}) {
+  if (!result.version || result.version < data.version) {
+    if (
+      app['version'] >= data.dependencies['messenger-utilities']
+    ) {
+      chrome.storage.local.set({ notification: data.notification })
+      chrome.storage.local.set({
+        ...data.data,
+        version: data.version,
+      })
+      log('Extension data have just been updated')
+    } else {
+      chrome.storage.local.set({
+        notification: {
+          message:
+            'Your version is out-of-date. Please update your extension to the latest version.',
+          url: '',
+          time: Date.now(),
+        },
+      })
+      log('Extension version is not meet the requirements')
+    }
+  } else {
+    log('Extension data is up-to-date')
+  }
 }
 /**
  * Add content script to existed page when installed, enabled
@@ -87,7 +89,7 @@ function addContentScript() {
               {
                 file: 'content.js',
               },
-              () => {}
+              () => { }
             )
           } else {
             chrome.scripting.executeScript(
@@ -95,7 +97,7 @@ function addContentScript() {
                 target: { tabId: tabs[i].id },
                 files: ['content.js'],
               },
-              () => {}
+              () => { }
             )
           }
         }
