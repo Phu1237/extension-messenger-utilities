@@ -29,7 +29,8 @@
 	"permissions": [
 		"storage",
 		"tabs",
-		"scripting"
+		"scripting",
+		"contextMenus"
 	],
 	"host_permissions": [
 		"*://*.facebook.com/*",

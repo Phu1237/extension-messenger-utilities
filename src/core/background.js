@@ -1,5 +1,6 @@
 import { mergeStorage } from './storage?inline'
 import packageJson from '../../package.json?raw'
+import { init as initContextMenus } from './context-menus'
 import fakeFetchData from './messenger-utilities.js?inline'
 
 const app = JSON.parse(packageJson)
@@ -150,6 +151,7 @@ chrome.runtime.onInstalled.addListener(() => {
   fetchData()
   installedLog()
   addContentScript()
+  initContextMenus()
 })
 
 function installedLog() {
