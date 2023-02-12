@@ -165,7 +165,7 @@
                 if (chrome.runtime.openOptionsPage) {
                     chrome.runtime.openOptionsPage()
                 } else {
-                    window.open(chrome.runtime.getURL('dashboard.html'))
+                    window.open(chrome.runtime.getURL('ui.html#/dashboard/options'))
                 }
             },
         },
