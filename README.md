@@ -8,9 +8,10 @@ Extension for Chrome / Edge / Opera / Chromium-based browsers
 
 Available features:
 
-- Protect your privacy: Let you control what and when contents should be displayed on messenger.com.
-- Protect title: Hide the new messages title of the page (ex: Someone sent you a new message)
-- Hide chat: Hide the chat from the list of chats.
+- Protect your privacy
+  - Protect content: Let you control what and when contents should be displayed on messenger.com
+  - Protect title: Hide the new messages title of the page (ex: Someone sent you a new message)
+- Hide chat: Hide the chat from the list of chats
 
 Under development features:
 

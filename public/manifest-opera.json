@@ -1,7 +1,7 @@
 {
 	"name": "Messenger Utilities",
 	"description": "Utilities for Facebook Messenger",
-	"version": "1.4.2",
+    "version": "1.5.0",
 	"manifest_version": 2,
 	"background": {
 		"service_worker": "background.js"

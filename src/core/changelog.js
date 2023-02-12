@@ -109,4 +109,11 @@ export default [
       'turn off facebook.com filter by default'
     ],
   },
+  {
+    id: 17,
+    label: 'Version 1.5.0',
+    changes: [
+      'add right click menu',
+    ],
+  },
 ]
