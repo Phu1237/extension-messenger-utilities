@@ -116,4 +116,11 @@ export default [
       'add right click menu',
     ],
   },
+  {
+    id: 18,
+    label: 'Version 1.5.1',
+    changes: [
+      'fix fetch data url',
+    ],
+  }
 ]
