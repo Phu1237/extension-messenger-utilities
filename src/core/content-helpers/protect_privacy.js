@@ -19,6 +19,44 @@ function log() {
   }
 }
 
+function getFacebookId() {
+  let messengerRegex = new RegExp('(.*)://(.*).messenger.com/t/(.*)')
+  let facebookRegex = new RegExp('(.*)://(.*).facebook.com/(.*)')
+  let domain = document.location.href
+  if (messengerRegex.test(domain)) {
+    return domain.match(messengerRegex)[3]
+  } else if (facebookRegex.test(domain)) {
+    return domain.match(facebookRegex)[3]
+  }
+}
+
+export function isInjectAll(protect_list) {
+  if (protect_list.length === 0) {
+    return 1
+  }
+  log('Is user in protect list:', protect_list.includes(getFacebookId()))
+  return 0
+}
+
+export function getFilter(sync, local, domain) {
+  if (isInjectAll(sync.protect_list)) {
+    return inject(sync, local, local.protect_privacy[domain])
+  }
+  let protect_list = sync.protect_list.split('\n')
+  let css = ''
+  protect_list.forEach((id) => {
+    css += inject(sync, local, local.protect_privacy[domain + '/t']).replace(
+      /{id}/g,
+      id
+    )
+  })
+  if (protect_list.includes(getFacebookId())) {
+    css += inject(sync, local, local.protect_privacy[domain + '/t/id'])
+  }
+  css += 'img{ z-index: 999999999 }'
+  return css
+}
+
 export function inject(sync, local, filter) {
   let css = ''
   let protect_css = ''
@@ -50,7 +88,6 @@ export function inject(sync, local, filter) {
       if (protect_css !== '') {
         addCSS(',')
       }
-      //
       addCSS(css_add)
     }
   }
@@ -104,6 +141,5 @@ export function inject(sync, local, filter) {
   }
   combineCSS()
   // add z-index to img to fix some bugs
-  css += 'img{ z-index: 999999999 }'
   return css
 }

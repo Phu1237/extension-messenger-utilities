@@ -30,7 +30,7 @@ function log() {
 function fetchData() {
   if (import.meta.env.DEV) {
     setChromeData(fakeFetchData)
-    return;
+    return
   }
   fetch(import.meta.env.VITE_FETCH_URL + '?time=' + Date.now()).then(
     (response) => {
@@ -48,9 +48,7 @@ function fetchData() {
 }
 function setChromeData(data, result = {}) {
   if (!result.version || result.version < data.version) {
-    if (
-      app['version'] >= data.dependencies['messenger-utilities']
-    ) {
+    if (app['version'] >= data.dependencies['messenger-utilities']) {
       chrome.storage.local.set({ notification: data.notification })
       chrome.storage.local.set({
         ...data.data,
@@ -187,3 +185,60 @@ function installedLog() {
     }
   }
 }
+
+/**
+ * Run when change tab url
+ */
+function getFacebookId(domain = document.location.href) {
+  let messengerRegex = new RegExp('(.*)://(.*).messenger.com/t/(.*)')
+  let facebookRegex = new RegExp('(.*)://(.*).facebook.com/(.*)')
+  if (messengerRegex.test(domain)) {
+    return domain.match(messengerRegex)[3]
+  } else if (facebookRegex.test(domain)) {
+    return domain.match(facebookRegex)[3]
+  }
+}
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+  // read changeInfo data and do something with it (like read the url)
+  if (changeInfo.url) {
+    // do something here
+    log('change url', changeInfo.url)
+    chrome.storage.sync.get('protect_list', function (result) {
+      if (result['protect_list'].length === 0) {
+        return
+      }
+      let timeout = 500
+      if (result['protect_list'].includes(getFacebookId(changeInfo.url))) {
+        timeout = 0
+      }
+      setTimeout(() => {
+        console.log('reinject', timeout)
+        chrome.tabs.query(
+          {
+            url: ['*://*.facebook.com/*', '*://*.messenger.com/*'],
+          },
+          (tabs) => {
+            if (tabs.length > 0) {
+              for (var i = 0; i < tabs.length; ++i) {
+                if (
+                  tabs[i].url.includes('messenger.com') ||
+                  tabs[i].url.includes('facebook.com')
+                ) {
+                  chrome.tabs.sendMessage(
+                    tabs[i].id,
+                    { action: 'reinject' },
+                    (response) => {
+                      log(response)
+                    }
+                  )
+                }
+              }
+            } else {
+              log('Not found any tab that match with query!')
+            }
+          }
+        )
+      }, timeout)
+    })
+  }
+})

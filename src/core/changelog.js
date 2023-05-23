@@ -85,42 +85,37 @@ export default [
     label: 'Version 1.3.5',
     changes: [
       'add protect title to the popup',
-      'add auto reload page if you update protect title'
+      'add auto reload page if you update protect title',
     ],
   },
   {
     id: 14,
     label: 'Version 1.4.0',
-    changes: [
-      'add protect for specific domain (messenger.com, facebook.com)',
-    ],
+    changes: ['add protect for specific domain (messenger.com, facebook.com)'],
   },
   {
     id: 15,
     label: 'Version 1.4.1',
-    changes: [
-      'update logo'
-    ],
+    changes: ['update logo'],
   },
   {
     id: 16,
     label: 'Version 1.4.2',
-    changes: [
-      'turn off facebook.com filter by default'
-    ],
+    changes: ['turn off facebook.com filter by default'],
   },
   {
     id: 17,
     label: 'Version 1.5.0',
-    changes: [
-      'add right click menu',
-    ],
+    changes: ['add right click menu'],
   },
   {
     id: 18,
     label: 'Version 1.5.1',
-    changes: [
-      'fix fetch data url',
-    ],
-  }
+    changes: ['fix fetch data url'],
+  },
+  {
+    id: 19,
+    label: 'Version 1.6.0',
+    changes: ['add protect privacy for specific chat'],
+  },
 ]

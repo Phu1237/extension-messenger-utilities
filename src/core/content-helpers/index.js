@@ -1,4 +1,4 @@
-import { inject as injectProtectPrivacy } from './protect_privacy'
+import { inject as getFilter } from './protect_privacy'
 import { inject as injectHideChat } from './hide_chat'
 import { inject as injectProtectTitle } from './title'
 
@@ -61,11 +61,7 @@ export function inject(sync, local) {
   log('Injecting...', sync, local)
   if (sync.protect_status && sync.protect_domains[getCurrentPage()]) {
     console.group('Injecting protect privacy...')
-    css += injectProtectPrivacy(
-      sync,
-      local,
-      local.protect_privacy[getCurrentPage()]
-    )
+    css += getFilter(sync, local, getCurrentPage())
     console.groupEnd()
   }
   if (sync.hide_status) {

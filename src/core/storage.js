@@ -58,7 +58,7 @@ export const default_sync_storage = {
         description: 'facebook.com',
         type: Boolean,
       },
-    }
+    },
   },
   protect_items: {
     name: 'protect_items',
@@ -104,6 +104,15 @@ export const default_sync_storage = {
         type: Boolean,
       },
     },
+  },
+  protect_list: {
+    name: 'protect_list',
+    label: 'Protect list',
+    description:
+      'List of chat will be protected.<br/><b class="text-sm">Protect all messages if it is empty.</b><br/>One chat id per line.<br/><b class="text-sm">- Format</b>: id|display name<br/><b class="text-sm">- How to get:</b><br/>https://www.messenger.com/t/<b class="text-sm">xxxxxxxxxxxxxxx</b><br/><b class="text-sm">- Example:</b><br/>xxxxxxxxxxxxxxx<br/>xxxxxxxxxxxxxxx|Mr. X',
+    placeholder: 'xxxxxxxxxxxxxxx\nxxxxxxxxxxxxxxx|Mr. X',
+    type: String,
+    value: '',
   },
   protect_level: {
     name: 'protect_level',
@@ -151,11 +160,11 @@ export const default_sync_storage = {
     name: 'hide_list',
     label: 'Hide list',
     description:
-      'List of chat will be hidden. One hidden chat id per line. (<b class="text-sm">Format</b>: id|display name)<br/><b class="text-sm">- How to get:</b><br/>https://www.messenger.com/t/<b class="text-sm">xxxxxxxxxxxxxxx</b><br/><b class="text-sm">- Example:</b><br/>xxxxxxxxxxxxxxx<br/>xxxxxxxxxxxxxxx|Mr. X',
+      'List of chat will be hidden. One hidden chat id per line.<br/><b class="text-sm">- Format</b>: id|display name<br/><b class="text-sm">- How to get:</b><br/>https://www.messenger.com/t/<b class="text-sm">xxxxxxxxxxxxxxx</b><br/><b class="text-sm">- Example:</b><br/>xxxxxxxxxxxxxxx<br/>xxxxxxxxxxxxxxx|Mr. X',
     placeholder: 'xxxxxxxxxxxxxxx\nxxxxxxxxxxxxxxx|Mr. X',
     type: String,
     value: '',
-  }
+  },
 }
 export const default_local_storage = {
   update_interval: {

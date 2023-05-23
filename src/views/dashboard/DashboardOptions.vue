@@ -85,6 +85,42 @@
           </div>
           <div class="pt-6 sm:pt-5">
             <FormGroup
+              :id="description.protect_list.name"
+              :label="description.protect_list.label"
+              :description="description.protect_list.description"
+            >
+              <SimpleTextarea
+                :id="description.protect_list.name"
+                :placeholder="description.protect_list.placeholder"
+                :value="form.protect_list"
+                @input="form.protect_list = $event"
+              />
+              <div v-if="protect_list.length > 0">
+                <div
+                  v-for="(protect_item, index) in protect_list"
+                  :key="index"
+                  class="flex justify-between items-center w-full sm:w-3/5"
+                  :class="[
+                    index != 0 ? 'mt-2' : '',
+                    index != protect_list.length - 1 ? 'sm:mb-2' : '',
+                  ]"
+                >
+                  <div class="text-base leading-5 font-medium text-gray-900">
+                    {{ hideItemName(protect_item) }}
+                  </div>
+                  <div class="ml-2 text-base leading-5 text-gray-500">
+                    <a :href="hideItemUrl(protect_item)" target="_blank">
+                      <SimpleButton type="round" color="secondary" size="md">
+                        Chat
+                      </SimpleButton>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </FormGroup>
+          </div>
+          <div class="pt-6 sm:pt-5">
+            <FormGroup
               :id="description.display_type.name"
               :label="description.display_type.label"
               :description="description.display_type.description"
@@ -169,7 +205,6 @@
         </div>
       </div>
     </div>
-
     <div class="pt-5">
       <div class="flex justify-end">
         <SimpleButton color="primary" size="xl" @click="save">
@@ -209,6 +244,7 @@ export default defineComponent({
         protect_domains: null,
         protect_level: null,
         protect_items: null,
+        protect_list: null,
         display_type: null,
         protect_title: null,
         hide_status: null,
@@ -218,6 +254,9 @@ export default defineComponent({
     }
   },
   computed: {
+    protect_list() {
+      return this.form.protect_list ? this.form.protect_list.split('\n') : []
+    },
     hide_list() {
       return this.form.hide_list ? this.form.hide_list.split('\n') : []
     },
@@ -228,6 +267,7 @@ export default defineComponent({
     this.form.protect_domains = this._syncStorage.protect_domains
     this.form.protect_level = this._syncStorage.protect_level
     this.form.protect_items = this._syncStorage.protect_items
+    this.form.protect_list = this._syncStorage.protect_list
     this.form.display_type = this._syncStorage.display_type
     this.form.protect_title = this._syncStorage.protect_title
     this.form.hide_status = this._syncStorage.hide_status
@@ -251,11 +291,14 @@ export default defineComponent({
         })
         .then(() => {
           this.$store.dispatch('storage/fetch')
-          let reload = this._syncStorage.protect_title !== this.form.protect_title
+          let reload =
+            this._syncStorage.protect_title !== this.form.protect_title
           if (reload) {
-              this.$toast.success('Saved! The page(s) will be reloaded for the changes to take effect.')
+            this.$toast.success(
+              'Saved! The page(s) will be reloaded for the changes to take effect.'
+            )
           } else {
-              this.$toast.success('Saved!')
+            this.$toast.success('Saved!')
           }
           this.reinject(reload)
         })
