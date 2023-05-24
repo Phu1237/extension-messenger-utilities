@@ -2,7 +2,8 @@ let dependencies = {
   'messenger-utilities': '1.6.0',
 }
 let notification = {
-  message: '',
+  message:
+    'Protect privacy for specified users is released! Clicking the "More options" button to try it!',
   url: '',
   time: Date.now(), // Date.now()
   color: 'primary',

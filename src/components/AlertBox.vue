@@ -2,7 +2,7 @@
   <!-- http://127.0.0.1:5500/components/application-ui/feedback/alerts/#component-2839a6e6678180cc64af7d5a1c96dae2 -->
   <div class="border-l-4 py-2 px-4" :class="[borderColor(), backgroundColor()]">
     <div class="flex">
-      <div class="flex-shrink-0">
+      <div v-if="type !== ''" class="flex-shrink-0">
         <FontAwesomeIcon :icon="icon()" :class="[textColor()]" />
       </div>
       <div class="ml-3">
@@ -21,7 +21,7 @@ export default defineComponent({
   props: {
     type: {
       type: String,
-      default: 'info',
+      default: '',
     },
     message: {
       type: String,
