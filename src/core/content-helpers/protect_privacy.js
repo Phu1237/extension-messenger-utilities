@@ -32,6 +32,7 @@ function getFacebookId() {
 
 export function isInjectAll(protect_list) {
   if (protect_list.length === 0) {
+    log('Protect list is empty, inject all')
     return 1
   }
   log('Is user in protect list:', protect_list.includes(getFacebookId()))

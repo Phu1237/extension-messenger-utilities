@@ -1,4 +1,4 @@
-import { inject as getFilter } from './protect_privacy'
+import { getFilter } from './protect_privacy'
 import { inject as injectHideChat } from './hide_chat'
 import { inject as injectProtectTitle } from './title'
 
