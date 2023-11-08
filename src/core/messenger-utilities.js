@@ -3,7 +3,7 @@ let dependencies = {
 }
 let notification = {
   message:
-    'Protect privacy for specified users is released! Clicking the "More options" button to try it!',
+    'Protect privacy for specific users is released! Clicking the "More options" button to try it!',
   url: '',
   time: Date.now(), // Date.now()
   color: 'primary',
@@ -117,10 +117,9 @@ let protect_privacy_messenger_main_selectors = {
       ' span[class~=x1lliihq][class~=x1plvlek][class~=xryxfnj][class~=x1n2onr6][class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=x1s928wv][class~=xhkezso][class~=x1gmr53x][class~=x1cpjm7i][class~=x1fgarty][class~=x1943h6x][class~=x1xmvt09][class~=x1nxh6w3][class~=x1fcty0u][class~=xi81zsa][class~=x2b8uid][class~=x4zkp8e][class~=x3x7a5m][class~=xq9mrsl]', // main chat name & online status
     protect_privacy_messenger_parent_selectors.main +
       ' span[class~=x1lliihq][class~=x1plvlek][class~=xryxfnj][class~=x1n2onr6][class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=x1s928wv][class~=xhkezso][class~=x1gmr53x][class~=x1cpjm7i][class~=x1fgarty][class~=x1943h6x][class~=x1xmvt09][class~=x1pg5gke][class~=x1fcty0u][class~=xi81zsa][class~=x4zkp8e][class~=x676frb][class~=xq9mrsl]', // name in group chat
+    protect_privacy_messenger_parent_selectors.main + ' div[class~=x1h0ha7o]', // quote name
     protect_privacy_messenger_parent_selectors.main +
-      ' div[class~=x12scifz][class~=x1pg5gke][class~=x1h0ha7o]', // quote name in group chat
-    protect_privacy_messenger_parent_selectors.main +
-      ' span[class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=xt0psk2][class~=x1xmvt09][class~=x1nxh6w3][class~=x1s688f][class~=xzsf02u][class~=xq9mrsl]', // quote name in chatbot
+      ' span[class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=xt0psk2][class~=x1xmvt09][class~=x6prxxf][class~=xk50ysn][class~=xzsf02u][class~=xq9mrsl]', // quote name in chatbot
   ],
   image: [
     protect_privacy_messenger_parent_selectors.main +
@@ -145,13 +144,12 @@ let protect_privacy_messenger_main_selectors = {
     protect_privacy_messenger_parent_selectors.main +
       ' div[class~=buofh1pr][class~=j83agx80][class~=btwxx1t3][class~=cgat1ltu][class~=a8nywdso][class~=rz4wbd8a]', // call block
     protect_privacy_messenger_parent_selectors.main +
-      ' div[class~=x6prxxf][class~=x1fc57z9][class~=x1yc453h][class~=x126k92a][class~=xzsf02u]', // their message
+      ' div[class~=x1gslohp][class~=x11i5rnm][class~=x12nagc][class~=x1mh8g0r][class~=x1yc453h][class~=x126k92a]', // their message
     protect_privacy_messenger_parent_selectors.main +
-      ' div[class~=x6prxxf][class~=x1fc57z9][class~=x1yc453h][class~=x126k92a][class~=x14ctfv]', // your message
+      ' div[class~=x1gn5b1j][class~=x230xth][class~=x8cjs6t][class~=x1ch86jh][class~=x80vd3b][class~=xckqwgs][class~=x13fuv20][class~=xu3j5b3][class~=x1q0q8m5][class~=x26u7qi][class~=x1g8br2z][class~=x1tlxs6b][class~=x178xt8z][class~=xm81vs4][class~=xso031l][class~=xy80clv][class~=x1dntmbh][class~=x193iq5w][class~=x889kno][class~=x1iji9kk][class~=x1a8lsjc][class~=x1sln4lm][class~=x13faqbe]',
     protect_privacy_messenger_parent_selectors.main +
       ' blockquote[class~=x26u7qi][class~=x7g060r][class~=x1nxh6w3][class~=x1sibtaa][class~=x1gslohp][class~=x11i5rnm][class~=x12nagc][class~=x1mh8g0r][class~=x1swvt13][class~=x1pi30zi][class~=x126k92a][class~=x1vvkbs][class~=x16b4vue][class~=xkxfvhb]', // forward message
-    protect_privacy_messenger_parent_selectors.main +
-      ' div[class~=xi81zsa][class~=x126k92a]', // quoted message
+    protect_privacy_messenger_parent_selectors.main + ' div[class~=xi81zsa]', // quoted message
     protect_privacy_messenger_parent_selectors.main +
       ' span[class~=x1lliihq][class~=x1plvlek][class~=xryxfnj][class~=x1n2onr6][class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=x1s928wv][class~=xhkezso][class~=x1gmr53x][class~=x1cpjm7i][class~=x1fgarty][class~=x1943h6x][class~=x1xmvt09][class~=x1nxh6w3][class~=x1fcty0u][class~=xi81zsa][class~=x1yc453h][class~=x4zkp8e][class~=x676frb][class~=xq9mrsl]', // quote message in chatbox
     protect_privacy_messenger_parent_selectors.main +
