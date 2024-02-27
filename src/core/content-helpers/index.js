@@ -69,9 +69,9 @@ export function inject(sync, local) {
     let hide_list = sync.hide_list
     hide_list = hide_list.split('\n')
     let hide_chat = local.hide_chat[getCurrentPage()]
-    let hide_chat_e2e = local.hide_chat[getCurrentPage() + '_e2e']
+    let hide_chat_e2ee = local.hide_chat[getCurrentPage() + '_e2ee']
     css += injectHideChat(hide_chat, hide_list)
-    css += injectHideChat(hide_chat_e2e, hide_list)
+    css += injectHideChat(hide_chat_e2ee, hide_list)
     console.groupEnd()
   }
   if (sync.protect_title) {
