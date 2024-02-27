@@ -103,6 +103,7 @@ let protect_privacy_facebook_data = {
 // t_ is when specific chat is selected
 let protect_privacy_messenger_parent_selectors = {
   t_left_sidebar: 'div[role="gridcell"] a[href="/t/{id}/"]',
+  t_left_sidebar_e2ee: 'div[role="gridcell"] a[href="/e2ee/t/{id}/"]',
   left_sidebar: 'div[class~=x78zum5][class~=xdt5ytf][class~=x1iyjqo2][class~=xs83m0k][class~=x1xzczws][class~=x6ikm8r][class~=x1rife3k][class~=x1n2onr6][class~=xh8yej3]',
   main: 'div[class~=x9f619][class~=x1ja2u2z][class~=x193iq5w][class~=xeuugli][class~=x1r8uery][class~=x1iyjqo2][class~=xs83m0k][class~=x78zum5][class~=xdt5ytf][class~=x1n2onr6][class~=x6ikm8r][class~=x10wlt62]',
   right_sidebar: 'div[class~=x9f619][class~=x1n2onr6][class~=x1ja2u2z][class~=x78zum5][class~=xdt5ytf][class~=xu1343h][class~=x26u7qi][class~=xy80clv][class~=x1yu6fn4][class~=xs83m0k][class~=x1dt7z5j][class~=x2ixbly]',
@@ -134,7 +135,7 @@ let protect_privacy_messenger_main_selectors = {
     protect_privacy_messenger_parent_selectors.main + ' blockquote[class~=x26u7qi][class~=x7g060r][class~=x1nxh6w3][class~=x1sibtaa][class~=x1gslohp][class~=x11i5rnm][class~=x12nagc][class~=x1mh8g0r][class~=x1swvt13][class~=x1pi30zi][class~=x126k92a][class~=x1vvkbs][class~=x16b4vue][class~=xkxfvhb]', // forward message
     protect_privacy_messenger_parent_selectors.main + ' div[class~=xi81zsa]', // quoted message
     protect_privacy_messenger_parent_selectors.main + ' span[class~=x1lliihq][class~=x1plvlek][class~=xryxfnj][class~=x1n2onr6][class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=x1s928wv][class~=xhkezso][class~=x1gmr53x][class~=x1cpjm7i][class~=x1fgarty][class~=x1943h6x][class~=x1xmvt09][class~=x1nxh6w3][class~=x1fcty0u][class~=xi81zsa][class~=x1yc453h][class~=x4zkp8e][class~=x676frb][class~=xq9mrsl]', // quote message in chatbox
-    protect_privacy_messenger_parent_selectors.main + ' a[class~=x1i10hfl][class~=xjbqb8w][class~=x6umtig][class~=x1b1mbwd][class~=xaqea5y][class~=xav7gou][class~=x9f619][class~=x1ypdohk][class~=xt0psk2][class~=xe8uvvx][class~=xdj266r][class~=x11i5rnm][class~=xat24cr][class~=x1mh8g0r][class~=xexx8yu][class~=x4uap5][class~=x18d9i69][class~=xkhd6sd][class~=x16tdsg8][class~=x1hl2dhg][class~=xggy1nq][class~=x1a2a7pz][class~=x1heor9g][class~=x1lku1pv]'
+    protect_privacy_messenger_parent_selectors.main + ' a[class~=x1i10hfl][class~=xjbqb8w][class~=x1ejq31n][class~=xd10rxx][class~=x1sy0etr][class~=x17r0tee][class~=x972fbf][class~=xcfux6l][class~=x1qhh985][class~=xm0m39n][class~=x9f619][class~=x1ypdohk][class~=xt0psk2][class~=xe8uvvx][class~=xdj266r][class~=x11i5rnm][class~=xat24cr][class~=x1mh8g0r][class~=xexx8yu][class~=x4uap5][class~=x18d9i69][class~=xkhd6sd][class~=x16tdsg8][class~=x1hl2dhg][class~=xggy1nq][class~=x1a2a7pz][class~=x1heor9g][class~=x1lku1pv]', // share message block
   ],
   chatbox: [
     protect_privacy_messenger_parent_selectors.main + ' div[role=textbox]',
@@ -211,20 +212,28 @@ let protect_privacy_messenger_t_data = {
   name: {
     name: 'name',
     selector: [
-      protect_privacy_messenger_parent_selectors.t_left_sidebar + ' span[class~=x1lliihq][class~=x193iq5w][class~=x6ikm8r][class~=xlyipyv][class~=xuxw1ft]', // left sidebar name ([class~=x1j85h84] for seen)
+      // left sidebar name ([class~=x1j85h84] for seen)
+      protect_privacy_messenger_parent_selectors.t_left_sidebar + ' span[class~=x1lliihq][class~=x193iq5w][class~=x6ikm8r][class~=xlyipyv][class~=xuxw1ft]',
+      protect_privacy_messenger_parent_selectors.t_left_sidebar_e2ee + ' span[class~=x1lliihq][class~=x193iq5w][class~=x6ikm8r][class~=xlyipyv][class~=xuxw1ft]',
     ],
   },
   image: {
     name: 'image',
     selector: [
-      protect_privacy_messenger_parent_selectors.t_left_sidebar + ' img[class~=x1lliihq][class~=x193iq5w][class~=x1us19tq][class~=xl1xv1r]', // avatar in left sidebar
-      protect_privacy_messenger_parent_selectors.t_left_sidebar + ' image[preserveAspectRatio~=xMidYMid][preserveAspectRatio~=slice]', // seen avatar
+      // avatar in left sidebar
+      protect_privacy_messenger_parent_selectors.t_left_sidebar + ' img[class~=x1lliihq][class~=x193iq5w][class~=x1us19tq][class~=xl1xv1r]',
+      protect_privacy_messenger_parent_selectors.t_left_sidebar_e2ee + ' img[class~=x1lliihq][class~=x193iq5w][class~=x1us19tq][class~=xl1xv1r]',
+      // seen avatar
+      protect_privacy_messenger_parent_selectors.t_left_sidebar + ' image[preserveAspectRatio~=xMidYMid][preserveAspectRatio~=slice]',
+      protect_privacy_messenger_parent_selectors.t_left_sidebar_e2ee + ' image[preserveAspectRatio~=xMidYMid][preserveAspectRatio~=slice]',
     ],
   },
   message: {
     name: 'message',
     selector: [
-      protect_privacy_messenger_parent_selectors.t_left_sidebar + ' span[class~=x1lliihq][class~=x6ikm8r][class~=x10wlt62][class~=x1n2onr6][class~=xlyipyv][class~=xuxw1ft][class~=x1j85h84]', // left sidebar message
+      // left sidebar message
+      protect_privacy_messenger_parent_selectors.t_left_sidebar + ' span[class~=x1lliihq][class~=x6ikm8r][class~=x10wlt62][class~=x1n2onr6][class~=xlyipyv][class~=xuxw1ft][class~=x1j85h84]',
+      protect_privacy_messenger_parent_selectors.t_left_sidebar_e2ee + ' span[class~=x1lliihq][class~=x6ikm8r][class~=x10wlt62][class~=x1n2onr6][class~=xlyipyv][class~=xuxw1ft][class~=x1j85h84]',
     ],
   },
 }
@@ -233,8 +242,9 @@ let protect_privacy_messenger_t_data = {
  * Hide chat
  */
 let hide_chat_facebook = "a[href='/messages/t/{id}/']"
-let hide_chat_messenger =
-  protect_privacy_messenger_parent_selectors.t_left_sidebar
+let hide_chat_facebook_e2ee = "a[href='/messages/e2ee/t/{id}/']"
+let hide_chat_messenger = protect_privacy_messenger_parent_selectors.t_left_sidebar
+let hide_chat_messenger_e2ee = protect_privacy_messenger_parent_selectors.t_left_sidebar_e2ee
 
 export default {
   version: Date.now(),
@@ -260,7 +270,9 @@ export default {
     },
     hide_chat: {
       'facebook.com': hide_chat_facebook,
+      'facebook.com_e2ee': hide_chat_facebook_e2ee,
       'messenger.com': hide_chat_messenger,
+      'messenger.com_e2ee': hide_chat_messenger_e2ee,
     },
   },
 }

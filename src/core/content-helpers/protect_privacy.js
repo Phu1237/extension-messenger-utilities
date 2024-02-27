@@ -20,7 +20,7 @@ function log() {
 }
 
 function getFacebookId() {
-  let messengerRegex = new RegExp('(.*)://(.*).messenger.com/t/(.*)')
+  let messengerRegex = new RegExp('(.*)://(.*).messenger.com/(?:e2ee/)t/(.*)')
   let facebookRegex = new RegExp('(.*)://(.*).facebook.com/(.*)')
   let domain = document.location.href
   if (messengerRegex.test(domain)) {
@@ -43,6 +43,9 @@ export function getFilter(sync, local, domain) {
   if (isInjectAll(sync.protect_list)) {
     return inject(sync, local, local.protect_privacy[domain])
   }
+
+  /* Protect specific user */
+  // User list
   let protect_list = sync.protect_list.split('\n')
   let css = ''
   protect_list.forEach((id) => {
@@ -51,9 +54,11 @@ export function getFilter(sync, local, domain) {
       id
     )
   })
+  // Protect specific user in chat
   if (protect_list.includes(getFacebookId())) {
     css += inject(sync, local, local.protect_privacy[domain + '/t/id'])
   }
+
   css += 'img{ z-index: 999999999 }'
   return css
 }
