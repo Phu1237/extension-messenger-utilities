@@ -118,4 +118,9 @@ export default [
     label: 'Version 1.6.0',
     changes: ['add protect privacy for specific chat'],
   },
+  {
+    id: 20,
+    label: 'Version 1.6.1',
+    changes: ['support e2ee chat'],
+  }
 ]
