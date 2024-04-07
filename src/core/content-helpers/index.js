@@ -3,6 +3,21 @@ import { inject as injectHideChat } from './hide_chat'
 import { inject as injectProtectTitle } from './title'
 
 /**
+ * Print log group
+ *
+ * @returns
+ */
+function logGroup(name) {
+  if (import.meta.env.DEV) {
+    if (name !== '') {
+      console.group(name)
+    } else {
+      console.groupEnd()
+    }
+  }
+}
+
+/**
  * Print log
  *
  * arguments length > 1: group, = 1: log
@@ -60,24 +75,24 @@ export function inject(sync, local) {
   let css = ''
   log('Injecting...', sync, local)
   if (sync.protect_status && sync.protect_domains[getCurrentPage()]) {
-    console.group('Injecting protect privacy...')
+    logGroup('Injecting protect privacy...')
     css += getFilter(sync, local, getCurrentPage())
-    console.groupEnd()
+    logGroup();
   }
   if (sync.hide_status) {
-    console.group('Injecting hide chat...')
+    logGroup('Injecting hide chat...')
     let hide_list = sync.hide_list
     hide_list = hide_list.split('\n')
     let hide_chat = local.hide_chat[getCurrentPage()]
     let hide_chat_e2ee = local.hide_chat[getCurrentPage() + '_e2ee']
     css += injectHideChat(hide_chat, hide_list)
     css += injectHideChat(hide_chat_e2ee, hide_list)
-    console.groupEnd()
+    logGroup()
   }
   if (sync.protect_title) {
-    console.group('Injecting protect title...')
+    logGroup('Injecting protect title...')
     css += injectProtectTitle()
-    console.groupEnd()
+    logGroup()
   }
   log('Injecting with css ', css)
   injectHTML(css)
