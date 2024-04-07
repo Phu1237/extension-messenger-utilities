@@ -20,7 +20,7 @@ function log() {
 }
 
 function getFacebookId() {
-  let messengerRegex = new RegExp('(.*)://(.*).messenger.com/(?:e2ee/)t/(.*)')
+  let messengerRegex = new RegExp('(.*)://(.*).messenger.com/(?:e2ee/)?t/(.*)')
   let facebookRegex = new RegExp('(.*)://(.*).facebook.com/(.*)')
   let domain = document.location.href
   if (messengerRegex.test(domain)) {
