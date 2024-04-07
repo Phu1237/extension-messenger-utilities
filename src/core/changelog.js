@@ -122,5 +122,13 @@ export default [
     id: 20,
     label: 'Version 1.6.1',
     changes: ['support e2ee chat'],
+  },
+  {
+    id: 21,
+    label: 'Version 1.6.2',
+    changes: [
+      'remove prod group log',
+      'fix messenger get facebook id regex'
+    ],
   }
 ]
