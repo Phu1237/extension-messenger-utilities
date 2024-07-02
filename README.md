@@ -1,6 +1,7 @@
 # Messenger Utilities
 
 ![logo](public/icons/icon.png)
+
 Utilities for Facebook Messenger
 Extension for Chrome / Edge / Opera / Chromium-based browsers
 
@@ -57,11 +58,11 @@ Run the following command:
 |Npm|`npm run build`|`npm run build:dev`
 |Yarn|`yarn build`|`yarn build:dev`
 
-Turn on the **developer mode** and move the "dist" folder into the **extensions page**.
+Turn on the **developer mode** and move the "dist" folder to the **extensions page**.
 
 ## Donations
 
-If you like my works, please consider buying me a coffee ☕
+If you like my work, please consider buying me a coffee ☕
 
 - [Buy me a coffee](https://www.buymeacoffee.com/Phu1237)
 - [Momo](https://me.momo.vn/Phu1237)
