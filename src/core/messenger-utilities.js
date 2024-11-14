@@ -104,7 +104,7 @@ let protect_privacy_facebook_data = {
 let protect_privacy_messenger_parent_selectors = {
   t_left_sidebar: 'div[role="gridcell"] a[href="/t/{id}/"]',
   t_left_sidebar_e2ee: 'div[role="gridcell"] a[href="/e2ee/t/{id}/"]',
-  left_sidebar: 'div[class~=x78zum5][class~=xdt5ytf][class~=x1iyjqo2][class~=xs83m0k][class~=x1xzczws][class~=x6ikm8r][class~=x1rife3k][class~=x1n2onr6][class~=xh8yej3]',
+  left_sidebar: 'div[role="navigation"]',
   main: 'div[role="main"] div[class="x9f619 x1n2onr6 x1ja2u2z x78zum5 xdt5ytf x193iq5w xs83m0k x6ikm8r x10wlt62 xcrg951 xm0m39n xzhurro x6gs93r xpyiiip x88v6c3 x1qpj6lr xdhzj85 x1bc3s5a xczebs5 x4pn7vq x1ne3efk xgyuaek"]',
   right_sidebar: 'div[role="main"] div[class="x9f619 x1n2onr6 x1ja2u2z x78zum5 xdt5ytf x1iyjqo2 xs83m0k x8mqhxd x6ikm8r x10wlt62 xcrg951 xm0m39n xzhurro x6gs93r xpyiiip x88v6c3 x1qpj6lr xdhzj85 x1bc3s5a xczebs5 x4pn7vq xe95u6g"]',
 }
@@ -112,6 +112,8 @@ let protect_privacy_messenger_main_selectors = {
   name: [
     protect_privacy_messenger_parent_selectors.main + ' h1 span>span[class~=x1lliihq][class~=x193iq5w][class~=x6ikm8r][class~=xlyipyv][class~=xuxw1ft][class~=x1j85h84]', // main chat name & online status
     protect_privacy_messenger_parent_selectors.main + ' span[class~=x1lliihq][class~=x1plvlek][class~=xryxfnj][class~=x1n2onr6][class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=x1s928wv][class~=xhkezso][class~=x1gmr53x][class~=x1cpjm7i][class~=x1fgarty][class~=x1943h6x][class~=x1xmvt09][class~=x1nxh6w3][class~=x1fcty0u][class~=xi81zsa][class~=x2b8uid][class~=x4zkp8e][class~=x3x7a5m][class~=xq9mrsl]', // main chat name & online status
+    protect_privacy_messenger_parent_selectors.main + ' div[role="button"] div[class="x9f619 x1n2onr6 x1ja2u2z x78zum5 xdt5ytf x2lah0s x193iq5w xl56j7k xlup9mm"]:first-child span[class="x1lliihq x193iq5w x6ikm8r x10wlt62 xlyipyv xuxw1ft x1j85h84"]', // noter name
+    protect_privacy_messenger_parent_selectors.main + ' span[class="x1lliihq x193iq5w x6ikm8r x10wlt62 xlyipyv xuxw1ft x1j85h84"]',
     protect_privacy_messenger_parent_selectors.main + ' span[class~=x1lliihq][class~=x1plvlek][class~=xryxfnj][class~=x1n2onr6][class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=x1s928wv][class~=xhkezso][class~=x1gmr53x][class~=x1cpjm7i][class~=x1fgarty][class~=x1943h6x][class~=x1xmvt09][class~=x1pg5gke][class~=x1fcty0u][class~=xi81zsa][class~=x4zkp8e][class~=x676frb][class~=xq9mrsl]', // name in group chat
     protect_privacy_messenger_parent_selectors.main + ' div[class~=x1h0ha7o]', // quote name
     protect_privacy_messenger_parent_selectors.main + ' span[class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=xt0psk2][class~=x1xmvt09][class~=x6prxxf][class~=xk50ysn][class~=xzsf02u][class~=xq9mrsl]', // quote name in chatbot
@@ -129,6 +131,7 @@ let protect_privacy_messenger_main_selectors = {
     // protect_privacy_messenger_parent_selectors.main + ' div[class~=mfclru0v][class~=alzwoclg][class~=om3e55n1] > img', // link img
   ],
   message: [
+    protect_privacy_messenger_parent_selectors.main + ' div[role="button"] div[class="x9f619 x1n2onr6 x1ja2u2z x78zum5 xdt5ytf x2lah0s x193iq5w xl56j7k xlup9mm"]:last-child span[class="x1lliihq x193iq5w x6ikm8r x10wlt62 xlyipyv xuxw1ft x1j85h84"]', // noter message
     protect_privacy_messenger_parent_selectors.main + ' div[class~=buofh1pr][class~=j83agx80][class~=btwxx1t3][class~=cgat1ltu][class~=a8nywdso][class~=rz4wbd8a]', // call block
     protect_privacy_messenger_parent_selectors.main + ' div[class~=x1gslohp][class~=x11i5rnm][class~=x12nagc][class~=x1mh8g0r][class~=x1yc453h][class~=x126k92a]', // their message
     protect_privacy_messenger_parent_selectors.main + ' div[class~=x1gn5b1j][class~=x230xth][class~=x8cjs6t][class~=x1ch86jh][class~=x80vd3b][class~=xckqwgs][class~=x13fuv20][class~=xu3j5b3][class~=x1q0q8m5][class~=x26u7qi][class~=x1g8br2z][class~=x1tlxs6b][class~=x178xt8z][class~=xm81vs4][class~=xso031l][class~=xy80clv][class~=x1dntmbh][class~=x193iq5w][class~=x889kno][class~=x1iji9kk][class~=x1a8lsjc][class~=x1sln4lm][class~=x13faqbe]',
