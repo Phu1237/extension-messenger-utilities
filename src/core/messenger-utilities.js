@@ -104,20 +104,22 @@ let protect_privacy_facebook_data = {
 let protect_privacy_messenger_parent_selectors = {
   t_left_sidebar: 'div[role="gridcell"] a[href="/t/{id}/"]',
   t_left_sidebar_e2ee: 'div[role="gridcell"] a[href="/e2ee/t/{id}/"]',
-  left_sidebar: 'div[class~=x78zum5][class~=xdt5ytf][class~=x1iyjqo2][class~=xs83m0k][class~=x1xzczws][class~=x6ikm8r][class~=x1rife3k][class~=x1n2onr6][class~=xh8yej3]',
-  main: 'div[class~=x9f619][class~=x1ja2u2z][class~=x193iq5w][class~=xeuugli][class~=x1r8uery][class~=x1iyjqo2][class~=xs83m0k][class~=x78zum5][class~=xdt5ytf][class~=x1n2onr6][class~=x6ikm8r][class~=x10wlt62]',
-  right_sidebar: 'div[class~=x9f619][class~=x1n2onr6][class~=x1ja2u2z][class~=x78zum5][class~=xdt5ytf][class~=xu1343h][class~=x26u7qi][class~=x1yu6fn4][class~=xs83m0k][class~=x1dt7z5j][class~=x2ixbly][class~=xcrg951][class~=xm0m39n][class~=xzhurro][class~=x6gs93r][class~=xpyiiip][class~=x88v6c3][class~=x1qpj6lr][class~=xdhzj85][class~=x1bc3s5a]',
+  left_sidebar: 'div[role="navigation"]',
+  main: 'div[role="main"] div[class="x9f619 x1ja2u2z x78zum5 x1n2onr6 x1r8uery x1iyjqo2 xs83m0k xeuugli x1qughib x1qjc9v5 xozqiw3 x1q0g3np xexx8yu x85a59c x1odjw0f"]',
+  right_sidebar: 'div[role="main"] div[class="x9f619 x1n2onr6 x1ja2u2z x78zum5 xdt5ytf x1iyjqo2 xs83m0k x8mqhxd x6ikm8r x10wlt62 xcrg951 xm0m39n xzhurro x6gs93r xpyiiip x88v6c3 x1qpj6lr xdhzj85 x1bc3s5a xczebs5 x4pn7vq xe95u6g"]',
 }
 let protect_privacy_messenger_main_selectors = {
   name: [
     protect_privacy_messenger_parent_selectors.main + ' h1 span>span[class~=x1lliihq][class~=x193iq5w][class~=x6ikm8r][class~=xlyipyv][class~=xuxw1ft][class~=x1j85h84]', // main chat name & online status
     protect_privacy_messenger_parent_selectors.main + ' span[class~=x1lliihq][class~=x1plvlek][class~=xryxfnj][class~=x1n2onr6][class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=x1s928wv][class~=xhkezso][class~=x1gmr53x][class~=x1cpjm7i][class~=x1fgarty][class~=x1943h6x][class~=x1xmvt09][class~=x1nxh6w3][class~=x1fcty0u][class~=xi81zsa][class~=x2b8uid][class~=x4zkp8e][class~=x3x7a5m][class~=xq9mrsl]', // main chat name & online status
-    protect_privacy_messenger_parent_selectors.main + ' span[class~=x1lliihq][class~=x1plvlek][class~=xryxfnj][class~=x1n2onr6][class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=x1s928wv][class~=xhkezso][class~=x1gmr53x][class~=x1cpjm7i][class~=x1fgarty][class~=x1943h6x][class~=x1xmvt09][class~=x1pg5gke][class~=x1fcty0u][class~=xi81zsa][class~=x4zkp8e][class~=x676frb][class~=xq9mrsl]', // name in group chat
+    protect_privacy_messenger_parent_selectors.main + ' div[role="button"] div[class="x9f619 x1n2onr6 x1ja2u2z x78zum5 xdt5ytf x2lah0s x193iq5w xl56j7k xlup9mm"]:first-child span[class="x1lliihq x193iq5w x6ikm8r x10wlt62 xlyipyv xuxw1ft x1j85h84"]', // noter name
+    protect_privacy_messenger_parent_selectors.main + ' span[class="x1lliihq x193iq5w x6ikm8r x10wlt62 xlyipyv xuxw1ft x1j85h84"]',
+    protect_privacy_messenger_parent_selectors.main + ' span[class="html-span xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x1hl2dhg x16tdsg8 x1vvkbs"]', // name in group chat
     protect_privacy_messenger_parent_selectors.main + ' div[class~=x1h0ha7o]', // quote name
     protect_privacy_messenger_parent_selectors.main + ' span[class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=xt0psk2][class~=x1xmvt09][class~=x6prxxf][class~=xk50ysn][class~=xzsf02u][class~=xq9mrsl]', // quote name in chatbot
   ],
   image: [
-    protect_privacy_messenger_parent_selectors.main + ' img[class~=x1lliihq][class~=x193iq5w][class~=x1us19tq][class~=xl1xv1r]', // avatar in main chat
+    protect_privacy_messenger_parent_selectors.main + ' div[class="html-div x1qjc9v5 x1q0q8m5 x1qhh985 xu3j5b3 xcfux6l x26u7qi xm0m39n x13fuv20 x972fbf x1ey2m1c x9f619 x78zum5 xdt5ytf x1iyjqo2 xs83m0k xds687c x17qophe x1qughib xat24cr x11i5rnm x1mh8g0r xdj266r x2lwn1j xeuugli x18d9i69 x4uap5 xkhd6sd xexx8yu x10l6tqk x13vifvy x1ja2u2z"]', // avatar in main chat
     protect_privacy_messenger_parent_selectors.main + " img[width='32']", // icon message
     protect_privacy_messenger_parent_selectors.main + " img[height='14']", // seen avatar icon
     protect_privacy_messenger_parent_selectors.main + ' img[class~=xz74otr][class~=x1rcc7c0][class~=xbtbmw4][class~=x1lie4ck][class~=x16hxpj1][class~=x1v9usgg][class~=x19um543][class~=x1m6msm][class~=xxymvpz][class~=x6jxa94]', // seen avatar icon in group
@@ -129,6 +131,7 @@ let protect_privacy_messenger_main_selectors = {
     // protect_privacy_messenger_parent_selectors.main + ' div[class~=mfclru0v][class~=alzwoclg][class~=om3e55n1] > img', // link img
   ],
   message: [
+    protect_privacy_messenger_parent_selectors.main + ' div[role="button"] div[class="x9f619 x1n2onr6 x1ja2u2z x78zum5 xdt5ytf x2lah0s x193iq5w xl56j7k xlup9mm"]:last-child span[class="x1lliihq x193iq5w x6ikm8r x10wlt62 xlyipyv xuxw1ft x1j85h84"]', // noter message
     protect_privacy_messenger_parent_selectors.main + ' div[class~=buofh1pr][class~=j83agx80][class~=btwxx1t3][class~=cgat1ltu][class~=a8nywdso][class~=rz4wbd8a]', // call block
     protect_privacy_messenger_parent_selectors.main + ' div[class~=x1gslohp][class~=x11i5rnm][class~=x12nagc][class~=x1mh8g0r][class~=x1yc453h][class~=x126k92a]', // their message
     protect_privacy_messenger_parent_selectors.main + ' div[class~=x1gn5b1j][class~=x230xth][class~=x8cjs6t][class~=x1ch86jh][class~=x80vd3b][class~=xckqwgs][class~=x13fuv20][class~=xu3j5b3][class~=x1q0q8m5][class~=x26u7qi][class~=x1g8br2z][class~=x1tlxs6b][class~=x178xt8z][class~=xm81vs4][class~=xso031l][class~=xy80clv][class~=x1dntmbh][class~=x193iq5w][class~=x889kno][class~=x1iji9kk][class~=x1a8lsjc][class~=x1sln4lm][class~=x13faqbe]',
@@ -143,11 +146,12 @@ let protect_privacy_messenger_main_selectors = {
 }
 let protect_privacy_messenger_right_sidebar_selectors = {
   name: [
-    protect_privacy_messenger_parent_selectors.right_sidebar + ' span[class~=x1lliihq][class~=x1plvlek][class~=xryxfnj][class~=x1n2onr6][class~=x193iq5w][class~=xeuugli][class~=x13faqbe][class~=x1vvkbs][class~=x1s928wv][class~=xhkezso][class~=x1gmr53x][class~=x1cpjm7i][class~=x1fgarty][class~=x1943h6x][class~=x1xmvt09][class~=x1lkfr7t][class~=x1s688f][class~=xzsf02u][class~=x2b8uid][class~=xudqn12][class~=x676frb][class~=xq9mrsl]', // right sidebar name
+    protect_privacy_messenger_parent_selectors.right_sidebar + ' h2', // right sidebar name
   ],
   image: [
     protect_privacy_messenger_parent_selectors.right_sidebar + ' div[class="html-div xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x4uap5 x18d9i69 xkhd6sd xqtp20y x1n2onr6 xh8yej3 xbobb8a"]', // personal avatar
-    protect_privacy_messenger_parent_selectors.right_sidebar + ' div[class="x9f619 x1n2onr6 x1ja2u2z x78zum5 xdt5ytf x2lah0s x193iq5w x6s0dn4 xsag5q8 xyamay9"]', // group chat avatar
+    protect_privacy_messenger_parent_selectors.right_sidebar + ' div[class="x1rg5ohu x1n2onr6 x3ajldb x1ja2u2z"]', // group chat avatar type svg
+    protect_privacy_messenger_parent_selectors.right_sidebar + ' div[class="html-div x1qjc9v5 x1q0q8m5 x1qhh985 xu3j5b3 xcfux6l x26u7qi xm0m39n x13fuv20 x972fbf x1ey2m1c x9f619 x78zum5 xdt5ytf x1iyjqo2 xs83m0k xds687c x17qophe x1qughib xat24cr x11i5rnm x1mh8g0r xdj266r x2lwn1j xeuugli x18d9i69 x4uap5 xkhd6sd xexx8yu x10l6tqk x13vifvy x1ja2u2z"]', // group chat avatar type image
   ],
 }
 
@@ -197,7 +201,7 @@ let protect_privacy_messenger_data = {
   image: {
     name: 'image',
     selector: [
-      protect_privacy_messenger_parent_selectors.left_sidebar + ' div[class="html-div xe8uvvx x1qjc9v5 x1q0q8m5 x1qhh985 xu3j5b3 xcfux6l x26u7qi xm0m39n x13fuv20 x972fbf x1ey2m1c x9f619 x78zum5 xdt5ytf x1iyjqo2 xs83m0k xds687c x17qophe x1qughib xat24cr x11i5rnm x1mh8g0r xdj266r x2lwn1j xeuugli x18d9i69 x4uap5 xkhd6sd xexx8yu x10l6tqk x13vifvy x1ja2u2z"]', // avatar in left sidebar
+      protect_privacy_messenger_parent_selectors.left_sidebar + ' div[class="html-div x1qjc9v5 x1q0q8m5 x1qhh985 xu3j5b3 xcfux6l x26u7qi xm0m39n x13fuv20 x972fbf x1ey2m1c x9f619 x78zum5 xdt5ytf x1iyjqo2 xs83m0k xds687c x17qophe x1qughib xat24cr x11i5rnm x1mh8g0r xdj266r x2lwn1j xeuugli x18d9i69 x4uap5 xkhd6sd xexx8yu x10l6tqk x13vifvy x1ja2u2z"]', // avatar in left sidebar
       protect_privacy_messenger_parent_selectors.left_sidebar + ' image[preserveAspectRatio~=xMidYMid][preserveAspectRatio~=slice]', // seen avatar
     ],
   },
